@@ -1,0 +1,20 @@
+body {
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: grey;
+    max-width: 500px;
+}
+
+h1 {
+    font-family: Calibri;
+    color: azure;
+}
+
+p {
+    font-family: Candara;
+    color: azure;
+}
+
+.regForm {
+    max-width: 380px;
+}

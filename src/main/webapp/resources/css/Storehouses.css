@@ -1,0 +1,35 @@
+
+.col-lg-12 {
+    padding-top: 5px;
+}
+
+.input-group {
+    padding-left: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+#storehname {
+    width: 240px;
+}
+
+#size {
+    width: 240px;
+}
+
+#address {
+    height: 220px;
+}
+
+#access {
+    width: 240px;
+}
+
+#additional {
+    height: 150px;
+}
+
+#options {
+    padding: 10px;
+}
+
