@@ -1,6 +1,8 @@
 package com.jm.InventorySystem.controller;
 
+import com.jm.InventorySystem.domain.Crate;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CrateController {
 
     @RequestMapping("/crates")
-    public String Crates() {
+    public String Crates(Model model,
+                         Crate crate) {
         return "/main/crates";
     }
 }
