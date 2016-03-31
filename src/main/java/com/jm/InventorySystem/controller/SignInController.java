@@ -25,18 +25,7 @@ import java.text.SimpleDateFormat;
 
 @Controller
 public class SignInController {
- 
-	RegisterController rc;
-	
-    @RequestMapping("/hello")
-    public String hello(Model model) {
-         
-        model.addAttribute("greeting", "Hello Spring MVC");
-         
-        return "helloworld";
-         
-    }
-    
+
     @RequestMapping("/signin")
     public String signin(Model model,
     		User userDetails) {

@@ -2,6 +2,7 @@
 package com.jm.InventorySystem.controller;
 
 //Import models being used. 
+import com.jm.InventorySystem.DAO.MongoDBUserDAO;
 import com.jm.InventorySystem.domain.User;
 import com.jm.InventorySystem.domain.Encrypter;
 
@@ -20,6 +21,7 @@ import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 
 @Controller
@@ -51,14 +53,19 @@ public class RegisterController {
 
                 // Since 2.10.0, uses MongoClient
                 MongoClient mongo = new MongoClient("localhost", 27017);
-                DB db = mongo.getDB("InventorySys");
-                DBCollection table = db.getCollection("users");
+                MongoDBUserDAO userDAO = new MongoDBUserDAO(mongo);
+
+                DBCollection db = userDAO.returnDB();
+
+                Date date = new Date();
+                userDetails.setDateCreated(date);
+                userDetails.setPassword(ecPass);
 
                 //Check the username doesn't already exist.
                 BasicDBObject searchQuery = new BasicDBObject();
                 searchQuery.put("username", userDetails.getUsername());
 
-                DBCursor cursor = table.find(searchQuery);
+                DBCursor cursor = db.find(searchQuery);
 
                 while (cursor.hasNext()) {
                     //Success
@@ -67,15 +74,8 @@ public class RegisterController {
                 }
 
                 //Everything is OK. Write data to Mongo.
-                BasicDBObject document = new BasicDBObject();
-                document.put("fname", userDetails.getfName());
-                document.put("sname", userDetails.getsName());
-                document.put("username", userDetails.getUsername());
-                document.put("password", ecPass);
-                document.put("type", userDetails.getType());
-                table.insert(document);
-
-                System.out.println(ec.decrypt());
+                userDAO.createUser(userDetails);
+                mongo.close();
                 return "redirect:signin";
             }
         }
