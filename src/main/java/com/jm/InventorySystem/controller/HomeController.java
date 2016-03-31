@@ -28,13 +28,6 @@ public class HomeController extends HttpServlet {
         return "homepage";
     }
 
-
-
-    @RequestMapping("/crates")
-    public String Crates() {
-        return "/main/crates";
-    }
-
     @RequestMapping("/inventory")
     public String Inventory() {
         return "/main/inventory";

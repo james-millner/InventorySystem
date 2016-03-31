@@ -41,8 +41,9 @@
           <li role="presentation"><a href="users">Users.</a></li>
 		</ul>
       </div>
-      <div>
+      <div id="content" class="container">
         <h2>Crates</h2>
+        <h3>Time for Crate Data.</h3>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
