@@ -55,8 +55,8 @@
             <h3>Add new storehouse:</h3>
             <div class="input-group">
               <label id="namelbl">Storehouse Name: </label>
-                <input type="text" id="storehname" class="form-control" placeholder="Storehouse Name" name="name" required/>
-              </div>
+              <input type="text" id="storehname" class="form-control" placeholder="Storehouse Name" name="name" required/>
+          </div>
             <div class="input-group">
               <label id="sizelbl">Size:</label>
                 <input type="text" id="size" class="form-control" placeholder="Size (SQ Ft.)" name="size" required/>
