@@ -8,6 +8,7 @@ import java.util.Date;
 public class Crate {
 
     String id;
+    String sid;
     String cName;
     Integer width;
     Integer height;
@@ -17,6 +18,7 @@ public class Crate {
     public Crate() {
 
     }
+
     public Crate(String i, String c, int w, int h, Date d) {
         this.id = i;
         this.cName = c;
@@ -31,6 +33,14 @@ public class Crate {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
     }
 
     public String getcName() {
@@ -65,3 +75,4 @@ public class Crate {
         this.dateCreated = dateCreated;
     }
 }
+

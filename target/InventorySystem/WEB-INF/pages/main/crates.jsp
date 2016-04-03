@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@
       <div class="page-header">
         <h1>InventorySys</h1>
       </div>
-      <div class="container">
+      <div id="navigation" class="container">
       	<ul class="nav nav-tabs">
 		  <li role="presentation"><a href="homepage">Home.</a></li>
 		  <li role="presentation"><a href="storehouses">Storehouses.</a></li>
@@ -41,12 +42,41 @@
           <li role="presentation"><a href="users">Users.</a></li>
 		</ul>
       </div>
-      <div id="content" class="container">
+      <div id="crateInfo" class="container">
         <h2>Crates</h2>
-        <form method="post" action="" command="crate">
-
-        </form>
+        <div class="col-md-3">
+          <form method="post" action="" command="crate">
+            <h3>Add Crate:</h3>
+            <div class="input-group">
+              <label id="namelbl">Crate Name: </label>
+              <input type="text" id="crateName" class="form-control" placeholder="Crate Name" name="cName" required/>
+            </div>
+            <div class="input-group">
+              <label id="heightLbl">Height: </label>
+              <input type="text" id="height" class="form-control" placeholder="Height" name="height" required/>
+            </div>
+            <div class="input-group">
+              <label id="weightLbl">Width: </label>
+              <input type="text" id="weight" class="form-control" placeholder="Weight" name="width" required/>
+            </div>
+            <div class="input-group">
+              <label id="storehouseLbl">Select a storehouse.</label>
+              <select multiple class="form-control" name="sid">
+                <c:forEach var="storehouse" items="${shList}">
+                  <option value="${storehouse.id}">${storehouse.name}</option>
+                </c:forEach>
+              </select>
+            </div>
+            <div style="padding-top: 10px" class="input-group">
+              <button class="btn btn-md btn-primary btn-block" type="submit">Add Crate.</button>
+              </div>
+          </form>
+        </div>
+        <div id="allCrates" class="col-md-9">
+          ALL CRATES.
+        </div>
       </div>
+      <hr>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
 

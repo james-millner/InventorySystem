@@ -15,6 +15,7 @@ public class CrateConverter {
     //Converts a crate into a DB Object.
     public static DBObject toDBObject(Crate crate) {
         BasicDBObjectBuilder builder = BasicDBObjectBuilder.start().append(
+                "sid", crate.getSid()).append(
                 "cName", crate.getcName()).append(
                 "width", crate.getWidth()).append(
                 "height", crate.getHeight()).append(
@@ -29,6 +30,7 @@ public class CrateConverter {
         Crate c = new Crate();
         ObjectId id = (ObjectId) obj.get("_id");
         c.setId(id.toString());
+        c.setSid((String) obj.get("sid"));
         c.setcName((String) obj.get("cName"));
         c.setWidth((Integer) obj.get("width"));
         c.setHeight((Integer) obj.get("height"));
