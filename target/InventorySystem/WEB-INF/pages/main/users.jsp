@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +43,10 @@
       </div>
       <div>
         <h2>Users</h2>
+        <h3>${uCookie}</h3>
+        <c:if test="${type == 'Admin'}">
+          <p>Hey admin</p>
+        </c:if>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

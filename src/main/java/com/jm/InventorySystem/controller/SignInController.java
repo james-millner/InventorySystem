@@ -2,11 +2,15 @@
 package com.jm.InventorySystem.controller;
 
 //Import models being used.
+import com.jm.InventorySystem.converter.UserConverter;
 import com.jm.InventorySystem.domain.Encrypter;
 import com.jm.InventorySystem.domain.User;
 
 import javax.management.Query;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.expression.ExpressionException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +32,8 @@ public class SignInController {
 
     @RequestMapping("/signin")
     public String signin(Model model,
-    		User userDetails) {
+    					 User userDetails,
+						 HttpServletResponse response) {
  	  	    	
     	if(userDetails.getUsername() == null) {
     		return "signIn";
@@ -56,7 +61,10 @@ public class SignInController {
 
     	while (cursor.hasNext()) {
     		//Success
-    		System.out.println(cursor.next());
+			User u = UserConverter.toUser(cursor.next());
+			Cookie cookie = new Cookie("user", u.getUsername() + "-" + u.getType());
+			cookie.setMaxAge(1000);
+			response.addCookie(cookie);
     		return "redirect:homepage";
     	}
 

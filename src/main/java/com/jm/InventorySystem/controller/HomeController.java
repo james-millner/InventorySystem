@@ -1,7 +1,9 @@
 package com.jm.InventorySystem.controller;
 
 import com.mongodb.MongoClient;
+import com.sun.xml.internal.ws.util.StringUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 
@@ -39,7 +41,16 @@ public class HomeController extends HttpServlet {
     }
 
     @RequestMapping("/users")
-    public String Users() {
+    public String Users(Model model,@CookieValue(value = "user") String user) {
+
+        String type = user.substring(user.lastIndexOf("-") + 1);
+        if(type.equals("Admin")) {
+            System.out.println("WELCOME ADMIN");
+        } else {
+            System.out.println("NORM USER");
+        }
+        model.addAttribute("username", user);
+        model.addAttribute("type", type);
         return "/main/users";
     }
 
