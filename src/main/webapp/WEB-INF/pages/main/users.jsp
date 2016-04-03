@@ -42,12 +42,22 @@
 		</ul>
       </div>
       <div>
-        <h2>Users</h2>
+        <h2>Users: </h2>
         <h3>${uCookie}</h3>
         <c:if test="${type == 'Admin'}">
-          <p>Hey admin</p>
+          <div class="col-md-12">
+          <c:forEach var="user" items="${users}">
+            <div class="col-lg-2">
+              <a href="#${user.id}" class="thumbnail">${user.username}</a>
+            </div>
+          </c:forEach>
+          </div>
+        </c:if>
+        <c:if test="${type != 'Admin'}">
+          <h4>You are not an admin user. Please contact an admin if you believe you should have access here.</h4>
         </c:if>
       </div>
+      <hr>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
 

@@ -40,18 +40,4 @@ public class HomeController extends HttpServlet {
         return "/main/assets";
     }
 
-    @RequestMapping("/users")
-    public String Users(Model model,@CookieValue(value = "user") String user) {
-
-        String type = user.substring(user.lastIndexOf("-") + 1);
-        if(type.equals("Admin")) {
-            System.out.println("WELCOME ADMIN");
-        } else {
-            System.out.println("NORM USER");
-        }
-        model.addAttribute("username", user);
-        model.addAttribute("type", type);
-        return "/main/users";
-    }
-
 }

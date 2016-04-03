@@ -5,6 +5,9 @@ import com.jm.InventorySystem.converter.UserConverter;
 import com.mongodb.*;
 import org.bson.types.ObjectId;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by James on 31/03/2016.
  */
@@ -38,5 +41,16 @@ public class MongoDBUserDAO {
             user = UserConverter.toUser(obj);
         }
         return user;
+    }
+
+    public List<User> readAllUsers() {
+        List<User> users = new ArrayList<User>();
+        DBCursor cursor = db.find();
+        while(cursor.hasNext()) {
+            DBObject obj = cursor.next();
+            User h = UserConverter.toUser(obj);
+            users.add(h);
+        }
+        return users;
     }
 }
