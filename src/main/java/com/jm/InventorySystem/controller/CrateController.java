@@ -30,6 +30,10 @@ public class CrateController {
         List<Storehouse> storehouses = shDAO.readAllStorehouses();
         model.addAttribute("shList", storehouses);
 
+        MongoDBCrateDAO cDAO = new MongoDBCrateDAO(mongo);
+        List<Crate> crates = cDAO.readAllCrate();
+        model.addAttribute("cList", crates);
+
         if(crate.getcName() == null) {
             mongo.close();
             return "/main/crates";
@@ -43,7 +47,7 @@ public class CrateController {
             crateDAO.createCrate(crate);
             mongo.close();
 
-            return "/main/crates";
+            return "redirect:/crates";
         }
     }
 }

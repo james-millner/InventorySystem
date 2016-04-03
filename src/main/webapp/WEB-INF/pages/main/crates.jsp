@@ -73,7 +73,12 @@
           </form>
         </div>
         <div id="allCrates" class="col-md-9">
-          ALL CRATES.
+          <h3>Current Crates: </h3>
+          <c:forEach var="crate" items="${cList}">
+            <div class="col-lg-2">
+              <a href="#${crate.id}" class="thumbnail">${crate.cName}</a>
+            </div>
+          </c:forEach>
         </div>
       </div>
       <hr>
