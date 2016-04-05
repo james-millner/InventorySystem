@@ -31,6 +31,7 @@
     <div class="container">
       <div class="page-header">
         <h1>InventorySys</h1>
+        <a href="/signin" class="text">Log out.</a>
       </div>
       <div id="navigation" class="container">
       	<ul class="nav nav-tabs">

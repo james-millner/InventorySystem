@@ -6,7 +6,6 @@ import com.jm.InventorySystem.domain.User;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +23,7 @@ public class UserAPI {
         MongoDBUserDAO userDAO = new MongoDBUserDAO(mongo);
         User user = new User();
         user.setUsername(name);
-        User got = userDAO.getUser(user);
+        User got = userDAO.getUserByName(user);
         return UserConverter.toDBObject(got);
     }
 }

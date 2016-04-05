@@ -63,7 +63,7 @@ public class SignInController {
     		//Success
 			User u = UserConverter.toUser(cursor.next());
 			Cookie cookie = new Cookie("user", u.getUsername() + "-" + u.getType());
-			cookie.setMaxAge(1000);
+			cookie.setMaxAge(10000);
 			response.addCookie(cookie);
     		return "redirect:homepage";
     	}
