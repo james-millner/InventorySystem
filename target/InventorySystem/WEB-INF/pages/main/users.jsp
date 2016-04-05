@@ -20,8 +20,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/user.css">
 
 </head>
   <body>
@@ -41,14 +41,23 @@
           <li role="presentation" class="active"><a href="users">Users.</a></li>
 		</ul>
       </div>
-      <div>
-        <h2>Users: </h2>
-        <h3>${uCookie}</h3>
-        <c:if test="${type == 'Admin'}">
-          <div class="col-md-12">
+      <div id="content" class="container">
+         <c:if test="${type == 'Admin'}">
+          <h2>Users: </h2>
+          <div id="adminContent" class="container">
           <c:forEach var="user" items="${users}">
             <div class="col-lg-2">
-              <a href="#${user.id}" class="thumbnail">${user.username}</a>
+              <div class="box">
+                <div class="box-icon">
+                  <span style="font-size: 50px" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </div>
+                <div class="info">
+                  <h3 class="text-center">${user.username}</h3>
+                  <p>${user.fName}&nbsp;${user.sName}</p>
+                  <a href="${user.id}" class="btn">View</a>
+                </div>
+              </div>
+
             </div>
           </c:forEach>
           </div>

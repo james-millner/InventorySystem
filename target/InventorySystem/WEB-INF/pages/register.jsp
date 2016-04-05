@@ -44,18 +44,11 @@
 			<h6>*Between 8 - 16 Characters. </h6>
   			<input type="text" style="width: 350px"id="inputPassword" class="form-control" placeholder="Password *" name="password" required/>
   		</div>
-		  <div class="form-group">
-			  <p class="lead">Type: </p>
-			  <select multiple class="form-control" id="inputType" name="type" style="width: 150px" style="height: 175px">
-				  <option>Admin</option>
-				  <option>Developer</option>
-				  <option>frUser</option>
-				  <option>readonly</option>
-			  </select>
-		  </div>
+		  <h5>Please note: Your access rights are set at a default level. Please contact an admin to gain higher access.</h5>
 		<div class="form-group">
         <button class="btn btn-lg btn-primary btn-block" style="width: 100px" type="submit">Register</button>
         </div>
+
 
       </form>
 

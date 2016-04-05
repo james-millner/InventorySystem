@@ -73,7 +73,7 @@ public class RegisterController {
                     return "redirect:signInError";
                 }
 
-                //Everything is OK. Write data to Mongo.
+                userDetails.setType("frUser");
                 userDAO.createUser(userDetails);
                 mongo.close();
                 return "redirect:signin";
