@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +45,60 @@
       </div>
       <div>
         <h2>Assets</h2>
+      </div>
+      <div class="container-fluid">
+        <form method="post" action="" command="asset">
+          <div class="col-md-3">
+            <div class="form-group">
+              <div class="input-group">
+                <label>Name: </label>
+                <input type="text" id="inventoryName" class="form-control" placeholder="Item name" name="aname" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <label for="quantity">Quantity: 	&nbsp; </label>
+                <input id="quantity" type="number" name="qty" min="0" max="3000" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <label for="cid">Crate: 	&nbsp; </label>
+                <select multiple class="form-control" id="cid" name="cid">
+                  <c:forEach var="crate" items="${crateList}">
+                    <option value="${crate.id}">${crate.cName}</option>
+                  </c:forEach>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="input-group">
+                <label>Description: </label>
+                <textarea type="text" id="desc" class="form-control" name="description" style="height: 200px; width: 300px;" required></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Value: </label>
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-gbp"></span> </span>
+                <input style="width: 100px" type="text" class="form-control" name="value"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <label>Date Purchased: </label>
+                <input type="date" name="purchased">
+              </div>
+            </div>
+            <div class="input-group">
+              <button type="submit" class="btn btn-md btn-primary btn-block">Add Asset.</button>
+            </div>
+          </div>
+        </form>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

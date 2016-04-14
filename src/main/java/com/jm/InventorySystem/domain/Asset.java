@@ -12,6 +12,8 @@ public class Asset {
     Integer qty;
     String description;
     String cid;
+    long value;
+    Date purchased;
     Date dateCreated;
 
     //No Arg Constructor
@@ -19,12 +21,14 @@ public class Asset {
 
     }
 
-    public Asset(String i, String a, Integer q, String d, String c, Date date){
+    public Asset(String i, String a, Integer q, String d, String c, long v, Date p, Date date){
         this.id = i;
         this.aname = a;
         this.qty = q;
         this.description = d;
         this.cid = c;
+        this.value = v;
+        this.purchased = p;
         this.dateCreated = date;
     }
 
@@ -66,6 +70,22 @@ public class Asset {
 
     public void setCid(String cid) {
         this.cid = cid;
+    }
+
+    public long getValue() {
+        return value;
+    }
+
+    public void setValue(long value) {
+        this.value = value;
+    }
+
+    public Date getPurchased() {
+        return purchased;
+    }
+
+    public void setPurchased(Date purchased) {
+        this.purchased = purchased;
     }
 
     public Date getDateCreated() {
