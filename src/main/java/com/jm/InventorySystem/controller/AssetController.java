@@ -33,11 +33,16 @@ public class AssetController {
         model.addAttribute("crateList", crates);
         mongoClient.close();
 
+        MongoClient mongoAsset = new MongoClient("localhost", 27017);
+        MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoAsset);
+
+        List<Asset> assets = assetDAO.readAllAssets();
+        System.out.println("ASSETS = " + assets.size());
         if(asset.getAname() == null) {
             return "/main/assets";
         } else {
-            MongoClient mongoAsset = new MongoClient("localhost", 27017);
-            MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoAsset);
+
+
             try {
                 DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
                 Date purchasedFormatted = df.parse(asset.getPurchString().replaceAll("-", "/"));
@@ -47,6 +52,7 @@ public class AssetController {
                 //ASSET CREATED.
                 //System.out.println(asset.getPo() + "-" + asset.getPe() + "-" + asset.getPurchased().toString());
                 assetDAO.createAsset(asset);
+                mongoAsset.close();
             } catch(Exception e) {
                 e.printStackTrace();
             }

@@ -1,19 +1,18 @@
 package com.jm.InventorySystem.domain;
 
-import org.bson.types.ObjectId;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.bson.types.ObjectId;
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * Created by James on 14/04/2016.
  */
 public class Asset {
 
-    ObjectId _id;
+    String _id;
     String aname;
     Integer qty;
     String description;
@@ -29,7 +28,7 @@ public class Asset {
 
     }
 
-    public Asset(ObjectId i, String a, Integer q, String d, String c, Integer pound, Integer pense, Date p, Date date){
+    public Asset(String i, String a, Integer q, String d, String c, Integer pound, Integer pense, Date p, Date date){
         this._id = i;
         this.aname = a;
         this.qty = q;
@@ -41,11 +40,11 @@ public class Asset {
         this.dateCreated = date;
     }
 
-    public ObjectId get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(ObjectId _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 
