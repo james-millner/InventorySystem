@@ -29,11 +29,6 @@ public class HomeController extends HttpServlet {
         return "homepage";
     }
 
-    @RequestMapping("/inventory")
-    public String Inventory() {
-        return "/main/inventory";
-    }
-
     @RequestMapping("/assets")
     public String Assets() {
         return "/main/assets";

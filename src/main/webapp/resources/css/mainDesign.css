@@ -15,6 +15,10 @@ p {
     color: azure;
 }
 
+textarea {
+    padding: 0 0 350px 0;
+}
+
 .regForm {
     max-width: 380px;
 }
