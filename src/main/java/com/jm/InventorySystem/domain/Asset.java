@@ -1,18 +1,26 @@
 package com.jm.InventorySystem.domain;
 
+import org.bson.types.ObjectId;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by James on 14/04/2016.
  */
 public class Asset {
 
-    String id;
+    ObjectId _id;
     String aname;
     Integer qty;
     String description;
     String cid;
-    long value;
+    Integer po;
+    Integer pe;
+    String purchString;
     Date purchased;
     Date dateCreated;
 
@@ -21,23 +29,24 @@ public class Asset {
 
     }
 
-    public Asset(String i, String a, Integer q, String d, String c, long v, Date p, Date date){
-        this.id = i;
+    public Asset(ObjectId i, String a, Integer q, String d, String c, Integer pound, Integer pense, Date p, Date date){
+        this._id = i;
         this.aname = a;
         this.qty = q;
         this.description = d;
         this.cid = c;
-        this.value = v;
+        this.po = pound;
+        this.pe = pense;
         this.purchased = p;
         this.dateCreated = date;
     }
 
-    public String getId() {
-        return id;
+    public ObjectId get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(ObjectId _id) {
+        this._id = _id;
     }
 
     public String getAname() {
@@ -72,12 +81,28 @@ public class Asset {
         this.cid = cid;
     }
 
-    public long getValue() {
-        return value;
+    public Integer getPo() {
+        return po;
     }
 
-    public void setValue(long value) {
-        this.value = value;
+    public void setPo(Integer po) {
+        this.po = po;
+    }
+
+    public Integer getPe() {
+        return pe;
+    }
+
+    public void setPe(Integer pe) {
+        this.pe = pe;
+    }
+
+    public String getPurchString() {
+        return purchString;
+    }
+
+    public void setPurchString(String purchString) {
+        this.purchString = purchString;
     }
 
     public Date getPurchased() {

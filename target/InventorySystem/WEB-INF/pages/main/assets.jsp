@@ -85,14 +85,14 @@
               <label>Value: </label>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-gbp"></span> </span>
-                <input style="width: 100px" type="text" class="form-control"/>
-                <input style="width: 45px" type="text" class="form-control"/>
+                <input style="width: 100px" type="text" class="form-control" name="po"/>
+                <input style="width: 45px" type="text" class="form-control" name="pe"/>
               </div>
             </div>
             <div class="form-group">
               <div class="input-group">
                 <label>Date Purchased: </label>
-                <input type="date" name="purchased">
+                <input type="date" name="purchString">
               </div>
             </div>
             <div class="input-group">
@@ -101,6 +101,7 @@
           </div>
         </form>
       </div>
+      <hr>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
 
