@@ -1,7 +1,5 @@
 package com.jm.InventorySystem.domain;
 
-import com.sun.istack.internal.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class User {
@@ -10,11 +8,7 @@ public class User {
 	String fName;
 	String sName;
 	String type;
-	@NotNull
-	@Size(min=5, max=20)
     String username;
-	@NotNull
-	@Size(min=8, max=16)
 	String password;
 	Date dateCreated;
 	

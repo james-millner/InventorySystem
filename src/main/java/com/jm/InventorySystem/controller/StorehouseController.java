@@ -75,15 +75,6 @@ public class StorehouseController {
             //Add the object to the model. Displaying it for the user.
             model.addAttribute("houseM", house);
         } else {
-            //Once it finds the house, gett all the updated fields.
-            house.setId(id);
-            house.setName(house.getName());
-            house.setSize(house.getSize());
-            house.setAccess(house.getAccess());
-            house.setAddress(house.getAddress());
-            house.setOwned(house.isOwned());
-            house.setRented(house.isRented());
-            house.setActive(house.isActive());
 
             //Use Data Access Object to update the storehouse.
             storehouseDAO.updateStorehouse(house);
@@ -94,7 +85,6 @@ public class StorehouseController {
     }
     @RequestMapping("/deleteStorehouse")
     public String deleteStorehouse(Model model,
-                                   Storehouse house,
                                    @RequestParam("_id") String id) {
 
         // Since 2.10.0, uses MongoClient
