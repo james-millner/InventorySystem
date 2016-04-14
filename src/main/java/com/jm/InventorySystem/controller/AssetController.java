@@ -41,8 +41,6 @@ public class AssetController {
         if(asset.getAname() == null) {
             return "/main/assets";
         } else {
-
-
             try {
                 DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
                 Date purchasedFormatted = df.parse(asset.getPurchString().replaceAll("-", "/"));

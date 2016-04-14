@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class Inventory {
 
-    String id;
+    String _id;
     String iname;
     Integer qty;
     String description;
@@ -20,7 +20,7 @@ public class Inventory {
     }
 
     public Inventory(String i, String in, Integer q, String d, String c, Date date) {
-        this.id = i;
+        this._id = i;
         this.iname = in;
         this.qty = q;
         this.description = d;
@@ -28,12 +28,12 @@ public class Inventory {
         this.dateCreated = date;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getIname() {
