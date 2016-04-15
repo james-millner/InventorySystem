@@ -31,9 +31,9 @@ public class MongoDBInventoryDAO {
         ObjectId id = new ObjectId();
         inventory.set_id(id.toString());
         try {
-            String JSONAsset = mapper.writeValueAsString(inventory);
-            DBObject dbObject = (DBObject) JSON.parse(JSONAsset);
-            this.db.insert(dbObject);
+            String JSONInventory = mapper.writeValueAsString(inventory);
+            DBObject dbObjectInv = (DBObject) JSON.parse(JSONInventory);
+            this.db.insert(dbObjectInv);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +50,6 @@ public class MongoDBInventoryDAO {
                 Inventory i = mapper.readValue(objJSON, Inventory.class);
                 inventory.add(i);
             }
-
         } catch(Exception e) {
             e.printStackTrace();
         }

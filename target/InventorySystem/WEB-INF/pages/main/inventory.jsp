@@ -45,6 +45,7 @@
       </div>
       <div id="title">
                 <h2>Inventory</h2>
+                <h3>Please use the form below to add initial inventory items. Once each item has been added</h3>
       </div>
       <div class="container-fluid">
         <form method="post" action="" command="inventory">
@@ -63,11 +64,12 @@
             </div>
             <div class="form-group">
               <div class="input-group">
-                <label for="cid">Crate: 	&nbsp; </label>
-                <select multiple class="form-control" id="cid" name="cid">
-                  <c:forEach var="crate" items="${crateList}">
-                    <option value="${crate.id}">${crate.cName}</option>
-                  </c:forEach>
+                <label for="cid">Type: 	&nbsp; </label>
+                <select multiple class="form-control" id="type" name="type">
+                    <option>Active</option>
+                    <option>InActive</option>
+                    <option>Hold</option>
+                    <option>Permanent</option>
                 </select>
               </div>
             </div>
@@ -76,16 +78,41 @@
             <div class="form-group">
               <div class="input-group">
                 <label>Description: </label>
-                <textarea type="text" id="desc" class="form-control" name="description" style="height: 200px; width: 300px;" required></textarea>
+                <textarea type="text" id="desc" class="form-control" name="description" style="height: 100px; width: 320px;" required></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <label>Additional (Not Required: </label>
+                <textarea type="text" id="additional" class="form-control" name="extraInfo" style="height: 60px; width: 280px;"></textarea>
               </div>
             </div>
           </div>
           <div class="col-md-2">
+            <div class="form-group">
+              <div class="input-group">
+                <label for="cid">Crate: 	&nbsp; </label>
+                <select multiple class="form-control" id="cid" name="cid" style="height: 150px;">
+                  <c:forEach var="crate" items="${crateList}">
+                    <option value="${crate.id}">${crate.cName}</option>
+                  </c:forEach>
+                </select>
+              </div>
+            </div>
             <div class="input-group">
               <button type="submit" class="btn btn-md btn-primary btn-block">Add.</button>
             </div>
           </div>
         </form>
+      </div>
+      <hr>
+      <div class="container-fluid">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6">
+
+        </div>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

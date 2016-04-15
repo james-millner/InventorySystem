@@ -31,7 +31,7 @@ public class InventoryController {
         MongoClient mongoInventory = new MongoClient("localhost", 27017);
         MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mongoInventory);
         List<Inventory> invList = inventoryDAO.readAllInventory();
-        System.out.println(invList.size());
+        model.addAttribute("inventoryList", invList);
 
         if(inventory.getIname() == null) {
             return "/main/inventory";
