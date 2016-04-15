@@ -9,6 +9,7 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.util.JSON;
 import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class MongoDBInventoryDAO {
 
     //Adds a storehouse to StorehouseCollection.
     public void createInventory(Inventory inventory) {
+
         ObjectMapper mapper = new ObjectMapper();
         ObjectId id = new ObjectId();
         inventory.set_id(id.toString());

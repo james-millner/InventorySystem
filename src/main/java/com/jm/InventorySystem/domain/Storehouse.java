@@ -1,10 +1,13 @@
 package com.jm.InventorySystem.domain;
-
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Created by James on 02/03/2016.
  */
+@Document(collection = "storehouses")
 public class Storehouse {
 
+    @Id
     private String id;
     private String name;
     private int size;

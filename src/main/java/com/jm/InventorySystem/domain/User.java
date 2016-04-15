@@ -1,14 +1,21 @@
 package com.jm.InventorySystem.domain;
 
 import java.util.Date;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
+
+@Document(collection = "users")
 public class User {
-	
+
+	@Id
 	String id;
 	String fName;
 	String sName;
 	String type;
     String username;
+	@NotNull
 	String password;
 	Date dateCreated;
 	

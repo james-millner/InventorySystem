@@ -1,17 +1,16 @@
 package com.jm.InventorySystem.domain;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.bson.types.ObjectId;
-import org.codehaus.jackson.annotate.JsonIgnore;
-
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 /**
  * Created by James on 14/04/2016.
  */
+@Document(collection = "assets")
 public class Asset {
 
+    @Id
     String _id;
     String aname;
     Integer qty;

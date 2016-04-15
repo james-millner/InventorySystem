@@ -1,12 +1,16 @@
 package com.jm.InventorySystem.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 /**
  * Created by James on 31/03/2016.
  */
+@Document(collection = "crates")
 public class Crate {
 
+    @Id
     String id;
     String sid;
     String cName;

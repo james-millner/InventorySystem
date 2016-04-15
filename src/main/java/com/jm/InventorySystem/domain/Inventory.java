@@ -1,12 +1,17 @@
 package com.jm.InventorySystem.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
 
 /**
  * Created by James on 14/04/2016.
  */
+@Document(collection = "inventory")
 public class Inventory {
 
+    @Id
     String _id;
     String iname;
     Integer qty;
