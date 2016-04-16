@@ -75,7 +75,7 @@
               <c:url value="#" var="viewURL"></c:url>
               <c:url value="#" var="deleteURL"></c:url>
               <tr>
-                <td>${item.iname}</span></td>
+                <td>${item.iname}</td>
                 <td>${item.qty}</td>
                 <td>${item.type}</td>
                 <td>${item.description}</td>

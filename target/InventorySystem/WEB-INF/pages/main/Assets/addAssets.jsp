@@ -54,19 +54,20 @@
         </div>
         <h4>Add Assets!</h4>
         <h5>This form can be used to add in Asset Items. Typically these are items that have a value of £500 or more.</h5>
+        <h6>Fields Marked * are required.</h6>
       </div>
       <div class="container-fluid">
         <form method="post" action="" command="asset">
           <div class="col-md-3">
             <div class="form-group">
               <div class="input-group">
-                <label>Name: </label>
+                <label>* Name: </label>
                 <input type="text" id="inventoryName" class="form-control" placeholder="Item name" name="aname" required/>
               </div>
             </div>
             <div class="form-group">
               <div class="input-group">
-                <label for="quantity">Quantity: 	&nbsp; </label>
+                <label for="quantity">* Quantity: 	&nbsp; </label>
                 <input id="quantity" type="number" name="qty" min="0" max="3000" required/>
               </div>
             </div>
@@ -84,24 +85,24 @@
           <div class="col-md-4">
             <div class="form-group">
               <div class="input-group">
-                <label>Description: </label>
+                <label>* Description: </label>
                 <textarea type="text" id="desc" class="form-control" name="description" style="height: 200px; width: 300px;" required></textarea>
               </div>
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label>Value: </label>
+              <label>* Value: </label>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-gbp"></span> </span>
-                <input style="width: 100px" type="text" class="form-control" name="po"/>
-                <input style="width: 45px" type="text" class="form-control" name="pe"/>
+                <input style="width: 100px" type="text" class="form-control" name="po" required/>
+                <input style="width: 45px" type="text" class="form-control" name="pe" required/>
               </div>
             </div>
             <div class="form-group">
               <div class="input-group">
-                <label>Date Purchased: </label>
-                <input type="date" name="purchString">
+                <label>* Date Purchased: </label>
+                <input type="date" name="purchString" required/>
               </div>
             </div>
             <div class="input-group">

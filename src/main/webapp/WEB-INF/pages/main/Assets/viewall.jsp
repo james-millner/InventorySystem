@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/viewall.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
 
@@ -54,8 +55,39 @@
         </div>
         <h4>View All.</h4>
       </div>
-
-      <hr>
+      <div class="container-fluid">
+        <h5><b>Quick View!</b></h5>
+        <div id="table">
+          <div id="table-scroll">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th><span class="text"> Item Name</span></th>
+                <th><span class="text"> Description</span></th>
+                <th><span class="text"> Value</span></th>
+                <th><span class="text"> Quantity</span></th>
+                <th><span class="text"> Edit</span></th>
+                <th><span class="text"> Delete</span></th>
+              </tr>
+              </thead>
+              <tbody>
+              <c:forEach var="asset" items="${assetList}">
+                <c:url value="#" var="viewURL"></c:url>
+                <c:url value="#" var="deleteURL"></c:url>
+                <tr>
+                  <td>${asset.aname}</td>
+                  <td>${asset.description}</td>
+                  <td>£${asset.po}.${asset.pe}</td>
+                  <td>${asset.qty}</td>
+                  <td><a href='<c:out value="${viewURL}" escapeXml="true"></c:out>'>View <span class="glyphicon glyphicon-edit"></span></a></td>
+                  <td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete<span class="glyphicon glyphicon-trash"></span></a></td>
+                </tr>
+              </c:forEach>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
 

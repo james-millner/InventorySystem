@@ -65,7 +65,14 @@ public class AssetController {
     }
 
     @RequestMapping("/assets/viewAll")
-    public String viewAllAssets () {
+    public String viewAllAssets(Model model,
+                                Asset asset) {
+        MongoClient mongoAssets = new MongoClient("localhost", 27017);
+        MongoDBAssetDAO inventoryDAO = new MongoDBAssetDAO(mongoAssets);
+        List<Asset> assetList = inventoryDAO.readAllAssets();
+        model.addAttribute("assetList", assetList);
+        mongoAssets.close();
+
         return "/main/Assets/viewall";
     }
 }
