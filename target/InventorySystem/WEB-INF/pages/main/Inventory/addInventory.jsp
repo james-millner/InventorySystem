@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Assets</title>
+    <title>Inventory</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
@@ -38,21 +38,30 @@
           <li role="presentation"><a href="/homepage">Home.</a></li>
           <li role="presentation"><a href="/storehouses">Storehouses.</a></li>
           <li role="presentation"><a href="/crates">Crates.</a></li>
-          <li role="presentation"><a href="/inventory">Inventory.</a></li>
-          <li role="presentation" class="active"><a href="/assets">Assets.</a></li>
+          <li role="presentation"class="active"><a href="/inventory">Inventory.</a></li>
+          <li role="presentation"><a href="/assets">Assets.</a></li>
           <li role="presentation"><a href="/users">Users.</a></li>
         </ul>
       </div>
-      <div>
-        <h2>Assets</h2>
+      <div id="title">
+                <h2>Inventory</h2>
+                <div class="row">
+                  <ol class="breadcrumb">
+                    <li><a href="/inventory">Home</a></li>
+                    <li class="active"><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
+                    <li><a href="/inventory/viewAll">View Inventory</a></li>
+                  </ol>
+                </div>
+                <h4>Adding a new Inventory Entry!</h4>
+                <h5>Please use the form below to add initial inventory items. This will hold each items basic information.<br>Once the initial entries have been stored, you can later add additional information to each entry.</h5>
       </div>
       <div class="container-fluid">
-        <form method="post" action="" command="asset">
+        <form method="post" action="" command="inventory">
           <div class="col-md-3">
             <div class="form-group">
               <div class="input-group">
                 <label>Name: </label>
-                <input type="text" id="inventoryName" class="form-control" placeholder="Item name" name="aname" required/>
+                <input type="text" id="inventoryName" class="form-control" placeholder="Item name" name="iname" required/>
               </div>
             </div>
             <div class="form-group">
@@ -63,11 +72,12 @@
             </div>
             <div class="form-group">
               <div class="input-group">
-                <label for="cid">Crate: 	&nbsp; </label>
-                <select multiple class="form-control" id="cid" name="cid">
-                  <c:forEach var="crate" items="${crateList}">
-                    <option value="${crate.id}">${crate.cName}</option>
-                  </c:forEach>
+                <label for="cid">Type: 	&nbsp; </label>
+                <select multiple class="form-control" id="type" name="type">
+                    <option>Active</option>
+                    <option>InActive</option>
+                    <option>Hold</option>
+                    <option>Permanent</option>
                 </select>
               </div>
             </div>
@@ -76,32 +86,42 @@
             <div class="form-group">
               <div class="input-group">
                 <label>Description: </label>
-                <textarea type="text" id="desc" class="form-control" name="description" style="height: 200px; width: 300px;" required></textarea>
+                <textarea type="text" id="desc" class="form-control" name="description" style="height: 100px; width: 320px;" required></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <label>Additional (Not Required: </label>
+                <textarea type="text" id="additional" class="form-control" name="extraInfo" style="height: 60px; width: 280px;"></textarea>
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="form-group">
-              <label>Value: </label>
-              <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-gbp"></span> </span>
-                <input style="width: 100px" type="text" class="form-control" name="po"/>
-                <input style="width: 45px" type="text" class="form-control" name="pe"/>
-              </div>
-            </div>
+          <div class="col-md-2">
             <div class="form-group">
               <div class="input-group">
-                <label>Date Purchased: </label>
-                <input type="date" name="purchString">
+                <label for="cid">Crate: 	&nbsp; </label>
+                <select multiple class="form-control" id="cid" name="cid" style="height: 150px;">
+                  <c:forEach var="crate" items="${crateList}">
+                    <option value="${crate.id}">${crate.cName}</option>
+                  </c:forEach>
+                </select>
               </div>
             </div>
             <div class="input-group">
-              <button type="submit" class="btn btn-md btn-primary btn-block">Add Asset.</button>
+              <button type="submit" class="btn btn-md btn-primary btn-block">Add.</button>
             </div>
           </div>
         </form>
       </div>
       <hr>
+      <div class="container-fluid">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6">
+
+        </div>
+      </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
 

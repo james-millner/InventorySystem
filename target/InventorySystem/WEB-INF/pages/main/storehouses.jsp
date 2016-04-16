@@ -35,16 +35,16 @@
         <h1>InventorySys</h1>
         <a href="/signin" class="text">Log out.</a>
       </div>
-      <div class="container">
-      	<ul class="nav nav-tabs">
-		  <li role="presentation"><a href="homepage">Home.</a></li>
-		  <li role="presentation" class="active"><a href="storehouses">Storehouses.</a></li>
-          <li role="presentation"><a href="crates">Crates.</a></li>
-          <li role="presentation"><a href="inventory">Inventory.</a></li>
-          <li role="presentation"><a href="assets">Assets.</a></li>
-          <li role="presentation"><a href="users">Users.</a></li>
-		</ul>
-      </div>
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li role="presentation"><a href="/homepage">Home.</a></li>
+                <li role="presentation" class="active"><a href="/storehouses">Storehouses.</a></li>
+                <li role="presentation"><a href="/crates">Crates.</a></li>
+                <li role="presentation"><a href="/inventory">Inventory.</a></li>
+                <li role="presentation"><a href="/assets">Assets.</a></li>
+                <li role="presentation"><a href="/users">Users.</a></li>
+            </ul>
+        </div>
 
      <h2>Storehouses</h2>
 

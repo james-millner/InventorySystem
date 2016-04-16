@@ -34,34 +34,58 @@
         <a href="/signin" class="text">Log out.</a>
       </div>
       <div class="container">
-        <ul class="nav nav-tabs">
-          <li role="presentation"><a href="/homepage">Home.</a></li>
-          <li role="presentation"><a href="/storehouses">Storehouses.</a></li>
+      	<ul class="nav nav-tabs">
+		  <li role="presentation"><a href="/homepage">Home.</a></li>
+		  <li role="presentation"><a href="/storehouses">Storehouses.</a></li>
           <li role="presentation"><a href="/crates">Crates.</a></li>
           <li role="presentation"class="active"><a href="/inventory">Inventory.</a></li>
           <li role="presentation"><a href="/assets">Assets.</a></li>
           <li role="presentation"><a href="/users">Users.</a></li>
-        </ul>
+		</ul>
       </div>
       <div id="title">
                 <h2>Inventory</h2>
                 <div class="row">
                   <ol class="breadcrumb">
-                    <li class="active"><a href="/inventory">Home</a></li>
+                    <li><a href="/inventory">Home</a></li>
                     <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
-                    <li><a href="/inventory/viewAll">View Inventory</a></li>
+                    <li class="active"><a href="/inventory/viewAll">View Inventory</a></li>
                   </ol>
                 </div>
-                <h4>Home.</h4>
+                <h4>View All.</h4>
       </div>
       <hr>
       <div class="container-fluid">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
-
-        </div>
+        <table class="table table-condensed">
+          <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>AdditionalInfo</th>
+            <th>CrateID</th>
+            <th>Edit</th>
+            <th>Delete.</th>
+          </tr>
+          </thead>
+          <tbody>
+          <c:forEach var="item" items="${inventoryList}">
+            <c:url value="#" var="editURL"></c:url>
+            <c:url value="#" var="deleteURL"></c:url>
+            <tr>
+              <td>${item.iname}</td>
+              <td>${item.qty}</td>
+              <td>${item.type}</td>
+              <td>${item.description}</td>
+              <td>${item.extraInfo}</td>
+              <td>${item.cid}</td>
+              <td><a href='<c:out value="${editURL}" escapeXml="true"></c:out>'>Edit</a></td>
+              <td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete</a></td>
+            </tr>
+          </c:forEach>
+          </tbody>
+        </table>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

@@ -19,8 +19,14 @@ import java.util.List;
 public class InventoryController {
 
     @RequestMapping("/inventory")
-    public String Inventory(Model model,
-                            Inventory inventory) {
+    public String Inventory(Model model){
+        return "/main/inventory";
+
+    }
+
+    @RequestMapping("/inventory/addInventory")
+    public String addInv(Model model,
+                         Inventory inventory) {
         // Since 2.10.0, uses MongoClient
         MongoClient mongoCrate = new MongoClient("localhost", 27017);
         MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongoCrate);
@@ -34,14 +40,27 @@ public class InventoryController {
         model.addAttribute("inventoryList", invList);
 
         if(inventory.getIname() == null) {
-            return "/main/inventory";
+            return "/main/Inventory/addInventory";
         } else {
             Date date = new Date();
             inventory.setDateCreated(date);
             inventoryDAO.createInventory(inventory);
             mongoInventory.close();
-            return "/main/inventory";
+            return "/main/Inventory/addInventory";
         }
+    }
+
+    @RequestMapping("/inventory/viewAll")
+    public String viewAll(Model model,
+                          Inventory inventory) {
+
+        MongoClient mongoInventory = new MongoClient("localhost", 27017);
+        MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mongoInventory);
+        List<Inventory> invList = inventoryDAO.readAllInventory();
+        model.addAttribute("inventoryList", invList);
+        mongoInventory.close();
+
+        return "/main/Inventory/viewall";
 
     }
 }

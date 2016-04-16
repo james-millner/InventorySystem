@@ -34,76 +34,25 @@
         <a href="/signin" class="text">Log out.</a>
       </div>
       <div class="container">
-      	<ul class="nav nav-tabs">
-		  <li role="presentation"><a href="homepage">Home.</a></li>
-		  <li role="presentation"><a href="storehouses">Storehouses.</a></li>
-          <li role="presentation"><a href="crates">Crates.</a></li>
-          <li role="presentation"  class="active"><a href="inventory">Inventory.</a></li>
-          <li role="presentation"><a href="assets">Assets.</a></li>
-          <li role="presentation"><a href="users">Users.</a></li>
-		</ul>
+        <ul class="nav nav-tabs">
+          <li role="presentation"><a href="/homepage">Home.</a></li>
+          <li role="presentation"><a href="/storehouses">Storehouses.</a></li>
+          <li role="presentation"><a href="/crates">Crates.</a></li>
+          <li role="presentation"class="active"><a href="/inventory">Inventory.</a></li>
+          <li role="presentation"><a href="/assets">Assets.</a></li>
+          <li role="presentation"><a href="/users">Users.</a></li>
+        </ul>
       </div>
       <div id="title">
                 <h2>Inventory</h2>
-                <h3>Please use the form below to add initial inventory items. Once each item has been added</h3>
-      </div>
-      <div class="container-fluid">
-        <form method="post" action="" command="inventory">
-          <div class="col-md-3">
-            <div class="form-group">
-              <div class="input-group">
-                <label>Name: </label>
-                <input type="text" id="inventoryName" class="form-control" placeholder="Item name" name="iname" required/>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <label for="quantity">Quantity: 	&nbsp; </label>
-                <input id="quantity" type="number" name="qty" min="0" max="3000" required/>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <label for="cid">Type: 	&nbsp; </label>
-                <select multiple class="form-control" id="type" name="type">
-                    <option>Active</option>
-                    <option>InActive</option>
-                    <option>Hold</option>
-                    <option>Permanent</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <div class="input-group">
-                <label>Description: </label>
-                <textarea type="text" id="desc" class="form-control" name="description" style="height: 100px; width: 320px;" required></textarea>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <label>Additional (Not Required: </label>
-                <textarea type="text" id="additional" class="form-control" name="extraInfo" style="height: 60px; width: 280px;"></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="input-group">
-                <label for="cid">Crate: 	&nbsp; </label>
-                <select multiple class="form-control" id="cid" name="cid" style="height: 150px;">
-                  <c:forEach var="crate" items="${crateList}">
-                    <option value="${crate.id}">${crate.cName}</option>
-                  </c:forEach>
-                </select>
-              </div>
-            </div>
-            <div class="input-group">
-              <button type="submit" class="btn btn-md btn-primary btn-block">Add.</button>
-            </div>
-          </div>
-        </form>
+                <div class="row">
+                  <ol class="breadcrumb">
+                    <li class="active"><a href="/inventory">Home</a></li>
+                    <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
+                    <li><a href="/inventory/viewAll">View Inventory</a></li>
+                  </ol>
+                </div>
+                <h4>Home.</h4>
       </div>
       <hr>
       <div class="container-fluid">
