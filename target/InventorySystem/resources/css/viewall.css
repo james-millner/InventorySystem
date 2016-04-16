@@ -1,0 +1,18 @@
+#table {
+    margin-top: 30px;
+    position:relative;
+}
+#table-scroll {
+    height:200px;
+    overflow:auto;
+    margin-top:20px;
+}
+#table table {
+    width:100%;
+}
+#table table thead th .text {
+    position:absolute;
+    top:-20px;
+    z-index:2;
+    height:20px;
+}

@@ -54,14 +54,9 @@
                 </div>
                 <h4>Home.</h4>
       </div>
-      <hr>
       <div class="container-fluid">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
-
-        </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. Donec gravida nisl porttitor sem dictum blandit. Mauris elementum ante nec risus ultricies mollis. Suspendisse orci orci, pharetra non sem at, commodo tempor nunc. Curabitur ultricies nisi orci, eu condimentum nunc aliquet vitae. Fusce mollis nisi feugiat ante eleifend vestibulum. Curabitur pulvinar magna eu neque luctus, sit amet feugiat velit ultrices. Sed tristique ex quis mollis luctus. Praesent quis sollicitudin dui, quis dignissim ipsum. Integer vitae ipsum quis massa mollis hendrerit vitae ut ante.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. Donec gravida nisl porttitor sem dictum blandit. Mauris elementum ante nec risus ultricies mollis. Suspendisse orci orci, pharetra non sem at, commodo tempor nunc.<br>Curabitur ultricies nisi orci, eu condimentum nunc aliquet vitae. Fusce mollis nisi feugiat ante eleifend vestibulum.</p>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

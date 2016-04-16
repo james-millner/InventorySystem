@@ -20,7 +20,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/viewall.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
 
@@ -49,43 +49,52 @@
                   <ol class="breadcrumb">
                     <li><a href="/inventory">Home</a></li>
                     <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
-                    <li class="active"><a href="/inventory/viewAll">View Inventory</a></li>
+                    <li class="active">View Inventory</li>
                   </ol>
                 </div>
                 <h4>View All.</h4>
+                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. </h5>
       </div>
-      <hr>
       <div class="container-fluid">
-        <table class="table table-condensed">
-          <thead>
-          <tr>
-            <th>Item Name</th>
-            <th>Quantity</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>AdditionalInfo</th>
-            <th>CrateID</th>
-            <th>Edit</th>
-            <th>Delete.</th>
-          </tr>
-          </thead>
-          <tbody>
-          <c:forEach var="item" items="${inventoryList}">
-            <c:url value="#" var="editURL"></c:url>
-            <c:url value="#" var="deleteURL"></c:url>
+        <h5><b>Quick View!</b></h5>
+        <div id="table">
+            <div id="table-scroll">
+            <table class="table table-condensed table-striped">
+            <thead>
             <tr>
-              <td>${item.iname}</td>
-              <td>${item.qty}</td>
-              <td>${item.type}</td>
-              <td>${item.description}</td>
-              <td>${item.extraInfo}</td>
-              <td>${item.cid}</td>
-              <td><a href='<c:out value="${editURL}" escapeXml="true"></c:out>'>Edit</a></td>
-              <td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete</a></td>
+              <th><span class="text"> Item Name</span></th>
+              <th><span class="text"> Quantity</span></th>
+              <th><span class="text"> Type</span></th>
+              <th><span class="text"> Description</span></th>
+              <th><span class="text"> Edit</span></th>
+              <th><span class="text"> Delete</span></th>
             </tr>
-          </c:forEach>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+            <c:forEach var="item" items="${inventoryList}">
+              <c:url value="#" var="viewURL"></c:url>
+              <c:url value="#" var="deleteURL"></c:url>
+              <tr>
+                <td>${item.iname}</span></td>
+                <td>${item.qty}</td>
+                <td>${item.type}</td>
+                <td>${item.description}</td>
+                <td><a href='<c:out value="${viewURL}" escapeXml="true"></c:out>'>View <span class="glyphicon glyphicon-edit"></span></a></td>
+                <td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete<span class="glyphicon glyphicon-trash"></span></a></td>
+              </tr>
+            </c:forEach>
+            </tbody>
+          </table>
+          </div>
+       </div>
+      </div>
+      <div class="container-fluid">
+        <div class="col-md-6">
+          <h3>Select a Crate.</h3>
+        </div>
+        <div class="col-md-6">
+          <h3>Storehouse Data.</h3>
+        </div>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
