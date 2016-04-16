@@ -47,12 +47,12 @@
         <h2>Assets</h2>
         <div class="row">
           <ol class="breadcrumb">
-            <li class="active">Home</li>
+            <li><a href="/assets">Home</a></li>
             <li><a href="/assets/addAsset"><span class="glyphicon glyphicon-plus"></span>Add Asset</a></li>
-            <li><a href="/assets/viewAll">View Assets</a></li>
+            <li class="active">View Assets</li>
           </ol>
         </div>
-        <h4>Home.</h4>
+        <h4>View All.</h4>
       </div>
 
       <hr>

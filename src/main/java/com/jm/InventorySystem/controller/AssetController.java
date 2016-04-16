@@ -23,8 +23,14 @@ import java.util.List;
 public class AssetController {
 
     @RequestMapping("/assets")
-    public String Assets(Model model,
-                         Asset asset) {
+    public String Assets() {
+        return "/main/assets";
+
+    }
+
+    @RequestMapping("/assets/addAsset")
+    public String addAsset(Model model,
+                           Asset asset) {
         ObjectMapper mapper = new ObjectMapper();
         // Since 2.10.0, uses MongoClient
         MongoClient mongoClient = new MongoClient("localhost", 27017);
@@ -38,8 +44,8 @@ public class AssetController {
 
         List<Asset> assets = assetDAO.readAllAssets();
         System.out.println("ASSETS = " + assets.size());
-        if(asset.getAname() == null) {
-            return "/main/assets";
+        if (asset.getAname() == null) {
+            return "/main/Assets/addAssets";
         } else {
             try {
                 DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
@@ -51,11 +57,15 @@ public class AssetController {
                 //System.out.println(asset.getPo() + "-" + asset.getPe() + "-" + asset.getPurchased().toString());
                 assetDAO.createAsset(asset);
                 mongoAsset.close();
-            } catch(Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            return "/main/assets";
+            return "/main/Assets/addAssets";
         }
+    }
 
+    @RequestMapping("/assets/viewAll")
+    public String viewAllAssets () {
+        return "/main/Assets/viewall";
     }
 }
