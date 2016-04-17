@@ -21,9 +21,9 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
     <!-- Bootstrap -->
-    <link href="/resources/css/viewall.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 
 </head>
   <body>
@@ -59,7 +59,12 @@
         <h5><b>Quick View!</b></h5>
         <div id="table">
           <div id="table-scroll">
-            <table class="table table-striped">
+            <table id="assetTable" class="table table-striped display">
+              <script>
+                $(document).ready( function () {
+                  $('#assetTable').DataTable();
+                } );
+              </script>
               <thead>
               <tr>
                 <th><span class="text"> Item Name</span></th>

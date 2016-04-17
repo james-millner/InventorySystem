@@ -22,9 +22,11 @@
     <!-- Bootstrap -->
     <link href="/resources/css/viewall.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 
 
-</head>
+  </head>
   <body>
 
     <!-- Begin page content -->
@@ -59,8 +61,13 @@
         <h5><b>Quick View!</b></h5>
         <div id="table">
             <div id="table-scroll">
-            <table class="table table-condensed table-striped">
-            <thead>
+            <table id="inventoryTable" class="table table-condensed table-striped display">
+                <script>
+                $(document).ready( function () {
+                $('#inventoryTable').DataTable();
+                } );
+                </script>
+                <thead>
             <tr>
               <th><span class="text"> Item Name</span></th>
               <th><span class="text"> Quantity</span></th>
