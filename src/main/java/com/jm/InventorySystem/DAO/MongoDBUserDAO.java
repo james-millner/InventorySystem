@@ -27,7 +27,7 @@ public class MongoDBUserDAO {
         DBObject obj = UserConverter.toDBObject(user);
         this.db.insert(obj);
         ObjectId id = (ObjectId) obj.get("_id");
-        user.setId(id.toString());
+        user.set_id(id.toString());
         return user;
     }
 
@@ -44,7 +44,7 @@ public class MongoDBUserDAO {
     }
 
     public User getUserByID(User user) {
-        ObjectId uId = new ObjectId(user.getId());
+        ObjectId uId = new ObjectId(user.get_id());
         DBObject query = new BasicDBObject();
         query.put("_id", uId);
         DBCursor cursor = db.find(query);
@@ -68,13 +68,13 @@ public class MongoDBUserDAO {
 
     public void updateUser(User u) {
         DBObject query = BasicDBObjectBuilder.start()
-                .append("_id", new ObjectId(u.getId())).get();
+                .append("_id", new ObjectId(u.get_id())).get();
         this.db.update(query, UserConverter.toDBObject(u));
     }
 
     public void deleteUser(User u) {
         DBObject query = BasicDBObjectBuilder.start()
-                .append("_id", new ObjectId(u.getId())).get();
+                .append("_id", new ObjectId(u.get_id())).get();
         this.db.remove(query);
     }
 }

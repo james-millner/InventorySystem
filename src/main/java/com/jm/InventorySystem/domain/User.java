@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class User {
 
 	@Id
-	String id;
+	String _id;
 	String fName;
 	String sName;
 	String type;
@@ -32,24 +32,59 @@ public class User {
 		this.dateCreated = d;
 	}
 
-	public void setId(String i) {this.id = i; }
-	public void setFName(String n) { this.fName = n; };
-	public void setSName(String s) { this.sName = s; };
-	public void setType(String t) { this.type = t; };
-	public void setUsername(String a) { this.username = a; }
-	public void setPassword(String p) { this.password = p; }
-	public void setDateCreated(Date d) {
-		this.dateCreated = d;
+	public String get_id() {
+		return _id;
 	}
 
-	public String getId() { return this.id; }
-	public String getfName(){ return this.fName; }
-	public String getsName(){ return this.sName; }
-	public String getType(){ return this.type; }
-	public String getUsername(){ return this.username; }
-	public String getPassword() { return this.password; }
-	public Date getDateCreated() { return this.dateCreated; }
-	
+	public void set_id(String _id) {
+		this._id = _id;
+	}
 
-	
+	public String getfName() {
+		return fName;
+	}
+
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+
+	public String getsName() {
+		return sName;
+	}
+
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
 }

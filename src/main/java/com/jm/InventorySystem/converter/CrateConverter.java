@@ -20,8 +20,8 @@ public class CrateConverter {
                 "width", crate.getWidth()).append(
                 "height", crate.getHeight()).append(
                 "dateCreated", crate.getDateCreated());
-        if(crate.getId() != null) {
-            builder = builder.append("_id", new ObjectId(crate.getId()));
+        if(crate.get_id() != null) {
+            builder = builder.append("_id", new ObjectId(crate.get_id()));
         }
         return builder.get();
     }
@@ -29,7 +29,7 @@ public class CrateConverter {
     public static Crate toCrate(DBObject obj) {
         Crate c = new Crate();
         ObjectId id = (ObjectId) obj.get("_id");
-        c.setId(id.toString());
+        c.set_id(id.toString());
         c.setSid((String) obj.get("sid"));
         c.setcName((String) obj.get("cName"));
         c.setWidth((Integer) obj.get("width"));

@@ -7,8 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "storehouses")
 public class Storehouse {
 
-    @Id
-    private String id;
+
+    private String _id;
     private String name;
     private int size;
     private String access;
@@ -33,12 +33,12 @@ public class Storehouse {
 
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {

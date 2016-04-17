@@ -69,7 +69,7 @@ public class StorehouseController {
         if(house.getName() == null){
             //Use the passed _id param to find the item to edit.
             Storehouse find = new Storehouse();
-            find.setId(id);
+            find.set_id(id);
             //Use the Data Access Object to find the result.
             house = storehouseDAO.readStorehouse(find);
             //Add the object to the model. Displaying it for the user.
@@ -93,7 +93,7 @@ public class StorehouseController {
 
         //Use the passed _id param to find the item to edit.
         Storehouse find = new Storehouse();
-        find.setId(id);
+        find.set_id(id);
         //Use the Data Access Object to find the result.
         storehouseDAO.deleteStorehouse(find);
 

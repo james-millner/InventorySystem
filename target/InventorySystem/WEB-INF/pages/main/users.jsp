@@ -55,7 +55,7 @@
                 <div class="info">
                   <h3 class="text-center">${user.username}</h3>
                   <p>${user.fName}&nbsp;${user.sName}</p>
-                  <a href="/editUser?_id=${user.id}" class="btn">View</a>
+                  <a href="/editUser?_id=${user._id}" class="btn">View</a>
                 </div>
               </div>
 

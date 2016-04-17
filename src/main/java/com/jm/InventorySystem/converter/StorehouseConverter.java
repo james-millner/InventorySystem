@@ -21,15 +21,15 @@ public class StorehouseConverter {
                 "isOwned", s.isOwned()).append(
                 "isRented", s.isRented()).append(
                 "isActive", s.isActive());
-        if(s.getId() != null) {
-            builder = builder.append("_id", new ObjectId(s.getId()));
+        if(s.get_id() != null) {
+            builder = builder.append("_id", new ObjectId(s.get_id()));
         }
         return builder.get();
     }
     public static Storehouse toStorehouse(DBObject obj) {
         Storehouse s = new Storehouse();
         ObjectId id = (ObjectId) obj.get("_id");
-        s.setId(id.toString());
+        s.set_id(id.toString());
         s.setName(obj.get("name").toString());
         s.setSize((Integer) obj.get("size"));
         s.setAccess(obj.get("access").toString());

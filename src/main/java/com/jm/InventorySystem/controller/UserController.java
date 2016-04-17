@@ -50,7 +50,7 @@ public class UserController {
         MongoDBUserDAO userDAO = new MongoDBUserDAO(mongo);
 
         User userID = new User();
-        userID.setId(id);
+        userID.set_id(id);
         user = userDAO.getUserByID(userID);
         model.addAttribute("user", user);
 
@@ -87,7 +87,7 @@ public class UserController {
         MongoDBUserDAO userDAO = new MongoDBUserDAO(mongo);
 
         User userID = new User();
-        userID.setId(id);
+        userID.set_id(id);
 
         user = userDAO.getUserByID(userID);
         userDAO.deleteUser(user);

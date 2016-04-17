@@ -11,7 +11,7 @@ import java.util.Date;
 public class Crate {
 
     @Id
-    String id;
+    String _id;
     String sid;
     String cName;
     Integer width;
@@ -24,19 +24,19 @@ public class Crate {
     }
 
     public Crate(String i, String c, int w, int h, Date d) {
-        this.id = i;
+        this._id = i;
         this.cName = c;
         this.width = w;
         this.height = h;
         this.dateCreated = d;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getSid() {

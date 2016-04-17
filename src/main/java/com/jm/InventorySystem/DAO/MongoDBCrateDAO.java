@@ -29,7 +29,7 @@ public class MongoDBCrateDAO {
         DBObject doc = CrateConverter.toDBObject(crate);
         this.db.insert(doc);
         ObjectId id = (ObjectId) doc.get("_id");
-        crate.setId(id.toString());
+        crate.set_id(id.toString());
         return crate;
     }
 

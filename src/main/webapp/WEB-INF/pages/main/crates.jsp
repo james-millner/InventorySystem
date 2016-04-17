@@ -64,7 +64,7 @@
               <label id="storehouseLbl">Select a storehouse.</label>
               <select multiple class="form-control" name="sid">
                 <c:forEach var="storehouse" items="${shList}">
-                  <option value="${storehouse.id}">${storehouse.name}</option>
+                  <option value="${storehouse._id}">${storehouse.name}</option>
                 </c:forEach>
               </select>
             </div>
@@ -77,7 +77,7 @@
           <h3>Current Crates: </h3>
           <c:forEach var="crate" items="${cList}">
             <div class="col-lg-2">
-              <a href="#${crate.id}" class="thumbnail">${crate.cName}</a>
+              <a href="#${crate._id}" class="thumbnail">${crate.cName}</a>
             </div>
           </c:forEach>
         </div>

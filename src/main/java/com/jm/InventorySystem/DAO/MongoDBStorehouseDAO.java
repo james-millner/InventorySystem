@@ -30,7 +30,7 @@ public class MongoDBStorehouseDAO {
         DBObject doc = StorehouseConverter.toDBObject(s);
         this.db.insert(doc);
         ObjectId id = (ObjectId) doc.get("_id");
-        s.setId(id.toString());
+        s.set_id(id.toString());
         return s;
     }
 
@@ -47,20 +47,20 @@ public class MongoDBStorehouseDAO {
 
     public Storehouse readStorehouse(Storehouse s) {
         DBObject query = BasicDBObjectBuilder.start().append(
-                "_id", new ObjectId(s.getId())).get();
+                "_id", new ObjectId(s.get_id())).get();
         DBObject data = this.db.findOne(query);
         return StorehouseConverter.toStorehouse(data);
     }
 
     public void updateStorehouse(Storehouse h) {
         DBObject query = BasicDBObjectBuilder.start()
-                .append("_id", new ObjectId(h.getId())).get();
+                .append("_id", new ObjectId(h.get_id())).get();
         this.db.update(query, StorehouseConverter.toDBObject(h));
     }
 
     public void deleteStorehouse(Storehouse h) {
         DBObject query = BasicDBObjectBuilder.start()
-                .append("_id", new ObjectId(h.getId())).get();
+                .append("_id", new ObjectId(h.get_id())).get();
         this.db.remove(query);
     }
 

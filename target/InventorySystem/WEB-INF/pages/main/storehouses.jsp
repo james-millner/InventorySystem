@@ -118,8 +118,8 @@
                 </thead>
                 <tbody>
                 <c:forEach var="storehouse" items="${storehouseList}">
-                    <c:url value="/editStorehouse?_id=${storehouse.id}" var="editURL"></c:url>
-                    <c:url value="/deleteStorehouse?_id=${storehouse.id}" var="deleteURL"></c:url>
+                    <c:url value="/editStorehouse?_id=${storehouse._id}" var="editURL"></c:url>
+                    <c:url value="/deleteStorehouse?_id=${storehouse._id}" var="deleteURL"></c:url>
                     <tr>
                         <td>${storehouse.name}</td>
                         <td>${storehouse.address}</td>

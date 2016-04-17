@@ -21,8 +21,8 @@ public class UserConverter {
                 .append("dateCreated", u.getDateCreated());
 
         //If the object already has an ID, search via that ID as well.
-        if(u.getId() != null) {
-            builder = builder.append("_id", new ObjectId(u.getId()));
+        if(u.get_id() != null) {
+            builder = builder.append("_id", new ObjectId(u.get_id()));
         }
         return builder.get();
     }
@@ -31,9 +31,9 @@ public class UserConverter {
     public static User toUser(DBObject obj) {
         User u = new User();
         ObjectId id = (ObjectId) obj.get("_id");
-        u.setId(id.toString());
-        u.setFName((String) obj.get("fName"));
-        u.setSName((String) obj.get("sName"));
+        u.set_id(id.toString());
+        u.setfName((String) obj.get("fName"));
+        u.setsName((String) obj.get("sName"));
         u.setType((String) obj.get("type"));
         u.setUsername((String) obj.get("username"));
         u.setPassword((String) obj.get("password"));
