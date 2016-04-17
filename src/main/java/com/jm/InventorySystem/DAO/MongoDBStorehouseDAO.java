@@ -80,6 +80,7 @@ public class MongoDBStorehouseDAO {
             whereQuery.put("_id", s.get_id());
             DBCursor cursor = this.db.find(whereQuery);
             while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
                 String update = mapper.writeValueAsString(s);
                 DBObject updateHouse = (DBObject) JSON.parse(update);
                 this.db.update(whereQuery, updateHouse);

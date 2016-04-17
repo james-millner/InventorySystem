@@ -23,6 +23,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/resources/css/Storehouses.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -102,7 +104,12 @@
     <hr>
       </div>
         <div class="row">
-            <table class="table table-striped">
+            <table id="storehouseTable" class="table table-striped display">
+                <script>
+                    $(document).ready( function () {
+                        $('#storehouseTable').DataTable();
+                    } );
+                </script>
                 <thead>
                     <tr>
                         <th>Storehouse Name</th>
