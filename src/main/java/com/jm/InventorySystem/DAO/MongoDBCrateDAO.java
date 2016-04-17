@@ -1,5 +1,6 @@
 package com.jm.InventorySystem.DAO;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jm.InventorySystem.converter.CrateConverter;
 import com.jm.InventorySystem.converter.StorehouseConverter;
 import com.jm.InventorySystem.domain.Crate;
@@ -8,6 +9,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.util.JSON;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
@@ -25,23 +27,34 @@ public class MongoDBCrateDAO {
     }
 
     //Adds a storehouse to StorehouseCollection.
-    public Crate createCrate(Crate crate) {
-        DBObject doc = CrateConverter.toDBObject(crate);
-        this.db.insert(doc);
-        ObjectId id = (ObjectId) doc.get("_id");
+    public void createCrate(Crate crate) {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectId id = new ObjectId();
         crate.set_id(id.toString());
-        return crate;
+        try {
+            String JSONCrate = mapper.writeValueAsString(crate);
+            DBObject dbObject = (DBObject) JSON.parse(JSONCrate);
+            this.db.insert(dbObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Crate> readAllCrate() {
+        ObjectMapper mapper = new ObjectMapper();
         List<Crate> crates = new ArrayList<Crate>();
-        DBCursor cursor = db.find();
-        while(cursor.hasNext()) {
-            DBObject obj = cursor.next();
-            Crate c = CrateConverter.toCrate(obj);
-            crates.add(c);
+        try {
+            DBCursor cursor = db.find();
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                Crate crate = mapper.readValue(objJSON, Crate.class);
+                crates.add(crate);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return crates;
     }
-
 }
