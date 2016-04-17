@@ -78,8 +78,8 @@
               </thead>
               <tbody>
               <c:forEach var="asset" items="${assetList}">
-                <c:url value="#" var="viewURL"></c:url>
-                <c:url value="#" var="deleteURL"></c:url>
+                <c:url value="/assets/viewAsset?_id=${asset._id}" var="viewURL"></c:url>
+                <c:url value="/assets/del?_id=${asset._id}" var="deleteURL"></c:url>
                 <tr>
                   <td>${asset.aname}</td>
                   <td>${asset.description}</td>

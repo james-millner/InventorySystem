@@ -2,10 +2,7 @@ package com.jm.InventorySystem.DAO;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jm.InventorySystem.domain.Asset;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
+import com.mongodb.*;
 import com.mongodb.util.JSON;
 import org.bson.types.ObjectId;
 
@@ -56,6 +53,29 @@ public class MongoDBAssetDAO {
         return assets;
     }
 
+    public Asset getAsset(Asset a) {
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("_id", a.get_id());
+        try {
+            DBCursor cursor = db.find(findSpecific);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                a = mapper.readValue(objJSON, Asset.class);
+            }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
+    }
+
+    public void deleteAsset(Asset i) {
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("_id", i.get_id());
+        this.db.remove(findSpecific);
+    }
 
 }

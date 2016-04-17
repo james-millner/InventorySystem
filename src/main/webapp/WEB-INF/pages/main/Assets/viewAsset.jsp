@@ -50,50 +50,15 @@
           <ol class="breadcrumb">
             <li><a href="/assets">Home</a></li>
             <li><a href="/assets/addAsset"><span class="glyphicon glyphicon-plus"></span>Add Asset</a></li>
-            <li class="active">View Assets</li>
+            <li><a href="/assets/viewAll">View Assets</a></li>
+            <li class="active">View ${asset.aname}</li>
           </ol>
         </div>
         <h4>View All.</h4>
       </div>
       <div class="container-fluid">
-        <h5><b>Quick View!</b></h5>
-        <div id="table">
-          <div id="table-scroll">
-            <table id="assetTable" class="table table-striped display">
-              <script>
-                $(document).ready( function () {
-                  $('#assetTable').DataTable();
-                } );
-              </script>
-              <thead>
-              <tr>
-                <th><span class="text"> Item Name</span></th>
-                <th><span class="text"> Description</span></th>
-                <th><span class="text"> Value</span></th>
-                <th><span class="text"> Quantity</span></th>
-                <th><span class="text"> PurchaseDate</span></th>
-                <th><span class="text"> Edit</span></th>
-                <th><span class="text"> Delete</span></th>
-              </tr>
-              </thead>
-              <tbody>
-              <c:forEach var="asset" items="${assetList}">
-                <c:url value="/assets/viewAsset?_id=${asset._id}" var="viewURL"></c:url>
-                <c:url value="/assets/del?_id=${asset._id}" var="deleteURL"></c:url>
-                <tr>
-                  <td>${asset.aname}</td>
-                  <td>${asset.description}</td>
-                  <td>£${asset.po}.${asset.pe}</td>
-                  <td>${asset.qty}</td>
-                  <td>${asset.purchString}</td>
-                  <td><a href='<c:out value="${viewURL}" escapeXml="true"></c:out>'>View <span class="glyphicon glyphicon-edit"></span></a></td>
-                  <td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete<span class="glyphicon glyphicon-trash"></span></a></td>
-                </tr>
-              </c:forEach>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <h5><b>${asset.aname}</b></h5>
+
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

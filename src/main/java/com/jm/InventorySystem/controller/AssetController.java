@@ -10,6 +10,7 @@ import com.mongodb.util.JSON;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -74,5 +75,28 @@ public class AssetController {
         mongoAssets.close();
 
         return "/main/Assets/viewall";
+    }
+
+    @RequestMapping("/assets/viewAsset")
+    public String viewAsset(Model model,
+                            Asset asset,
+                            @RequestParam("_id")String id) {
+        MongoClient mongoAsset = new MongoClient("localhost", 27017);
+        MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoAsset);
+        asset.set_id(id);
+        asset = assetDAO.getAsset(asset);
+        model.addAttribute("asset", asset);
+
+        return "/main/Assets/viewAsset";
+    }
+
+    @RequestMapping("/assets/del")
+    public String delAsset(Asset asset,
+                           @RequestParam("_id") String id) {
+        MongoClient mongoAsset = new MongoClient("localhost", 27017);
+        MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoAsset);
+        asset.set_id(id);
+        assetDAO.deleteAsset(asset);
+        return "redirect:/assets/viewAll";
     }
 }
