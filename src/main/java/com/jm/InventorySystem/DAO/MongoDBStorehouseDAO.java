@@ -54,7 +54,7 @@ public class MongoDBStorehouseDAO {
 
     public void updateStorehouse(Storehouse h) {
         DBObject query = BasicDBObjectBuilder.start()
-                .append("_id", new ObjectId(h.get_id())).get();
+                .append("_id", h.get_id()).get();
         this.db.update(query, StorehouseConverter.toDBObject(h));
     }
 

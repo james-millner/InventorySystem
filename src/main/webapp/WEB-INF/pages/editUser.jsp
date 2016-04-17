@@ -70,7 +70,7 @@
             </div>
             <div align="center" class="col-md-12">
                 <c:if test="${userLogged != user.username}">
-                <a href="/delUser?_id=${user.id}" class="btn btn-danger btn-circle" type="submit">Remove User.</a>
+                <a href="/delUser?_id=${user._id}" class="btn btn-danger btn-circle" type="submit">Remove User.</a>
                 </c:if>
             </div>
         </div>
