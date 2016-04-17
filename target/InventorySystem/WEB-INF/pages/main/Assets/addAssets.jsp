@@ -76,7 +76,7 @@
                 <label for="cid">Crate: 	&nbsp; </label>
                 <select multiple class="form-control" id="cid" name="cid">
                   <c:forEach var="crate" items="${crateList}">
-                    <option value="${crate.id}">${crate.cName}</option>
+                    <option value="${crate._id}">${crate.cName}</option>
                   </c:forEach>
                 </select>
               </div>

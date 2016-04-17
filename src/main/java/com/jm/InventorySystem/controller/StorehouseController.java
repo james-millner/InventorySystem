@@ -75,7 +75,8 @@ public class StorehouseController {
             //Add the object to the model. Displaying it for the user.
             model.addAttribute("houseM", house);
         } else {
-
+            house.set_id(id);
+            System.out.println(house.get_id() + "-" + house.getName() + "-" + house.getAddress());
             //Use Data Access Object to update the storehouse.
             storehouseDAO.updateStorehouse(house);
 
