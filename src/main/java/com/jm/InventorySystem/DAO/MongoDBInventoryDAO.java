@@ -3,10 +3,7 @@ package com.jm.InventorySystem.DAO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jm.InventorySystem.domain.Asset;
 import com.jm.InventorySystem.domain.Inventory;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
+import com.mongodb.*;
 import com.mongodb.util.JSON;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -56,5 +53,30 @@ public class MongoDBInventoryDAO {
             e.printStackTrace();
         }
         return inventory;
+    }
+
+    public Inventory getInventory(Inventory i) {
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("_id", i.get_id());
+        try {
+            DBCursor cursor = db.find(findSpecific);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                i = mapper.readValue(objJSON, Inventory.class);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public void deleteInventory(Inventory i) {
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("_id", i.get_id());
+        this.db.remove(findSpecific);
     }
 }

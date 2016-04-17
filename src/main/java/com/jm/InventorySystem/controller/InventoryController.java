@@ -8,6 +8,7 @@ import com.mongodb.MongoClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
@@ -62,5 +63,29 @@ public class InventoryController {
 
         return "/main/Inventory/viewall";
 
+    }
+
+    @RequestMapping("/inventory/viewInventory")
+    public String viewInv(Model model,
+                          Inventory inventory,
+                          @RequestParam("_id") String id) {
+        MongoClient mongoInventory = new MongoClient("localhost", 27017);
+        MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mongoInventory);
+        inventory.set_id(id);
+        Inventory inv = inventoryDAO.getInventory(inventory);
+        model.addAttribute("item", inv);
+
+        return "/main/Inventory/viewInventory";
+    }
+
+    @RequestMapping("/inventory/del")
+    public String delInv(Model model,
+                          Inventory inventory,
+                          @RequestParam("_id") String id) {
+        MongoClient mongoInventory = new MongoClient("localhost", 27017);
+        MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mongoInventory);
+        inventory.set_id(id);
+        inventoryDAO.deleteInventory(inventory);
+        return "redirect:/inventory/viewAll";
     }
 }

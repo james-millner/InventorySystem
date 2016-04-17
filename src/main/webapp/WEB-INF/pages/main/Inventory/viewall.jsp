@@ -79,8 +79,8 @@
             </thead>
             <tbody>
             <c:forEach var="item" items="${inventoryList}">
-              <c:url value="#" var="viewURL"></c:url>
-              <c:url value="#" var="deleteURL"></c:url>
+              <c:url value="/inventory/viewInventory?_id=${item._id}" var="viewURL"></c:url>
+              <c:url value="/inventory/del?_id=${item._id}" var="deleteURL"></c:url>
               <tr>
                 <td>${item.iname}</td>
                 <td>${item.qty}</td>

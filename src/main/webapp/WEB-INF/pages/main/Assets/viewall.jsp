@@ -71,6 +71,7 @@
                 <th><span class="text"> Description</span></th>
                 <th><span class="text"> Value</span></th>
                 <th><span class="text"> Quantity</span></th>
+                <th><span class="text"> PurchaseDate</span></th>
                 <th><span class="text"> Edit</span></th>
                 <th><span class="text"> Delete</span></th>
               </tr>
@@ -84,6 +85,7 @@
                   <td>${asset.description}</td>
                   <td>£${asset.po}.${asset.pe}</td>
                   <td>${asset.qty}</td>
+                  <td>${asset.purchString}</td>
                   <td><a href='<c:out value="${viewURL}" escapeXml="true"></c:out>'>View <span class="glyphicon glyphicon-edit"></span></a></td>
                   <td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete<span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>

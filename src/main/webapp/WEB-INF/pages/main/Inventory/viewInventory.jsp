@@ -51,57 +51,15 @@
                   <ol class="breadcrumb">
                     <li><a href="/inventory">Home</a></li>
                     <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
-                    <li class="active">View Inventory</li>
+                    <li class="active"><a href="/inventory/viewAll"> View Inventory</a></li>
+                    <li class="active">View ${item.iname}</li>
                   </ol>
                 </div>
                 <h4>View All.</h4>
-                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. </h5>
+                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
       </div>
       <div class="container-fluid">
         <h5><b>Quick View!</b></h5>
-        <div id="table">
-            <div id="table-scroll">
-            <table id="inventoryTable" class="table table-condensed table-striped display">
-                <script>
-                $(document).ready( function () {
-                $('#inventoryTable').DataTable();
-                } );
-                </script>
-                <thead>
-            <tr>
-              <th><span class="text"> Item Name</span></th>
-              <th><span class="text"> Quantity</span></th>
-              <th><span class="text"> Type</span></th>
-              <th><span class="text"> Description</span></th>
-              <th><span class="text"> Edit</span></th>
-              <th><span class="text"> Delete</span></th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="item" items="${inventoryList}">
-              <c:url value="/inventory/viewInventory?_id=${item._id}" var="viewURL"></c:url>
-              <c:url value="/inventory/del?_id=${item._id}" var="deleteURL"></c:url>
-              <tr>
-                <td>${item.iname}</td>
-                <td>${item.qty}</td>
-                <td>${item.type}</td>
-                <td>${item.description}</td>
-                <td><a href='<c:out value="${viewURL}" escapeXml="true"></c:out>'>View <span class="glyphicon glyphicon-edit"></span></a></td>
-                <td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete<span class="glyphicon glyphicon-trash"></span></a></td>
-              </tr>
-            </c:forEach>
-            </tbody>
-          </table>
-          </div>
-       </div>
-      </div>
-      <div class="container-fluid">
-        <div class="col-md-6">
-          <h3>Select a Crate.</h3>
-        </div>
-        <div class="col-md-6">
-          <h3>Storehouse Data.</h3>
-        </div>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
