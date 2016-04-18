@@ -5,11 +5,9 @@ import com.jm.InventorySystem.DAO.MongoDBAssetDAO;
 import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
 import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
 import com.jm.InventorySystem.domain.Asset;
-import com.jm.InventorySystem.domain.AssetExtended;
 import com.jm.InventorySystem.domain.Crate;
 import com.jm.InventorySystem.domain.Storehouse;
 import com.mongodb.*;
-import com.mongodb.util.JSON;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -119,8 +117,29 @@ public class AssetController {
 
     @RequestMapping("/assets/viewAsset/update")
     public String updateAsset(Model model,
-                              AssetExtended assetExtended,
+                              Asset asset,
                               @RequestParam("_id") String id) {
+        MongoClient mongoAsset = new MongoClient("localhost", 27017);
+        MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoAsset);
+
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongoClient);
+        if(asset.getAname() == null) {
+
+            asset.set_id(id);
+            asset = assetDAO.getAsset(asset);
+            model.addAttribute("asset", asset);
+            mongoAsset.close();
+
+            List<Crate> crates = crateDAO.readAllCrate();
+            model.addAttribute("crateList", crates);
+            mongoClient.close();
+            return "/main/Assets/viewAssetUpdate";
+        } else {
+            asset.set_id(id);
+            assetDAO.updateAsset(asset);
+            return "redirect:/assets/viewAsset?_id=" + id;
+        }
 
     }
 

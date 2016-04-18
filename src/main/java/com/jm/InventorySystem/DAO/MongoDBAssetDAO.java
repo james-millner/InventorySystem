@@ -6,7 +6,6 @@ import com.mongodb.*;
 import com.mongodb.util.JSON;
 import org.bson.types.ObjectId;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,8 +70,25 @@ public class MongoDBAssetDAO {
         return a;
     }
 
+    public void updateAsset(Asset asset) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            BasicDBObject whereQuery = new BasicDBObject();
+            whereQuery.put("_id", asset.get_id());
+            DBCursor cursor = this.db.find(whereQuery);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String update = mapper.writeValueAsString(asset);
+                DBObject updateHouse = (DBObject) JSON.parse(update);
+                this.db.update(whereQuery, updateHouse);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void deleteAsset(Asset i) {
-        ObjectMapper mapper = new ObjectMapper();
         BasicDBObject findSpecific = new BasicDBObject();
         findSpecific.put("_id", i.get_id());
         this.db.remove(findSpecific);

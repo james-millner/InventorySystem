@@ -88,7 +88,7 @@
           </div>
           <div style="margin: 10px" class="col-md-12" align="right">
             <h3>Actions:</h3>
-            <a class="btn btn-primary" href="#">Update</a>
+            <a class="btn btn-primary" href="/assets/viewAsset/update?_id=${asset._id}">Update</a>
           </div>
         </div>
 

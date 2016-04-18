@@ -57,39 +57,45 @@
       </div>
       <div style="background-color: #E8E8E8; border-radius: 10px;" class="container-fluid">
         <div class="col-md-12">
+          <form method="post" action="" command="asset">
           <div class="col-md-4">
-            <h2><b>${asset.aname}</b></h2><p><b>Created On:</b> ${asset.dateCreated}</p>
-            <b>Description: </b><br><p></p><input type="text" value="${asset.description}"/>
-            <b>Quantity: </b><input type="number" value="${asset.qty}" disabled/>
+            <h2><input type="text" style="width: 320px;" value="${asset.aname}" name="aname"/> </h2><p><b>Created On:</b> ${asset.dateCreated}</p>
+            <b>Description: </b><br><p></p><textarea type="text" id="desc" class="form-control" name="description" style="height: 100px; width: 320px;">${asset.description}</textarea><br>
+            <b>Quantity: </b><input id="quantity" type="number" name="qty" min="0" max="3000" value="${asset.qty}"/>
 
           </div>
           <div class="col-md-4">
-            <h3><b>Storehouse Information:</b></h3>
-            <c:if test="${empty storehouse}">
-              ${na}
-            </c:if>
-            <c:if test="${not empty storehouse}">
-              <label>Name: </label>
-              <p>${storehouse.name}</p>
-              <label>Address: </label>
-              <p>${storehouse.address}</p>
-            </c:if>
+            <h3><b>Crate Information:</b></h3>
+            <select multiple class="form-control" id="cid" name="cid">
+                <option value="">Free</option>
+              <c:forEach var="crate" items="${crateList}">
+                <option value="${crate._id}">${crate.cName}</option>
+              </c:forEach>
+            </select>
+            <h3><b>Purchase Date:</b></h3>
+            <input type="date" name="purchString" value="${asset.purchString}"/>
+            <br>
+            <h3>Value: </h3>
+            <p></p>
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-gbp"></span> </span>
+              <input style="width: 100px" type="text" class="form-control" name="po" value="${asset.po}" />
+              <input style="width: 45px" type="text" class="form-control" name="pe" value="${asset.pe}" />
+            </div>
           </div>
           <div class="col-md-4">
-            <h3><b>Crate Information:</b></h3>
-            <c:if test="${empty crate}">
-              ${na}
-            </c:if>
-            <c:if test="${not empty crate}">
-              <label>Name: </label>
-              <p>${crate.cName}</p>
-              <p><b>Width: </b>${crate.width} 	&nbsp; <b>Height: </b>${crate.height}</p>
-            </c:if>
+            <h4>Additional Information: </h4>
+            <textarea type="text" id="additionalInfo" class="form-control" name="additionalInfo" style="height: 80px; width: 320px;"></textarea>
+            <h5>Depreciation Value/Rate: </h5>
+            <textarea type="text" id="depreciation" class="form-control" name="depreciationRate" style="height: 40px; width: 320px;"></textarea>
+            <h5><b>Date to Update:</b></h5>
+            <input type="date" name="dateToUpdate" value=""/>
           </div>
           <div style="margin: 10px" class="col-md-12" align="right">
             <h3>Actions:</h3>
-            <a class="btn btn-primary" href="#">Update</a>
+            <button type="submit" class="btn btn-md btn-primary">Save.</button>
           </div>
+          </form>
         </div>
 
       </div>
