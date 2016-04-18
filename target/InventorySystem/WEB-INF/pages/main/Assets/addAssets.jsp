@@ -75,6 +75,7 @@
               <div class="input-group">
                 <label for="cid">Crate: 	&nbsp; </label>
                 <select multiple class="form-control" id="cid" name="cid">
+                    <option value="">No Crate.</option>
                   <c:forEach var="crate" items="${crateList}">
                     <option value="${crate._id}">${crate.cName}</option>
                   </c:forEach>

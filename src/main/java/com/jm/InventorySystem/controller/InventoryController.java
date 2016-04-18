@@ -80,7 +80,7 @@ public class InventoryController {
         model.addAttribute("item", inv);
         mongoInventory.close();
 
-        String cid = inventory.getCid();
+        String cid = inv.getCid();
         if (cid == null) {
             model.addAttribute("na", "N/A");
             return "/main/Inventory/viewInventory";

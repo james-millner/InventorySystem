@@ -67,7 +67,7 @@
           <div class="col-md-4">
             <h3><b>Crate Information:</b></h3>
             <select multiple class="form-control" id="cid" name="cid">
-                <option value="">Free</option>
+                <option value="">No Crate.</option>
               <c:forEach var="crate" items="${crateList}">
                 <option value="${crate._id}">${crate.cName}</option>
               </c:forEach>
