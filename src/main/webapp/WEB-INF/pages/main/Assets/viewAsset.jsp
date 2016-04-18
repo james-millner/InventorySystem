@@ -54,10 +54,43 @@
             <li class="active">View ${asset.aname}</li>
           </ol>
         </div>
-        <h4>View All.</h4>
       </div>
-      <div class="container-fluid">
-        <h5><b>${asset.aname}</b></h5>
+      <div style="background-color: #E8E8E8; border-radius: 10px;" class="container-fluid">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <h2><b>${asset.aname}</b></h2><p><b>Created On:</b> ${asset.dateCreated}</p>
+            <b>Description: </b><br><p></p><p>${asset.description}</p>
+            <b>Quantity: </b><input type="number" value="${asset.qty}" disabled/>
+
+          </div>
+          <div class="col-md-4">
+            <h3><b>Storehouse Information:</b></h3>
+            <c:if test="${empty storehouse}">
+              ${na}
+            </c:if>
+            <c:if test="${not empty storehouse}">
+              <label>Name: </label>
+              <p>${storehouse.name}</p>
+              <label>Address: </label>
+              <p>${storehouse.address}</p>
+            </c:if>
+          </div>
+          <div class="col-md-4">
+            <h3><b>Crate Information:</b></h3>
+            <c:if test="${empty crate}">
+              ${na}
+            </c:if>
+            <c:if test="${not empty crate}">
+              <label>Name: </label>
+              <p>${crate.cName}</p>
+              <p><b>Width: </b>${crate.width} 	&nbsp; <b>Height: </b>${crate.height}</p>
+            </c:if>
+          </div>
+          <div style="margin: 10px" class="col-md-12" align="right">
+            <h3>Actions:</h3>
+            <a class="btn btn-primary" href="#">Update</a>
+          </div>
+        </div>
 
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>

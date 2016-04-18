@@ -3,8 +3,11 @@ package com.jm.InventorySystem.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jm.InventorySystem.DAO.MongoDBAssetDAO;
 import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
+import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
 import com.jm.InventorySystem.domain.Asset;
+import com.jm.InventorySystem.domain.AssetExtended;
 import com.jm.InventorySystem.domain.Crate;
+import com.jm.InventorySystem.domain.Storehouse;
 import com.mongodb.*;
 import com.mongodb.util.JSON;
 import org.springframework.stereotype.Controller;
@@ -86,8 +89,39 @@ public class AssetController {
         asset.set_id(id);
         asset = assetDAO.getAsset(asset);
         model.addAttribute("asset", asset);
+        mongoAsset.close();
 
-        return "/main/Assets/viewAsset";
+        String cid = asset.getCid();
+        if (cid == null) {
+            model.addAttribute("na", "N/A");
+            return "/main/Assets/viewAsset";
+        } else {
+            //Get Crate Info.
+            MongoClient mongoCrate = new MongoClient("localhost", 27017);
+            MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongoCrate);
+            Crate c = new Crate();
+            c.set_id(cid);
+            c = crateDAO.getCrate(c);
+            model.addAttribute("crate", c);
+            mongoCrate.close();
+
+            //Get Storehouse Info.
+            MongoClient mongoClient = new MongoClient("localhost", 27017);
+            MongoDBStorehouseDAO storehouseDAO = new MongoDBStorehouseDAO(mongoClient);
+            Storehouse h = new Storehouse();
+            h.set_id(c.getSid());
+            h = storehouseDAO.readStorehouse(h);
+            model.addAttribute("storehouse", h);
+
+            return "/main/Assets/viewAsset";
+        }
+    }
+
+    @RequestMapping("/assets/viewAsset/update")
+    public String updateAsset(Model model,
+                              AssetExtended assetExtended,
+                              @RequestParam("_id") String id) {
+
     }
 
     @RequestMapping("/assets/del")

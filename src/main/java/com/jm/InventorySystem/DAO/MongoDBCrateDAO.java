@@ -2,10 +2,7 @@ package com.jm.InventorySystem.DAO;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jm.InventorySystem.domain.Crate;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
+import com.mongodb.*;
 import com.mongodb.util.JSON;
 import org.bson.types.ObjectId;
 
@@ -35,6 +32,24 @@ public class MongoDBCrateDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public Crate getCrate(Crate crate) {
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("_id", crate.get_id());
+        try {
+            DBCursor cursor = db.find(findSpecific);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                crate = mapper.readValue(objJSON, Crate.class);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return crate;
     }
 
     public List<Crate> readAllCrate() {

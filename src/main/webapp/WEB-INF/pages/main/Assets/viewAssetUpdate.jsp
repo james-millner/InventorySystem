@@ -59,7 +59,7 @@
         <div class="col-md-12">
           <div class="col-md-4">
             <h2><b>${asset.aname}</b></h2><p><b>Created On:</b> ${asset.dateCreated}</p>
-            <b>Description: </b><br><p></p><p>${asset.description}</p>
+            <b>Description: </b><br><p></p><input type="text" value="${asset.description}"/>
             <b>Quantity: </b><input type="number" value="${asset.qty}" disabled/>
 
           </div>
