@@ -61,7 +61,9 @@
             <h2><b>${asset.aname}</b></h2><p><b>Created On:</b> ${asset.dateCreated}</p>
             <b>Description: </b><br><p></p><p>${asset.description}</p>
             <b>Quantity: </b><input type="number" value="${asset.qty}" disabled/>
-
+            <p></p>
+            <br>
+            <b>Value:</b><p style="font-size: 22px;">£${asset.po}.${asset.pe}</p>
           </div>
           <div class="col-md-4">
             <h3><b>Storehouse Information:</b></h3>

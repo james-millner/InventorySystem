@@ -122,6 +122,12 @@ public class AssetController {
         MongoClient mongoAsset = new MongoClient("localhost", 27017);
         MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoAsset);
 
+        Asset blank = new Asset();
+        blank.set_id(id);
+        blank = assetDAO.getAsset(blank);
+
+        Date date = blank.getDateCreated();
+
         MongoClient mongoClient = new MongoClient("localhost", 27017);
         MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongoClient);
         if(asset.getAname() == null) {
@@ -137,6 +143,14 @@ public class AssetController {
             return "/main/Assets/viewAssetUpdate";
         } else {
             asset.set_id(id);
+            try {
+                DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                Date purchasedFormatted = df.parse(asset.getPurchString().replaceAll("-", "/"));
+                asset.setPurchased(purchasedFormatted);
+                asset.setDateCreated(date);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             assetDAO.updateAsset(asset);
             return "redirect:/assets/viewAsset?_id=" + id;
         }

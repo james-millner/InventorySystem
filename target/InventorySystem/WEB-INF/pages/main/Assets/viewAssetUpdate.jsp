@@ -59,7 +59,7 @@
         <div class="col-md-12">
           <form method="post" action="" command="asset">
           <div class="col-md-4">
-            <h2><input type="text" style="width: 320px;" value="${asset.aname}" name="aname"/> </h2><p><b>Created On:</b> ${asset.dateCreated}</p>
+            <h2><input type="text" style="width: 320px;" value="${asset.aname}" name="aname"/> </h2><label><b>Created On:</b></label> <input disabled type="text" name="dateCreated" value="${asset.dateCreated}"/>
             <b>Description: </b><br><p></p><textarea type="text" id="desc" class="form-control" name="description" style="height: 100px; width: 320px;">${asset.description}</textarea><br>
             <b>Quantity: </b><input id="quantity" type="number" name="qty" min="0" max="3000" value="${asset.qty}"/>
 
