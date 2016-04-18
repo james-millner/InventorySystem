@@ -2,14 +2,18 @@ package com.jm.InventorySystem.controller;
 
 import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
 import com.jm.InventorySystem.DAO.MongoDBInventoryDAO;
+import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
 import com.jm.InventorySystem.domain.Crate;
 import com.jm.InventorySystem.domain.Inventory;
+import com.jm.InventorySystem.domain.Storehouse;
 import com.mongodb.MongoClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -74,8 +78,67 @@ public class InventoryController {
         inventory.set_id(id);
         Inventory inv = inventoryDAO.getInventory(inventory);
         model.addAttribute("item", inv);
+        mongoInventory.close();
 
-        return "/main/Inventory/viewInventory";
+        String cid = inventory.getCid();
+        if (cid == null) {
+            model.addAttribute("na", "N/A");
+            return "/main/Inventory/viewInventory";
+        } else {
+            //Get Crate Info.
+            MongoClient mongoCrate = new MongoClient("localhost", 27017);
+            MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongoCrate);
+            Crate c = new Crate();
+            c.set_id(cid);
+            c = crateDAO.getCrate(c);
+            model.addAttribute("crate", c);
+            mongoCrate.close();
+
+            //Get Storehouse Info.
+            MongoClient mongoClient = new MongoClient("localhost", 27017);
+            MongoDBStorehouseDAO storehouseDAO = new MongoDBStorehouseDAO(mongoClient);
+            Storehouse h = new Storehouse();
+            h.set_id(c.getSid());
+            h = storehouseDAO.readStorehouse(h);
+            model.addAttribute("storehouse", h);
+
+            return "/main/Inventory/viewInventory";
+        }
+    }
+
+    @RequestMapping("/inventory/viewInventory/update")
+    public String updateAsset(Model model,
+                              Inventory inventory,
+                              @RequestParam("_id") String id) {
+        MongoClient mongoInventory = new MongoClient("localhost", 27017);
+        MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mongoInventory);
+
+        Inventory blank = new Inventory();
+        blank.set_id(id);
+        blank = inventoryDAO.getInventory(blank);
+
+        Date date = blank.getDateCreated();
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongoClient);
+        if(inventory.getIname() == null) {
+
+            inventory.set_id(id);
+            inventory = inventoryDAO.getInventory(inventory);
+            model.addAttribute("inventory", inventory);
+            mongoInventory.close();
+
+            List<Crate> crates = crateDAO.readAllCrate();
+            model.addAttribute("crateList", crates);
+            mongoClient.close();
+            return "/main/Inventory/viewInventoryUpdate";
+        } else {
+            inventory.set_id(id);
+            inventory.setDateCreated(date);
+            inventoryDAO.updateInventory(inventory);
+            mongoInventory.close();
+            return "redirect:/inventory/viewInventory?_id=" + id;
+        }
+
     }
 
     @RequestMapping("/inventory/del")

@@ -73,6 +73,23 @@ public class MongoDBInventoryDAO {
         return i;
     }
 
+    public void updateInventory(Inventory i) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            BasicDBObject whereQuery = new BasicDBObject();
+            whereQuery.put("_id", i.get_id());
+            DBCursor cursor = this.db.find(whereQuery);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String update = mapper.writeValueAsString(i);
+                DBObject updateInventory = (DBObject) JSON.parse(update);
+                this.db.update(whereQuery, updateInventory);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void deleteInventory(Inventory i) {
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject findSpecific = new BasicDBObject();

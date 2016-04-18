@@ -79,8 +79,8 @@ public class MongoDBAssetDAO {
             while (cursor.hasNext()) {
                 DBObject obj = cursor.next();
                 String update = mapper.writeValueAsString(asset);
-                DBObject updateHouse = (DBObject) JSON.parse(update);
-                this.db.update(whereQuery, updateHouse);
+                DBObject updateAsset = (DBObject) JSON.parse(update);
+                this.db.update(whereQuery, updateAsset);
             }
         } catch (Exception e) {
             e.printStackTrace();
