@@ -8,6 +8,7 @@ import com.mongodb.MongoClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
@@ -49,5 +50,28 @@ public class CrateController {
 
             return "redirect:/crates";
         }
+    }
+
+    @RequestMapping("/crates/viewCrate")
+    public String viewCrate(Model model,
+                            Crate crate,
+                            @RequestParam("_id") String id){
+        //Find crate
+        MongoClient mongo = new MongoClient("localhost", 27017);
+        MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongo);
+        Crate blank = new Crate();
+        blank.set_id(id);
+        crate = crateDAO.getCrate(blank);
+        //Find Storehouse
+        String sid = crate.getSid();
+        MongoDBStorehouseDAO storehouseDAO = new MongoDBStorehouseDAO(mongo);
+        Storehouse h = new Storehouse();
+        h.set_id(sid);
+        Storehouse found = storehouseDAO.readStorehouse(h);
+
+        model.addAttribute("crate", crate);
+        model.addAttribute("storehouse", found);
+
+        return "/main/Crate/viewCrate";
     }
 }

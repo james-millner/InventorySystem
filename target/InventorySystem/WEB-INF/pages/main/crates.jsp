@@ -43,8 +43,14 @@
           <li role="presentation"><a href="/users">Users.</a></li>
         </ul>
       </div>
+      <br>
+      <div class="row">
+        <ol class="breadcrumb">
+          <li class="active">Home</li>
+        </ol>
+      </div>
       <div id="crateInfo" class="container">
-        <h2>Crates</h2>
+        <h2 style="margin-top: 5px;">Crates</h2>
         <div class="col-md-3">
           <form method="post" action="" command="crate">
             <h3>Add Crate:</h3>
@@ -77,7 +83,7 @@
           <h3>Current Crates: </h3>
           <c:forEach var="crate" items="${cList}">
             <div class="col-lg-2">
-              <a href="#${crate._id}" class="thumbnail">${crate.cName}</a>
+              <a href="/crates/viewCrate?_id=${crate._id}" class="thumbnail">${crate.cName}</a>
             </div>
           </c:forEach>
         </div>
