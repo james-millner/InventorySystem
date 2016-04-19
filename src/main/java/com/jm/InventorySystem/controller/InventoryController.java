@@ -134,6 +134,9 @@ public class InventoryController {
         } else {
             inventory.set_id(id);
             inventory.setDateCreated(date);
+            if(inventory.getCid().equals("")){
+                inventory.setCid(null);
+            }
             inventoryDAO.updateInventory(inventory);
             mongoInventory.close();
             return "redirect:/inventory/viewInventory?_id=" + id;

@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-4">
               <h3><b>Storehouse Information:</b></h3>
-              <c:if test="${empty storehouse}">
+              <c:if test="${item.cid.equals('')}">
                 ${na}
               </c:if>
               <c:if test="${not empty storehouse}">
@@ -80,7 +80,7 @@
             </div>
             <div class="col-md-4">
               <h3><b>Crate Information:</b></h3>
-              <c:if test="${empty crate}">
+              <c:if test="${item.cid.equals('')}">
                 ${na}
               </c:if>
               <c:if test="${not empty crate}">

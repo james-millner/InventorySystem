@@ -67,7 +67,7 @@
           <div class="col-md-4">
             <h3><b>Crate Information:</b></h3>
             <select multiple class="form-control" id="cid" name="cid">
-                <option value="">No Crate.</option>
+                <option>No Crate.</option>
               <c:forEach var="crate" items="${crateList}">
                 <option value="${crate._id}">${crate.cName}</option>
               </c:forEach>
@@ -85,7 +85,7 @@
           <div class="col-md-4">
             <div class="input-group">
               <br>
-              <label>Additional (Not Required: </label>
+              <label>Additional Not Required: </label>
               <textarea type="text" id="additional" class="form-control" name="extraInfo" style="height: 60px; width: 280px;"></textarea>
             </div>
           </div>
