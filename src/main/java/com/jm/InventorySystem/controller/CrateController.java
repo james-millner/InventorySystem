@@ -1,9 +1,14 @@
 package com.jm.InventorySystem.controller;
 
+import com.jm.InventorySystem.DAO.MongoDBAssetDAO;
 import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
+import com.jm.InventorySystem.DAO.MongoDBInventoryDAO;
 import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
+import com.jm.InventorySystem.domain.Asset;
 import com.jm.InventorySystem.domain.Crate;
+import com.jm.InventorySystem.domain.Inventory;
 import com.jm.InventorySystem.domain.Storehouse;
+import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,5 +78,36 @@ public class CrateController {
         model.addAttribute("storehouse", found);
 
         return "/main/Crate/viewCrate";
+    }
+
+    @RequestMapping("/crates/delCrate")
+    public String delCrate(@RequestParam("_id") String id) {
+        //Find crate
+        MongoClient mongo = new MongoClient("localhost", 27017);
+        MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongo);
+        Crate blank = new Crate();
+        blank.set_id(id);
+
+        Asset blankAsset = new Asset();
+        blankAsset.setCid(id);
+
+        MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongo);
+        List<Asset> a = assetDAO.getAssetsByCrate(blankAsset);
+
+        Inventory blankInv = new Inventory();
+        blankInv.setCid(id);
+
+        MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mongo);
+        List<Inventory> i = inventoryDAO.getInventoryByCrate(blankInv);
+
+        if(a.size() > 0 && i.size() > 0) {
+            System.out.println("YOU CANNOT DELETE");
+            return "redirect:/crates/viewCrate?_id=" + id;
+        } else {
+            crateDAO.deleteCrate(blank);
+        }
+        return "redirect:/crates";
+
+
     }
 }

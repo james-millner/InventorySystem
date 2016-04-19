@@ -69,4 +69,10 @@ public class MongoDBCrateDAO {
         }
         return crates;
     }
+
+    public void deleteCrate(Crate crate) {
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("_id", crate.get_id());
+        this.db.remove(findSpecific);
+    }
 }

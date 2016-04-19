@@ -55,6 +55,26 @@ public class MongoDBInventoryDAO {
         return inventory;
     }
 
+    public List<Inventory> getInventoryByCrate(Inventory i) {
+        List<Inventory> results = new ArrayList<Inventory>();
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("cid", i.getCid());
+        try {
+            DBCursor cursor = db.find(findSpecific);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                i = mapper.readValue(objJSON, Inventory.class);
+                results.add(i);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return results;
+    }
+
     public Inventory getInventory(Inventory i) {
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject findSpecific = new BasicDBObject();

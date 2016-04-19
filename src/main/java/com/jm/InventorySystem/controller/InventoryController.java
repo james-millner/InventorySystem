@@ -78,6 +78,11 @@ public class InventoryController {
         inventory.set_id(id);
         Inventory inv = inventoryDAO.getInventory(inventory);
         model.addAttribute("item", inv);
+        //Get Date Difference
+        Date createdDate = inv.getDateCreated();
+        Date today = new Date();
+        long difference = today.getDay() - createdDate.getDay();
+        model.addAttribute("daysInSys", difference);
         mongoInventory.close();
 
         String cid = inv.getCid();

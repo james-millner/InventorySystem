@@ -85,15 +85,12 @@
           </div>
           <div class="col-md-4">
             <h4>Additional Information: </h4>
-            <textarea type="text" id="additionalInfo" class="form-control" name="additionalInfo" style="height: 80px; width: 320px;"></textarea>
+            <textarea type="text" id="additionalInfo" class="form-control" name="additionalInfo" style="height: 80px; width: 320px;">${asset.additionalInfo}</textarea>
             <h5>Depreciation Value/Rate: </h5>
-            <textarea type="text" id="depreciation" class="form-control" name="depreciation" style="height: 40px; width: 320px;"></textarea>
+            <textarea type="text" id="depreciation" class="form-control" name="depreciation"  style="height: 40px; width: 320px;">${asset.depreciation}</textarea>
             <h5><b>Date to Update:</b></h5>
-            <input type="date" name="dateToUpdate" value=""/>
+            <input type="date" name="dateToUpdate" value="${asset.dateToUpdate}"/>
           </div>
-            <div class="col-lg-12">
-              asdasda
-            </div>
           <div style="margin: 10px" class="col-md-12" align="right">
             <h3>Actions:</h3>
             <button type="submit" class="btn btn-md btn-primary">Save.</button>

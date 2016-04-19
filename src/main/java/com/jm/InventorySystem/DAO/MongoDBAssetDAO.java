@@ -34,6 +34,8 @@ public class MongoDBAssetDAO {
         }
     }
 
+
+
     public List<Asset> readAllAssets() {
         ObjectMapper mapper = new ObjectMapper();
         List<Asset> assets = new ArrayList<Asset>();
@@ -68,6 +70,26 @@ public class MongoDBAssetDAO {
             e.printStackTrace();
         }
         return a;
+    }
+
+    public List<Asset> getAssetsByCrate(Asset a) {
+        List<Asset> results = new ArrayList<Asset>();
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("cid", a.getCid());
+        try {
+            DBCursor cursor = db.find(findSpecific);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                a = mapper.readValue(objJSON, Asset.class);
+                results.add(a);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return results;
     }
 
     public void updateAsset(Asset asset) {

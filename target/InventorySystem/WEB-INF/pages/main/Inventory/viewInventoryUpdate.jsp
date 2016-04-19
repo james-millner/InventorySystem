@@ -66,7 +66,7 @@
           </div>
           <div class="col-md-4">
             <h3><b>Crate Information:</b></h3>
-            <select multiple class="form-control" id="cid" name="cid">
+            <select multiple class="form-control" id="cid" name="cid" required>
                 <option>No Crate.</option>
               <c:forEach var="crate" items="${crateList}">
                 <option value="${crate._id}">${crate.cName}</option>
@@ -74,7 +74,7 @@
             </select>
             <div class="input-group">
               <label for="cid">Type: 	&nbsp; </label>
-              <select multiple class="form-control" id="type" name="type">
+              <select multiple class="form-control" id="type" name="type" required>
                 <option>Active</option>
                 <option>InActive</option>
                 <option>Hold</option>

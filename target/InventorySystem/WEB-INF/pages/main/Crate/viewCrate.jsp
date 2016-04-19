@@ -85,15 +85,11 @@
             <c:if test="${storehouse.rented == false}">
                 <p>Rented: <span class="glyphicon glyphicon-remove"></span></p>
             </c:if>
+            </div>
         </div>
-        <div class="col-md-4" style="vertical-align: middle;">
-            <div class="col-md-12" align="center" >
-                <a href="#" class="btn btn-warning">Update</a>
-            </div>
-            <br>
-            <div class="col-md-12" align="center">
-                <a href="#" class="btn btn-danger">Delete <span class="glyphicon glyphicon-trash"></span></a>
-            </div>
+        <div class="col-md-4" style="margin-top: 10px;">
+            <a href="#" class="btn btn-warning">Update</a>
+            <a href="/crates/delCrate?_id=${crate._id}" class="btn btn-danger">Delete <span class="glyphicon glyphicon-trash"></span></a>
         </div>
     </div>
     <hr>
