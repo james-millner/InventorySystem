@@ -90,8 +90,6 @@
             <textarea type="text" id="depreciation" class="form-control" name="depreciation" style="height: 40px; width: 320px;"></textarea>
             <h5><b>Date to Update:</b></h5>
             <input type="date" name="dateToUpdate" value=""/>
-            <h5><b>Date to Update:</b></h5>
-            <input type="date" name="dateToUpdate" value=""/>
           </div>
           <div style="margin: 10px" class="col-md-12" align="right">
             <h3>Actions:</h3>
