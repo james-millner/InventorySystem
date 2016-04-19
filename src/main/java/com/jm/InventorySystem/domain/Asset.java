@@ -21,6 +21,9 @@ public class Asset {
     String purchString;
     Date purchased;
     Date dateCreated;
+    String additionalInfo;
+    String depreciation;
+    String dateToUpdate;
 
     //No Arg Constructor
     public Asset() {
@@ -117,5 +120,29 @@ public class Asset {
 
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
+    }
+
+    public String getDepreciation() {
+        return depreciation;
+    }
+
+    public void setDepreciation(String depreciation) {
+        this.depreciation = depreciation;
+    }
+
+    public String getDateToUpdate() {
+        return dateToUpdate;
+    }
+
+    public void setDateToUpdate(String dateToUpdate) {
+        this.dateToUpdate = dateToUpdate;
     }
 }

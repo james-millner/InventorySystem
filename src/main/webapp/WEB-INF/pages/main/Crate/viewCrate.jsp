@@ -47,7 +47,7 @@
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="/crates">Home</a></li>
-            <li class="active">View Crate</li>
+            <li class="active">View ${crate.cName}</li>
         </ol>
     </div>
     <div id="crateInfo" style="background-color: #E8E8E8; border-radius: 10px;" class="container">

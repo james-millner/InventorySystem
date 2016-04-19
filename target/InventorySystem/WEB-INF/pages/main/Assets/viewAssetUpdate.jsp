@@ -87,7 +87,7 @@
             <h4>Additional Information: </h4>
             <textarea type="text" id="additionalInfo" class="form-control" name="additionalInfo" style="height: 80px; width: 320px;"></textarea>
             <h5>Depreciation Value/Rate: </h5>
-            <textarea type="text" id="depreciation" class="form-control" name="depreciationRate" style="height: 40px; width: 320px;"></textarea>
+            <textarea type="text" id="depreciation" class="form-control" name="depreciation" style="height: 40px; width: 320px;"></textarea>
             <h5><b>Date to Update:</b></h5>
             <input type="date" name="dateToUpdate" value=""/>
           </div>
