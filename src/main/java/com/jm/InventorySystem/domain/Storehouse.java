@@ -30,7 +30,6 @@ public class Storehouse {
         this.owned = so;
         this.rented = r;
         this.active = act;
-
     }
 
     public String get_id() {
