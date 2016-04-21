@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="/resources/css/invsettings.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 
 
 </head>
@@ -80,16 +82,49 @@
             <li class="tab-link" data-tab="tab-4">Tab Four</li>
           </ul>
 
-          <div id="tab-1" class="tab-content current">
-           <form method="post" action="" command="type">
-             <div class="form-group">
-               <div class="input-group">
-                 <label>Enter new type:</label>
-                 <input type="text" name="type">
-                 <button type="submit">Submit.</button>
+          <div id="tab-1" class="tab-content current col-md-12">
+            <div style="border-right: groove 1px; height: 150px" class="col-md-3" align="right">
+             <form method="post" action="" command="type">
+               <div class="form-group">
+                 <div class="input-group">
+                   <h3>New Type: </h3>
+                 </div>
+                 <div class="input-group">
+                   <label>Enter new type:</label>
+                 </div>
+                 <div class="input-group">
+                   <input type="text" name="type">
+                   <button type="submit"><span class="glyphicon glyphicon-plus"></span></button>
+                 </div>
                </div>
-             </div>
-           </form>
+             </form>
+            </div>
+            <div class="col-md-9">
+              <table id="types" class="table display">
+                <script>
+                  $(document).ready( function () {
+                    $('#types').DataTable();
+                  } );
+                </script>
+                <thead>
+                  <tr>
+                    <th><span class="text">Number</span></th>
+                    <th><span class="text">Type</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <c:set var="count" value="0" scope="page"/>
+                  <c:forEach var="type" items="${types}">
+                    <tr>
+                      <c:set var="count" value="${count + 1}" scope="page"></c:set>
+                      <td>${count}</td>
+                      <td>${type.type}</td>
+                    </tr>
+                  </c:forEach>
+                </tbody>
+              </table>
+            </div>
+
           </div>
           <div id="tab-2" class="tab-content">
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

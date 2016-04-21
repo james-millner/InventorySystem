@@ -66,7 +66,12 @@ public class InventoryController {
     @RequestMapping("/inventory/settings")
     public String invSettings(Model model,
                               String type) {
-        System.out.println("NEW TYPE IS : " + type);
+
+        MongoClient mongoInventoryType = new MongoClient("localhost", 27017);
+        MongoDBTypeDAO invType = new MongoDBTypeDAO(mongoInventoryType);
+        List<InventoryType> types = invType.readAllTypes();
+        model.addAttribute("types", types);
+        mongoInventoryType.close();
         if(type == null) {
             return "/main/Inventory/settings";
         }
@@ -75,7 +80,7 @@ public class InventoryController {
         InventoryType typeNew = new InventoryType(type);
         mongoDBTypeDAO.createType(typeNew);
 
-        return "/main/Inventory/settings";
+        return "redirect:/inventory/settings";
     }
 
     @RequestMapping("/inventory/viewAll")
