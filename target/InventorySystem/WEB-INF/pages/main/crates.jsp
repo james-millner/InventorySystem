@@ -22,7 +22,8 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 
 </head>
   <body>
@@ -59,11 +60,11 @@
               <input type="text" id="crateName" class="form-control" placeholder="Crate Name" name="cName" required/>
             </div>
             <div class="input-group">
-              <label id="heightLbl">Height: </label>
+              <label id="heightLbl">Height (cm): </label>
               <input type="text" id="height" class="form-control" placeholder="Height" name="height" required/>
             </div>
             <div class="input-group">
-              <label id="weightLbl">Width: </label>
+              <label id="weightLbl">Width (cm): </label>
               <input type="text" id="weight" class="form-control" placeholder="Weight" name="width" required/>
             </div>
             <div class="input-group">
@@ -81,11 +82,34 @@
         </div>
         <div id="allCrates" class="col-md-9">
           <h3>Current Crates: </h3>
-          <c:forEach var="crate" items="${cList}">
-            <div class="col-lg-2">
-              <a href="/crates/viewCrate?_id=${crate._id}" class="thumbnail">${crate.cName}</a>
-            </div>
-          </c:forEach>
+          <table id="crates" class="table table-condensed display">
+            <script>
+              $(document).ready( function () {
+                $('#crates').DataTable();
+              } );
+            </script>
+            <thead>
+            <tr>
+              <th><span class="text"> Crate Name</span></th>
+              <th><span class="text"> Width (cm)</span></th>
+              <th><span class="text"> Height (cm)</span></th>
+              <th><span class="text"> Date Created</span></th>
+              <th><span class="text"> View</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="crate" items="${cList}">
+              <c:url value="/crates/viewCrate?_id=${crate._id}" var="viewURL"></c:url>
+                <tr>
+                  <td>${crate.cName}</td>
+                  <td>${crate.width}</td>
+                  <td>${crate.height}</td>
+                  <td>${crate.dateCreated}</td>
+                  <td><a href='<c:out value="${viewURL}" escapeXml="true"></c:out>'>View <span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+          </table>
         </div>
       </div>
       <hr>

@@ -55,8 +55,8 @@
             <h2><b>Crate Name:</b></h2>
             <h3>${crate.cName}</h3>
             <label>Dimensions: </label>
-            <p><b>Height:   </b>${crate.height}</p>
-            <p><b>Width:   </b>${crate.width}</p>
+            <p><b>Height (cm):   </b>${crate.height}</p>
+            <p><b>Width (cm):   </b>${crate.width}</p>
             <label>Date Created: </label>
             <p>${crate.dateCreated.toString()}</p>
         </div>
