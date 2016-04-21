@@ -83,6 +83,18 @@ public class InventoryController {
         return "redirect:/inventory/settings";
     }
 
+    @RequestMapping("/inventory/deleteType")
+    public String delType(@RequestParam("type") String type) {
+        MongoClient mInv = new MongoClient("localhost", 27017);
+        MongoDBTypeDAO mongoDBTypeDAO = new MongoDBTypeDAO(mInv);
+        InventoryType iType = new InventoryType();
+        iType.setType(type);
+        iType = mongoDBTypeDAO.getType(iType);
+        mongoDBTypeDAO.deleteType(iType);
+
+        return "redirect:/inventory/settings";
+    }
+
     @RequestMapping("/inventory/viewAll")
     public String viewAll(Model model,
                           Inventory inventory) {

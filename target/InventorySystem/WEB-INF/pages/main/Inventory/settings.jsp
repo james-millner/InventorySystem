@@ -110,15 +110,18 @@
                   <tr>
                     <th><span class="text">Number</span></th>
                     <th><span class="text">Type</span></th>
+                    <th><span class="text">Remove</span></th>
                   </tr>
                 </thead>
                 <tbody>
                   <c:set var="count" value="0" scope="page"/>
                   <c:forEach var="type" items="${types}">
+                    <c:url value="/inventory/deleteType?type=${type.type}" var="delURL"></c:url>
                     <tr>
                       <c:set var="count" value="${count + 1}" scope="page"></c:set>
                       <td>${count}</td>
                       <td>${type.type}</td>
+                      <td><a href='<c:out value="${delURL}" escapeXml="true"></c:out>'><span class="glyphicon glyphicon-trash"></span></a></td>
                     </tr>
                   </c:forEach>
                 </tbody>

@@ -2,10 +2,7 @@ package com.jm.InventorySystem.DAO;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jm.InventorySystem.domain.InventoryType;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
+import com.mongodb.*;
 import com.mongodb.util.JSON;
 import org.bson.types.ObjectId;
 
@@ -34,6 +31,24 @@ public class MongoDBTypeDAO {
         }
     }
 
+    public InventoryType getType(InventoryType type) {
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("_id", type.get_id());
+        try {
+            DBCursor cursor = db.find(findSpecific);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                type = mapper.readValue(objJSON, InventoryType.class);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return type;
+    }
+
     public List<InventoryType> readAllTypes() {
         ObjectMapper mapper = new ObjectMapper();
         List<InventoryType> types = new ArrayList<InventoryType>();
@@ -51,5 +66,12 @@ public class MongoDBTypeDAO {
         }
         return types;
     }
+
+    public void deleteType(InventoryType type) {
+        DBObject query = BasicDBObjectBuilder.start()
+                .append("type", type.getType()).get();
+        this.db.remove(query);
+    }
+
 
 }
