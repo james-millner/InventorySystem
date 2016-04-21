@@ -13,15 +13,15 @@
 
     <title>Inventory</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0/Chart.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
-
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
 
 </head>
@@ -56,39 +56,8 @@
                 <h4>Home.</h4>
       </div>
       <div class="container-fluid">
-          <canvas id="mainChart" style="width: 400px; height: 400px;">
-            <script>
-              $(document).ready(function(){
-                var types = document.getElementById('mainChart').getContext('2d');
-
-                //data for the graph.
-                var data = [
-                  {
-                    value: 300,
-                    color:"#F7464A",
-                    label: "Red"
-                  },
-                  {
-                    value: 50,
-                    color: "#46BFBD",
-                    label: "Green"
-                  },
-                  {
-                    value: 100,
-                    color: "#FDB45C",
-                    label: "Yellow"
-                  }
-                ]
-
-                var dataOptions = {
-                  segmentShowStroke : false,
-                  animateScale : true
-                }
-                //Graph
-                new Chart(types).Pie(data, dataOptions);
-              });
-            </script>
-          </canvas>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. Donec gravida nisl porttitor sem dictum blandit. Mauris elementum ante nec risus ultricies mollis. Suspendisse orci orci, pharetra non sem at, commodo tempor nunc. Curabitur ultricies nisi orci, eu condimentum nunc aliquet vitae. Fusce mollis nisi feugiat ante eleifend vestibulum. Curabitur pulvinar magna eu neque luctus, sit amet feugiat velit ultrices. Sed tristique ex quis mollis luctus. Praesent quis sollicitudin dui, quis dignissim ipsum. Integer vitae ipsum quis massa mollis hendrerit vitae ut ante.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. Donec gravida nisl porttitor sem dictum blandit. Mauris elementum ante nec risus ultricies mollis. Suspendisse orci orci, pharetra non sem at, commodo tempor nunc.<br>Curabitur ultricies nisi orci, eu condimentum nunc aliquet vitae. Fusce mollis nisi feugiat ante eleifend vestibulum.</p>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
