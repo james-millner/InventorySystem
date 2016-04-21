@@ -75,10 +75,9 @@
               <div class="input-group">
                 <label for="cid">Type: 	&nbsp; </label>
                 <select multiple class="form-control" id="type" name="type">
-                    <option>Active</option>
-                    <option>InActive</option>
-                    <option>Hold</option>
-                    <option>Permanent</option>
+                      <c:forEach var="type" items="${types}">
+                        <option>${type.type}</option>
+                        </c:forEach>
                 </select>
               </div>
             </div>

@@ -8,6 +8,11 @@ public class InventoryType {
     String _id;
     String type;
 
+    //NoArgs
+    public InventoryType() {
+
+    }
+
     public InventoryType(String t){
         this.type = t;
 

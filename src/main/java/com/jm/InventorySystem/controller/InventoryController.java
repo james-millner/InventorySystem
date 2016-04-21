@@ -3,8 +3,10 @@ package com.jm.InventorySystem.controller;
 import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
 import com.jm.InventorySystem.DAO.MongoDBInventoryDAO;
 import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
+import com.jm.InventorySystem.DAO.MongoDBTypeDAO;
 import com.jm.InventorySystem.domain.Crate;
 import com.jm.InventorySystem.domain.Inventory;
+import com.jm.InventorySystem.domain.InventoryType;
 import com.jm.InventorySystem.domain.Storehouse;
 import com.mongodb.MongoClient;
 import org.springframework.stereotype.Controller;
@@ -44,6 +46,12 @@ public class InventoryController {
         List<Inventory> invList = inventoryDAO.readAllInventory();
         model.addAttribute("inventoryList", invList);
 
+        MongoClient mongoInventoryType = new MongoClient("localhost", 27017);
+        MongoDBTypeDAO invType = new MongoDBTypeDAO(mongoInventoryType);
+        List<InventoryType> types = invType.readAllTypes();
+        model.addAttribute("types", types);
+        mongoInventoryType.close();
+
         if(inventory.getIname() == null) {
             return "/main/Inventory/addInventory";
         } else {
@@ -59,6 +67,14 @@ public class InventoryController {
     public String invSettings(Model model,
                               String type) {
         System.out.println("NEW TYPE IS : " + type);
+        if(type == null) {
+            return "/main/Inventory/settings";
+        }
+        MongoClient mInv = new MongoClient("localhost", 27017);
+        MongoDBTypeDAO mongoDBTypeDAO = new MongoDBTypeDAO(mInv);
+        InventoryType typeNew = new InventoryType(type);
+        mongoDBTypeDAO.createType(typeNew);
+
         return "/main/Inventory/settings";
     }
 
@@ -132,6 +148,11 @@ public class InventoryController {
         Date date = blank.getDateCreated();
         MongoClient mongoClient = new MongoClient("localhost", 27017);
         MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongoClient);
+
+        MongoClient mongoInventoryType = new MongoClient("localhost", 27017);
+        MongoDBTypeDAO invType = new MongoDBTypeDAO(mongoInventoryType);
+        List<InventoryType> types = invType.readAllTypes();
+        model.addAttribute("types", types);
         if(inventory.getIname() == null) {
 
             inventory.set_id(id);

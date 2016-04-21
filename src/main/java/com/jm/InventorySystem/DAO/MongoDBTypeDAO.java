@@ -34,7 +34,7 @@ public class MongoDBTypeDAO {
         }
     }
 
-    public List<InventoryType> readAllCrate() {
+    public List<InventoryType> readAllTypes() {
         ObjectMapper mapper = new ObjectMapper();
         List<InventoryType> types = new ArrayList<InventoryType>();
         try {

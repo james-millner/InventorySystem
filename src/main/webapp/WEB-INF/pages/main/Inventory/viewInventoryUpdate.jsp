@@ -75,10 +75,9 @@
             <div class="input-group">
               <label for="cid">Type: 	&nbsp; </label>
               <select multiple class="form-control" id="type" name="type" required>
-                <option>Active</option>
-                <option>InActive</option>
-                <option>Hold</option>
-                <option>Permanent</option>
+                <c:forEach var="type" items="${types}">
+                  <option>${type.type}</option>
+                </c:forEach>
               </select>
             </div>
           </div>
@@ -86,7 +85,7 @@
             <div class="input-group">
               <br>
               <label>Additional Not Required: </label>
-              <textarea type="text" id="additional" class="form-control" name="extraInfo" style="height: 60px; width: 280px;"></textarea>
+              <textarea type="text" id="additional" class="form-control" name="extraInfo" style="height: 60px; width: 280px;">${inventory.extraInfo}</textarea>
             </div>
           </div>
           <div style="margin: 10px" class="col-md-12" align="right">

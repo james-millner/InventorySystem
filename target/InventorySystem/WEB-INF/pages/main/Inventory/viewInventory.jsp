@@ -65,6 +65,11 @@
               <b>Description: </b><br><p></p><p>${item.description}</p>
               <b>Quantity: </b><input type="number" value="${item.qty}" disabled/>
               <p></p>
+              <p><b>Type: </b>${item.type}</p>
+              <p></p>
+              <c:if test="${item.extraInfo != ''}">
+                <p><b>Type Information: </b>${item.extraInfo}</p>
+              </c:if>
               <br>
             </div>
             <div class="col-md-4">
@@ -90,7 +95,7 @@
                 <p><b>Width: </b>${crate.width} 	&nbsp; <b>Height: </b>${crate.height}</p>
               </c:if>
             </div>
-            <div style="margin: 10px" class="col-md-12" align="right">
+            <div class="col-md-8" align="right">
               <h3>Actions:</h3>
               <a class="btn btn-primary" href="/inventory/viewInventory/update?_id=${item._id}">Update</a>
             </div>
