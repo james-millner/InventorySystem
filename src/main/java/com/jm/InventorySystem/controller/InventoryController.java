@@ -55,6 +55,11 @@ public class InventoryController {
         }
     }
 
+    @RequestMapping("/inventory/settings")
+    public String invSettings(Model model) {
+        return "/main/Inventory/settings";
+    }
+
     @RequestMapping("/inventory/viewAll")
     public String viewAll(Model model,
                           Inventory inventory) {

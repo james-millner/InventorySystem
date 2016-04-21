@@ -48,7 +48,8 @@
                 <div class="row">
                   <ol class="breadcrumb">
                     <li class="active"><a href="/inventory">Home</a></li>
-                    <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
+                    <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Entry</a></li>
+                    <li><a href="/inventory/settings"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Inventory Settings</a></li>
                     <li><a href="/inventory/viewAll">View Inventory</a></li>
                   </ol>
                 </div>

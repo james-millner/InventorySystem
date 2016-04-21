@@ -48,13 +48,14 @@
       </div>
       <div id="title">
                 <h2>Inventory</h2>
-                <div class="row">
-                  <ol class="breadcrumb">
-                    <li><a href="/inventory">Home</a></li>
-                    <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
-                    <li class="active">View Inventory</li>
-                  </ol>
-                </div>
+                  <div class="row">
+                      <ol class="breadcrumb">
+                          <li><a href="/inventory">Home</a></li>
+                          <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Entry</a></li>
+                          <li><a href="/inventory/settings"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Inventory Settings</a></li>
+                          <li class="active">View Inventory</li>
+                      </ol>
+                  </div>
                 <h4>View All.</h4>
                 <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. </h5>
       </div>

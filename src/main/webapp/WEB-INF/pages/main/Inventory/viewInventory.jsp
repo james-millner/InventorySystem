@@ -47,12 +47,13 @@
       </div>
       <div id="title">
                 <h2>Inventory</h2>
-                <div class="row">
-                  <ol class="breadcrumb">
-                    <li><a href="/inventory">Home</a></li>
-                    <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
-                    <li class="active"><a href="/inventory/viewAll"> View Inventory</a></li>
-                    <li class="active">View ${item.iname}</li>
+                  <div class="row">
+                    <ol class="breadcrumb">
+                      <li class="active"><a href="/inventory">Home</a></li>
+                      <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Entry</a></li>
+                      <li><a href="/inventory/settings"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Inventory Settings</a></li>
+                      <li><a href="/inventory/viewAll">View Inventory</a></li>
+                      <li class="active">View ${item.iname}</li>
                   </ol>
               </div>
       </div>

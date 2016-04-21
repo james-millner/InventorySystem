@@ -47,17 +47,16 @@
                 <h2>Inventory</h2>
                 <div class="row">
                   <ol class="breadcrumb">
-                    <li class="active"><a href="/inventory">Home</a></li>
-                    <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Entry</a></li>
-                    <li><a href="/inventory/settings"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Inventory Settings</a></li>
+                    <li><a href="/inventory">Home</a></li>
+                    <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
+                    <li class="active"><span class="glyphicon glyphicon-th-list"></span>Inventory Settings</li>
                     <li><a href="/inventory/viewAll">View Inventory</a></li>
                   </ol>
                 </div>
-                <h4>Home.</h4>
+                <h4>Inventory Settings.</h4>
       </div>
       <div class="container-fluid">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. Donec gravida nisl porttitor sem dictum blandit. Mauris elementum ante nec risus ultricies mollis. Suspendisse orci orci, pharetra non sem at, commodo tempor nunc. Curabitur ultricies nisi orci, eu condimentum nunc aliquet vitae. Fusce mollis nisi feugiat ante eleifend vestibulum. Curabitur pulvinar magna eu neque luctus, sit amet feugiat velit ultrices. Sed tristique ex quis mollis luctus. Praesent quis sollicitudin dui, quis dignissim ipsum. Integer vitae ipsum quis massa mollis hendrerit vitae ut ante.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. Donec gravida nisl porttitor sem dictum blandit. Mauris elementum ante nec risus ultricies mollis. Suspendisse orci orci, pharetra non sem at, commodo tempor nunc.<br>Curabitur ultricies nisi orci, eu condimentum nunc aliquet vitae. Fusce mollis nisi feugiat ante eleifend vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
