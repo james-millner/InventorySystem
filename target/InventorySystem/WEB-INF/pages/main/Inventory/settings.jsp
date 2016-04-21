@@ -19,9 +19,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/resources/css/invsettings.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 
 </head>
@@ -48,15 +49,59 @@
                 <div class="row">
                   <ol class="breadcrumb">
                     <li><a href="/inventory">Home</a></li>
-                    <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>Add Entry</a></li>
-                    <li class="active"><span class="glyphicon glyphicon-th-list"></span>Inventory Settings</li>
+                    <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Entry</a></li>
+                    <li class="active"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Inventory Settings</a></li>
                     <li><a href="/inventory/viewAll">View Inventory</a></li>
                   </ol>
                 </div>
-                <h4>Inventory Settings.</h4>
       </div>
       <div class="container-fluid">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+        <script>
+          $(document).ready(function(){
+
+            $('ul.tabs li').click(function(){
+              var tab_id = $(this).attr('data-tab');
+
+              $('ul.tabs li').removeClass('current');
+              $('.tab-content').removeClass('current');
+
+              $(this).addClass('current');
+              $("#"+tab_id).addClass('current');
+            })
+
+          })
+        </script>
+        <div>
+
+          <ul class="tabs">
+            <li class="tab-link current" data-tab="tab-1">Add Type!</li>
+            <li class="tab-link" data-tab="tab-2">Tab Two</li>
+            <li class="tab-link" data-tab="tab-3">Tab Three</li>
+            <li class="tab-link" data-tab="tab-4">Tab Four</li>
+          </ul>
+
+          <div id="tab-1" class="tab-content current">
+           <form method="post" action="" command="type">
+             <div class="form-group">
+               <div class="input-group">
+                 <label>Enter new type:</label>
+                 <input type="text" name="type">
+                 <button type="submit">Submit.</button>
+               </div>
+             </div>
+           </form>
+          </div>
+          <div id="tab-2" class="tab-content">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <div id="tab-3" class="tab-content">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </div>
+          <div id="tab-4" class="tab-content">
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </div>
+
+        </div><!-- container -->
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

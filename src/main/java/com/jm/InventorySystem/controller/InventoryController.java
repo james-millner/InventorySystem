@@ -56,7 +56,9 @@ public class InventoryController {
     }
 
     @RequestMapping("/inventory/settings")
-    public String invSettings(Model model) {
+    public String invSettings(Model model,
+                              String type) {
+        System.out.println("NEW TYPE IS : " + type);
         return "/main/Inventory/settings";
     }
 
