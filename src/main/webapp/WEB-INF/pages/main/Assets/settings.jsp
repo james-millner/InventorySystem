@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Inventory</title>
+    <title>Assets</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
@@ -47,11 +47,11 @@
         </ul>
       </div>
       <div id="title">
-                <h2>Inventory</h2>
+                <h2>Assets</h2>
         <div class="row">
           <ol class="breadcrumb">
             <li><a href="/assets">Home</a></li>
-            <li><span class="glyphicon glyphicon-plus"></span>Add Asset</li>
+            <li><a href="/assets/addAsset"><span class="glyphicon glyphicon-plus"></span>Add Asset</a></li>
             <li class="active"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Asset Settings</li>
             <li><a href="/assets/viewAll">View Assets</a></li>
           </ol>
@@ -76,10 +76,8 @@
         <div>
 
           <ul class="tabs">
-            <li class="tab-link current" data-tab="tab-1">Add Type!</li>
-            <li class="tab-link" data-tab="tab-2">Tab Two</li>
-            <li class="tab-link" data-tab="tab-3">Tab Three</li>
-            <li class="tab-link" data-tab="tab-4">Tab Four</li>
+            <li class="tab-link current" data-tab="tab-1">Add Asset Type!</li>
+            <li class="tab-link" data-tab="tab-2">Other Settings.</li>
           </ul>
 
           <div id="tab-1" class="tab-content current col-md-12">
@@ -87,7 +85,7 @@
              <form method="post" action="" command="type">
                <div class="form-group">
                  <div class="input-group">
-                   <h3>New Type: </h3>
+                   <h3>New Asset Type: </h3>
                  </div>
                  <div class="input-group">
                    <label>Enter new type:</label>
@@ -131,12 +129,6 @@
           </div>
           <div id="tab-2" class="tab-content">
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-          <div id="tab-3" class="tab-content">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </div>
-          <div id="tab-4" class="tab-content">
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </div>
 
         </div><!-- container -->

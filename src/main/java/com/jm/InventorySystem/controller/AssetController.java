@@ -66,6 +66,11 @@ public class AssetController {
         }
     }
 
+    @RequestMapping("/assets/settings")
+    public String assetSettings(Model model) {
+        return "/main/Assets/settings";
+    }
+
     @RequestMapping("/assets/viewAll")
     public String viewAllAssets(Model model,
                                 Asset asset) {

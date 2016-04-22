@@ -50,7 +50,7 @@
           <ol class="breadcrumb">
             <li><a href="/assets">Home</a></li>
             <li><a href="/assets/addAsset"><span class="glyphicon glyphicon-plus"></span>Add Asset</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Asset Settings</a></li>
+            <li><a href="/assets/settings"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Asset Settings</a></li>
             <li class="active">View Assets</li>
           </ol>
         </div>
