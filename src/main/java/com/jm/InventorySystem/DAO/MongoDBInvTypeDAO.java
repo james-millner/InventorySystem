@@ -12,11 +12,11 @@ import java.util.List;
 /**
  * Created by James on 21/04/2016.
  */
-public class MongoDBTypeDAO {
+public class MongoDBInvTypeDAO {
 
     private DBCollection db;
 
-    public MongoDBTypeDAO(MongoClient mongoClient) { this.db = mongoClient.getDB("InventorySys").getCollection("invtypes"); }
+    public MongoDBInvTypeDAO(MongoClient mongoClient) { this.db = mongoClient.getDB("InventorySys").getCollection("invtypes"); }
 
     public void createType(InventoryType type) {
         ObjectMapper mapper = new ObjectMapper();

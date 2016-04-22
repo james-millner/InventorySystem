@@ -85,7 +85,7 @@
              <form method="post" action="" command="type">
                <div class="form-group">
                  <div class="input-group">
-                   <h3>New Type: </h3>
+                   <h3>New Asset Type: </h3>
                  </div>
                  <div class="input-group">
                    <label>Enter new type:</label>

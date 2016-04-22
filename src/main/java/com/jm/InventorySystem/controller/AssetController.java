@@ -2,9 +2,11 @@ package com.jm.InventorySystem.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jm.InventorySystem.DAO.MongoDBAssetDAO;
+import com.jm.InventorySystem.DAO.MongoDBAssetTypeDAO;
 import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
 import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
 import com.jm.InventorySystem.domain.Asset;
+import com.jm.InventorySystem.domain.AssetType;
 import com.jm.InventorySystem.domain.Crate;
 import com.jm.InventorySystem.domain.Storehouse;
 import com.mongodb.*;
@@ -67,8 +69,17 @@ public class AssetController {
     }
 
     @RequestMapping("/assets/settings")
-    public String assetSettings(Model model) {
-        return "/main/Assets/settings";
+    public String assetSettings(Model model,
+                                AssetType type) {
+        MongoClient mongo = new MongoClient("localhost", 27017);
+        MongoDBAssetTypeDAO assetTypeDAO = new MongoDBAssetTypeDAO(mongo);
+        if(type.getType() == null) {
+            return "/main/Assets/settings";
+        } else {
+            assetTypeDAO.createType(type);
+            return "redirect:/assets/settings";
+        }
+
     }
 
     @RequestMapping("/assets/viewAll")

@@ -3,7 +3,7 @@ package com.jm.InventorySystem.controller;
 import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
 import com.jm.InventorySystem.DAO.MongoDBInventoryDAO;
 import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
-import com.jm.InventorySystem.DAO.MongoDBTypeDAO;
+import com.jm.InventorySystem.DAO.MongoDBInvTypeDAO;
 import com.jm.InventorySystem.domain.Crate;
 import com.jm.InventorySystem.domain.Inventory;
 import com.jm.InventorySystem.domain.InventoryType;
@@ -14,8 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -47,7 +45,7 @@ public class InventoryController {
         model.addAttribute("inventoryList", invList);
 
         MongoClient mongoInventoryType = new MongoClient("localhost", 27017);
-        MongoDBTypeDAO invType = new MongoDBTypeDAO(mongoInventoryType);
+        MongoDBInvTypeDAO invType = new MongoDBInvTypeDAO(mongoInventoryType);
         List<InventoryType> types = invType.readAllTypes();
         model.addAttribute("types", types);
         mongoInventoryType.close();
@@ -68,7 +66,7 @@ public class InventoryController {
                               String type) {
 
         MongoClient mongoInventoryType = new MongoClient("localhost", 27017);
-        MongoDBTypeDAO invType = new MongoDBTypeDAO(mongoInventoryType);
+        MongoDBInvTypeDAO invType = new MongoDBInvTypeDAO(mongoInventoryType);
         List<InventoryType> types = invType.readAllTypes();
         model.addAttribute("types", types);
         mongoInventoryType.close();
@@ -76,9 +74,9 @@ public class InventoryController {
             return "/main/Inventory/settings";
         }
         MongoClient mInv = new MongoClient("localhost", 27017);
-        MongoDBTypeDAO mongoDBTypeDAO = new MongoDBTypeDAO(mInv);
+        MongoDBInvTypeDAO mongoDBInvTypeDAO = new MongoDBInvTypeDAO(mInv);
         InventoryType typeNew = new InventoryType(type);
-        mongoDBTypeDAO.createType(typeNew);
+        mongoDBInvTypeDAO.createType(typeNew);
 
         return "redirect:/inventory/settings";
     }
@@ -86,11 +84,11 @@ public class InventoryController {
     @RequestMapping("/inventory/deleteType")
     public String delType(@RequestParam("type") String type) {
         MongoClient mInv = new MongoClient("localhost", 27017);
-        MongoDBTypeDAO mongoDBTypeDAO = new MongoDBTypeDAO(mInv);
+        MongoDBInvTypeDAO mongoDBInvTypeDAO = new MongoDBInvTypeDAO(mInv);
         InventoryType iType = new InventoryType();
         iType.setType(type);
-        iType = mongoDBTypeDAO.getType(iType);
-        mongoDBTypeDAO.deleteType(iType);
+        iType = mongoDBInvTypeDAO.getType(iType);
+        mongoDBInvTypeDAO.deleteType(iType);
 
         return "redirect:/inventory/settings";
     }
@@ -167,7 +165,7 @@ public class InventoryController {
         MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongoClient);
 
         MongoClient mongoInventoryType = new MongoClient("localhost", 27017);
-        MongoDBTypeDAO invType = new MongoDBTypeDAO(mongoInventoryType);
+        MongoDBInvTypeDAO invType = new MongoDBInvTypeDAO(mongoInventoryType);
         List<InventoryType> types = invType.readAllTypes();
         model.addAttribute("types", types);
         if(inventory.getIname() == null) {
