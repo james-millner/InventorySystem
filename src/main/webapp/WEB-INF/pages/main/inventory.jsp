@@ -19,10 +19,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
 
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
 
 </head>
   <body>
@@ -44,20 +64,19 @@
         </ul>
       </div>
       <div id="title">
-                <h2>Inventory</h2>
+                <h2>Inventory Home</h2>
                 <div class="row">
                   <ol class="breadcrumb">
-                    <li class="active"><a href="/inventory">Home</a></li>
+                    <li class="active">Home</li>
                     <li><a href="/inventory/addInventory"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Entry</a></li>
                     <li><a href="/inventory/settings"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Inventory Settings</a></li>
                     <li><a href="/inventory/viewAll">View Inventory</a></li>
                   </ol>
                 </div>
-                <h4>Home.</h4>
       </div>
-      <div class="container-fluid">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. Donec gravida nisl porttitor sem dictum blandit. Mauris elementum ante nec risus ultricies mollis. Suspendisse orci orci, pharetra non sem at, commodo tempor nunc. Curabitur ultricies nisi orci, eu condimentum nunc aliquet vitae. Fusce mollis nisi feugiat ante eleifend vestibulum. Curabitur pulvinar magna eu neque luctus, sit amet feugiat velit ultrices. Sed tristique ex quis mollis luctus. Praesent quis sollicitudin dui, quis dignissim ipsum. Integer vitae ipsum quis massa mollis hendrerit vitae ut ante.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. Donec gravida nisl porttitor sem dictum blandit. Mauris elementum ante nec risus ultricies mollis. Suspendisse orci orci, pharetra non sem at, commodo tempor nunc.<br>Curabitur ultricies nisi orci, eu condimentum nunc aliquet vitae. Fusce mollis nisi feugiat ante eleifend vestibulum.</p>
+      <div class="container">
+        <div class="col-md-12" id="donutchart" style="width: 900px; height: 400px; padding-right: 300px"></div>
+        <div class="col-md-6">asd</div>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

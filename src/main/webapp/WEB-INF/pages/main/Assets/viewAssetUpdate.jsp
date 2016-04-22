@@ -63,7 +63,18 @@
             <h2><input type="text" style="width: 320px;" value="${asset.aname}" name="aname"/> </h2><label><b>Created On:</b></label> <input disabled type="text" name="dateCreated" value="${asset.dateCreated}"/>
             <b>Description: </b><br><p></p><textarea type="text" id="desc" class="form-control" name="description" style="height: 100px; width: 320px;">${asset.description}</textarea><br>
             <b>Quantity: </b><input id="quantity" type="number" name="qty" min="0" max="3000" value="${asset.qty}"/>
-
+            <br>
+            <br>
+            <label for="type">* Asset Type: </label>
+            <div class="form-group">
+              <div class="input-group">
+                <select style="width: 250px; height: 100px;" multiple class="form-control" id="type" name="type">
+                  <c:forEach var="type" items="${types}">
+                    <option>${type.type}</option>
+                  </c:forEach>
+                </select>
+              </div>
+            </div>
           </div>
           <div class="col-md-4">
             <h3><b>Crate Information:</b></h3>

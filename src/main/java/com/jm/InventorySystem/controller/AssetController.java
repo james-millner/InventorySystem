@@ -43,11 +43,15 @@ public class AssetController {
         model.addAttribute("crateList", crates);
         mongoClient.close();
 
+
         MongoClient mongoAsset = new MongoClient("localhost", 27017);
         MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoAsset);
 
-        List<Asset> assets = assetDAO.readAllAssets();
-        System.out.println("ASSETS = " + assets.size());
+        //Get all asset types for the view.
+        MongoClient mongo = new MongoClient("localhost", 27017);
+        MongoDBAssetTypeDAO assetTypeDAO = new MongoDBAssetTypeDAO(mongo);
+        List<AssetType> ats = assetTypeDAO.readAllTypes();
+        model.addAttribute("types", ats);
         if (asset.getAname() == null) {
             return "/main/Assets/addAssets";
         } else {
@@ -139,6 +143,12 @@ public class AssetController {
                               @RequestParam("_id") String id) {
         MongoClient mongoAsset = new MongoClient("localhost", 27017);
         MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoAsset);
+
+        //Get all asset types for the view.
+        MongoClient mongo = new MongoClient("localhost", 27017);
+        MongoDBAssetTypeDAO assetTypeDAO = new MongoDBAssetTypeDAO(mongo);
+        List<AssetType> ats = assetTypeDAO.readAllTypes();
+        model.addAttribute("types", ats);
 
         Asset blank = new Asset();
         blank.set_id(id);

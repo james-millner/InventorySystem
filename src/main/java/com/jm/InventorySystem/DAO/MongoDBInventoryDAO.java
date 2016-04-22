@@ -93,6 +93,20 @@ public class MongoDBInventoryDAO {
         return i;
     }
 
+    public Integer countType(String type) {
+        ObjectMapper mapper = new ObjectMapper();
+        int total = 0;
+        BasicDBObject findTypes = new BasicDBObject();
+        findTypes.put("type", type);
+        try {
+            DBCursor cursor = db.find(findTypes);
+            total = cursor.count();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return total;
+    }
+
     public void updateInventory(Inventory i) {
         try {
             ObjectMapper mapper = new ObjectMapper();

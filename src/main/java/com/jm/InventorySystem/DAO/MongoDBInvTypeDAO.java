@@ -67,6 +67,7 @@ public class MongoDBInvTypeDAO {
         return types;
     }
 
+
     public void deleteType(InventoryType type) {
         DBObject query = BasicDBObjectBuilder.start()
                 .append("type", type.getType()).get();

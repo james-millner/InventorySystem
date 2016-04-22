@@ -76,7 +76,9 @@
               <div class="input-group">
                 <label for="type">* Asset Type: </label>
                 <select multiple class="form-control" id="type" name="type">
-                  <option>Asset HOLD</option>
+                  <c:forEach var="type" items="${types}">
+                    <option>${type.type}</option>
+                  </c:forEach>
                   </select>
               </div>
             </div>

@@ -1,19 +1,20 @@
 package com.jm.InventorySystem.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
 import com.jm.InventorySystem.DAO.MongoDBInventoryDAO;
 import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
 import com.jm.InventorySystem.DAO.MongoDBInvTypeDAO;
-import com.jm.InventorySystem.domain.Crate;
-import com.jm.InventorySystem.domain.Inventory;
-import com.jm.InventorySystem.domain.InventoryType;
-import com.jm.InventorySystem.domain.Storehouse;
+import com.jm.InventorySystem.domain.*;
 import com.mongodb.MongoClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +26,26 @@ public class InventoryController {
 
     @RequestMapping("/inventory")
     public String Inventory(Model model){
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        //Set up access to generate inventory stats.
+        MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mongoClient);
+        MongoDBInvTypeDAO invTypeDAO = new MongoDBInvTypeDAO(mongoClient);
+
+        //Get all the types in the system.
+        List<InventoryType> allTypes = invTypeDAO.readAllTypes();
+        List<Statistics> stats = new ArrayList<Statistics>();
+        for(int i = 0; i < allTypes.size(); i++) {
+            String type = allTypes.get(i).getType();
+            long value = inventoryDAO.countType(type);
+            Statistics stat = new Statistics();
+            stat.setName(type);
+            stat.setValue(value);
+            stats.add(stat);
+        }
+
+
+//        int count = inventoryDAO.countType("Active");
+//        System.out.println("ACTIVE NUM IS : " + count);
         return "/main/inventory";
 
     }
