@@ -74,21 +74,29 @@
             </div>
             <div class="form-group">
               <div class="input-group">
-                <label for="cid">Crate: 	&nbsp; </label>
-                <select multiple class="form-control" id="cid" name="cid">
-                    <option value="">No Crate.</option>
-                  <c:forEach var="crate" items="${crateList}">
-                    <option value="${crate._id}">${crate.cName}</option>
-                  </c:forEach>
-                </select>
+                <label for="type">* Asset Type: </label>
+                <select multiple class="form-control" id="type" name="type">
+                  <option>Asset HOLD</option>
+                  </select>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <div class="input-group">
+                <label for="cid">Crate: 	&nbsp; </label>
+                <select multiple class="form-control" id="cid" name="cid">
+                  <option value="">No Crate.</option>
+                  <c:forEach var="crate" items="${crateList}">
+                    <option value="${crate._id}">${crate.cName}</option>
+                  </c:forEach>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
                 <label>* Description: </label>
-                <textarea type="text" id="desc" class="form-control" name="description" style="height: 200px; width: 300px;" required></textarea>
+                <textarea type="text" id="desc" class="form-control" name="description" style="height: 160px; width: 300px;" required></textarea>
               </div>
             </div>
           </div>

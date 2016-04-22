@@ -73,6 +73,8 @@ public class AssetController {
                                 AssetType type) {
         MongoClient mongo = new MongoClient("localhost", 27017);
         MongoDBAssetTypeDAO assetTypeDAO = new MongoDBAssetTypeDAO(mongo);
+        List<AssetType> ats = assetTypeDAO.readAllTypes();
+        model.addAttribute("types", ats);
         if(type.getType() == null) {
             return "/main/Assets/settings";
         } else {

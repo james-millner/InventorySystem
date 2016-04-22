@@ -15,6 +15,7 @@ public class Asset {
     String aname;
     Integer qty;
     String description;
+    String type;
     String cid;
     Integer po;
     Integer pe;
@@ -30,11 +31,12 @@ public class Asset {
 
     }
 
-    public Asset(String i, String a, Integer q, String d, String c, Integer pound, Integer pense, Date p, Date date){
+    public Asset(String i, String a, Integer q, String d, String t, String c, Integer pound, Integer pense, Date p, Date date){
         this._id = i;
         this.aname = a;
         this.qty = q;
         this.description = d;
+        this.type = t;
         this.cid = c;
         this.po = pound;
         this.pe = pense;
@@ -72,6 +74,14 @@ public class Asset {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getCid() {
