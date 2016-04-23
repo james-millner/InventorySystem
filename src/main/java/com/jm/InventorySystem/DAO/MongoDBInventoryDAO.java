@@ -107,6 +107,26 @@ public class MongoDBInventoryDAO {
         return total;
     }
 
+    //Descending
+    public List<Inventory> sortByDate() {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Inventory> inventory = new ArrayList<Inventory>();
+        BasicDBObject dbObject = new BasicDBObject();
+        dbObject.put("dateCreated", -1);
+        try {
+            DBCursor cursor = db.find().sort(dbObject);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                Inventory i = mapper.readValue(objJSON, Inventory.class);
+                inventory.add(i);
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return inventory;
+    }
+
     public void updateInventory(Inventory i) {
         try {
             ObjectMapper mapper = new ObjectMapper();

@@ -44,10 +44,11 @@ public class InventoryController {
             stats.add(stat);
             statsDAO.createInvStat(stat);
         }
-
         model.addAttribute("stats", stats);
-//        int count = inventoryDAO.countType("Active");
-//        System.out.println("ACTIVE NUM IS : " + count);
+
+        List<Inventory> byDate = inventoryDAO.sortByDate();
+        model.addAttribute("invByDate", byDate);
+
         return "/main/inventory";
 
     }
