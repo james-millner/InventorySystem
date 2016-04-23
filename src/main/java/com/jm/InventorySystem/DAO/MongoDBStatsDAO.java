@@ -23,12 +23,23 @@ public class MongoDBStatsDAO {
         this.dbAstStats = mongoClient.getDB("InventorySys").getCollection("aststats");
     }
 
-    public void createStat(Statistics type) {
+    public void createInvStat(Statistics type) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             String JSONStat = mapper.writeValueAsString(type);
             DBObject dbObject = (DBObject) JSON.parse(JSONStat);
             this.dbInvStats.insert(dbObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void createAstStat(Statistics type) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String JSONStat = mapper.writeValueAsString(type);
+            DBObject dbObject = (DBObject) JSON.parse(JSONStat);
+            this.dbAstStats.insert(dbObject);
         } catch (Exception e) {
             e.printStackTrace();
         }

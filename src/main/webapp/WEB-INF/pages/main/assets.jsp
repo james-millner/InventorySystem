@@ -22,6 +22,32 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Cuisine');
+        data.addColumn('number', 'Amount');
+        <c:forEach var="type" items="${stats}">
+        data.addRows([
+          ['${type.name}', ${type.value}]
+        ]);
+        </c:forEach>
+
+
+        var options = {
+          title: 'Total Types: ',
+          'width': '100%',
+          'height': '100%'};
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart'));
+        chart.draw(data, options);;
+      }
+    </script>
 
 
 </head>
@@ -53,9 +79,11 @@
             <li><a href="/assets/viewAll">View Assets</a></li>
           </ol>
         </div>
-        <h4>Home.</h4>
       </div>
-
+      <div class="container">
+        <div class="col-md-6" id="chart" style=" height: 400px"></div>
+        <div class="col-md-6">asd</div>
+      </div>
       <hr>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

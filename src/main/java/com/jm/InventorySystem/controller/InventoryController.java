@@ -42,7 +42,7 @@ public class InventoryController {
             stat.setName(type);
             stat.setValue(value);
             stats.add(stat);
-            statsDAO.createStat(stat);
+            statsDAO.createInvStat(stat);
         }
 
         model.addAttribute("stats", stats);

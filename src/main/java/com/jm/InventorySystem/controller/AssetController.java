@@ -1,14 +1,8 @@
 package com.jm.InventorySystem.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jm.InventorySystem.DAO.MongoDBAssetDAO;
-import com.jm.InventorySystem.DAO.MongoDBAssetTypeDAO;
-import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
-import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
-import com.jm.InventorySystem.domain.Asset;
-import com.jm.InventorySystem.domain.AssetType;
-import com.jm.InventorySystem.domain.Crate;
-import com.jm.InventorySystem.domain.Storehouse;
+import com.jm.InventorySystem.DAO.*;
+import com.jm.InventorySystem.domain.*;
 import com.mongodb.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +22,29 @@ import java.util.List;
 public class AssetController {
 
     @RequestMapping("/assets")
-    public String Assets() {
+    public String Assets(Model model) {
+
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        //Set up access to generate inventory stats.
+        MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoClient);
+        MongoDBAssetTypeDAO assetTypeDAO = new MongoDBAssetTypeDAO(mongoClient);
+        //Clear Asset stats.
+        MongoDBStatsDAO statsDAO = new MongoDBStatsDAO(mongoClient);
+        statsDAO.dbAstStats.drop();
+
+        //Generate new Stats.
+        List<AssetType> astTypes = assetTypeDAO.readAllTypes();
+        List<Statistics> stats = new ArrayList<Statistics>();
+        for(int i = 0; i < astTypes.size(); i++) {
+            String type = astTypes.get(i).getType();
+            long value = assetDAO.countType(type);
+            Statistics stat = new Statistics();
+            stat.setName(type);
+            stat.setValue(value);
+            stats.add(stat);
+            statsDAO.createAstStat(stat);
+        }
+        model.addAttribute("stats", stats);
         return "/main/assets";
 
     }
