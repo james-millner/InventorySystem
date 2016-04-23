@@ -24,23 +24,26 @@
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
+
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Cuisine');
+        data.addColumn('number', 'Amount');
+        <c:forEach var="type" items="${stats}">
+        data.addRows([
+          ['${type.name}', ${type.value}]
         ]);
+        </c:forEach>
+
 
         var options = {
-          title: 'My Daily Activities',
-          pieHole: 0.4,
-        };
+          title: 'Total Types: ',
+          'width': '100%',
+          'height': '100%'};
 
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
+        var chart = new google.visualization.PieChart(document.getElementById('chart'));
+        chart.draw(data, options);;
       }
     </script>
 
@@ -75,7 +78,7 @@
                 </div>
       </div>
       <div class="container">
-        <div class="col-md-12" id="donutchart" style="width: 900px; height: 400px; padding-right: 300px"></div>
+        <div class="col-md-6" id="chart" style=" height: 400px"></div>
         <div class="col-md-6">asd</div>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>

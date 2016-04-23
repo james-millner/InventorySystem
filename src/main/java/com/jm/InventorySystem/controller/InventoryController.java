@@ -1,16 +1,14 @@
 package com.jm.InventorySystem.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jm.InventorySystem.DAO.MongoDBCrateDAO;
-import com.jm.InventorySystem.DAO.MongoDBInventoryDAO;
-import com.jm.InventorySystem.DAO.MongoDBStorehouseDAO;
-import com.jm.InventorySystem.DAO.MongoDBInvTypeDAO;
+import com.jm.InventorySystem.DAO.*;
 import com.jm.InventorySystem.domain.*;
 import com.mongodb.MongoClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -30,10 +28,13 @@ public class InventoryController {
         //Set up access to generate inventory stats.
         MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mongoClient);
         MongoDBInvTypeDAO invTypeDAO = new MongoDBInvTypeDAO(mongoClient);
-
+        //Clear statistics.
+        MongoDBStatsDAO statsDAO = new MongoDBStatsDAO(mongoClient);
+        statsDAO.dbInvStats.drop();
         //Get all the types in the system.
         List<InventoryType> allTypes = invTypeDAO.readAllTypes();
         List<Statistics> stats = new ArrayList<Statistics>();
+
         for(int i = 0; i < allTypes.size(); i++) {
             String type = allTypes.get(i).getType();
             long value = inventoryDAO.countType(type);
@@ -41,13 +42,24 @@ public class InventoryController {
             stat.setName(type);
             stat.setValue(value);
             stats.add(stat);
+            statsDAO.createStat(stat);
         }
 
-
+        model.addAttribute("stats", stats);
 //        int count = inventoryDAO.countType("Active");
 //        System.out.println("ACTIVE NUM IS : " + count);
         return "/main/inventory";
 
+    }
+
+    @RequestMapping("/getInvTypeStats")
+    public @ResponseBody String getJSON() {
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        //Set up access to generate inventory stats.
+        //Clear statistics.
+        MongoDBStatsDAO statsDAO = new MongoDBStatsDAO(mongoClient);
+        String JSON = statsDAO.readAllInvTypes();
+        return JSON;
     }
 
     @RequestMapping("/inventory/addInventory")

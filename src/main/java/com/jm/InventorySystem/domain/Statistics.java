@@ -18,6 +18,7 @@ public class Statistics {
         this.value = v;
     }
 
+
     public String getName() {
         return name;
     }
@@ -33,4 +34,5 @@ public class Statistics {
     public void setValue(long value) {
         this.value = value;
     }
+
 }
