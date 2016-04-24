@@ -48,6 +48,26 @@ public class MongoDBAssetDAO {
         return total;
     }
 
+    //Descending
+    public List<Asset> sortByDate() {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Asset> assets = new ArrayList<Asset>();
+        BasicDBObject dbObject = new BasicDBObject();
+        dbObject.put("dateCreated", -1);
+        try {
+            DBCursor cursor = db.find().sort(dbObject);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                Asset i = mapper.readValue(objJSON, Asset.class);
+                assets.add(i);
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return assets;
+    }
+
 
     public List<Asset> readAllAssets() {
         ObjectMapper mapper = new ObjectMapper();

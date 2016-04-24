@@ -82,6 +82,7 @@
       <div class="container">
         <div class="col-md-6" id="chart" style=" height: 400px"></div>
         <div class="col-md-6">
+          <h2>Sticky Inventory: </h2>
           <div id="table">
             <div id="table-scroll">
               <table id="stickyStock" class="table table-condensed table-striped display">

@@ -23,6 +23,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
@@ -30,7 +32,7 @@
       function drawChart() {
 
         var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Cuisine');
+        data.addColumn('string', 'Type');
         data.addColumn('number', 'Amount');
         <c:forEach var="type" items="${stats}">
         data.addRows([
@@ -82,7 +84,36 @@
       </div>
       <div class="container">
         <div class="col-md-6" id="chart" style=" height: 400px"></div>
-        <div class="col-md-6">asd</div>
+        <div class="col-md-6">
+          <h2>Sticky Assets: </h2>
+          <div id="table">
+            <div id="table-scroll">
+              <table id="stickyStock" class="table table-condensed table-striped display">
+                <script>
+                  $(document).ready( function () {
+                    $('#stickyStock').DataTable( {
+                      "order": [[ 1, 'asc' ]]
+                    } );
+                  } );
+                </script>
+                <thead>
+                <tr>
+                  <th><span class="text"> Item Name:</span></th>
+                  <th><span class="text"> DateCreated:</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="item" items="${asstByDate}">
+                  <tr>
+                    <td>${item.aname}</td>
+                    <td>${item.dateCreated}</td>
+                  </tr>
+                </c:forEach>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
       <hr>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>

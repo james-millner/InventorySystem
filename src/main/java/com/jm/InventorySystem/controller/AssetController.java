@@ -45,6 +45,10 @@ public class AssetController {
             statsDAO.createAstStat(stat);
         }
         model.addAttribute("stats", stats);
+
+        List<Asset> byDate = assetDAO.sortByDate();
+        model.addAttribute("asstByDate", byDate);
+
         return "/main/assets";
 
     }
