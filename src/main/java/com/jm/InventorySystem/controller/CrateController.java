@@ -81,28 +81,42 @@ public class CrateController {
     }
 
     @RequestMapping("/crates/delCrate")
-    public String delCrate(@RequestParam("_id") String id) {
+    public String delCrate(@RequestParam("_id") String id, Model model) {
+        //Find crate
         //Find crate
         MongoClient mongo = new MongoClient("localhost", 27017);
         MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongo);
         Crate blank = new Crate();
         blank.set_id(id);
+        Crate crate = crateDAO.getCrate(blank);
+        //Find Storehouse
+        String sid = crate.getSid();
+        MongoDBStorehouseDAO storehouseDAO = new MongoDBStorehouseDAO(mongo);
+        Storehouse h = new Storehouse();
+        h.set_id(sid);
+        Storehouse found = storehouseDAO.readStorehouse(h);
 
+        model.addAttribute("crate", crate);
+        model.addAttribute("storehouse", found);
+
+        //Check for Assets
         Asset blankAsset = new Asset();
         blankAsset.setCid(id);
 
         MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongo);
         List<Asset> a = assetDAO.getAssetsByCrate(blankAsset);
 
+        //Check for Inventory.
         Inventory blankInv = new Inventory();
         blankInv.setCid(id);
 
         MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mongo);
         List<Inventory> i = inventoryDAO.getInventoryByCrate(blankInv);
 
-        if(a.size() > 0 && i.size() > 0) {
-            System.out.println("YOU CANNOT DELETE");
-            return "redirect:/crates/viewCrate?_id=" + id;
+        if(a.size() > 0 | i.size() > 0) {
+            model.addAttribute("bool", "true");
+            model.addAttribute("warning", "You cannot delete.");
+            return "/main/Crate/viewCrate";
         } else {
             crateDAO.deleteCrate(blank);
         }

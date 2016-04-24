@@ -50,6 +50,15 @@
             <li class="active">View ${crate.cName}</li>
         </ol>
     </div>
+    <div class="container-fluid">
+        <c:if test="${bool == 'true'}">
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <p><strong>Warning!</strong> You cannot delete this crate as it contains Inventory and/or Asset Items. <strong>In order to delete this crate</strong> you must first
+                move any entries you have stored.</p>
+
+            </div>
+        </c:if>
+    </div>
     <div id="crateInfo" style="background-color: #E8E8E8; border-radius: 10px;" class="container">
         <div class="col-md-4">
             <h2><b>Crate Name:</b></h2>
@@ -88,7 +97,6 @@
             </div>
         </div>
         <div class="col-md-4" style="margin-top: 10px;">
-            <a href="#" class="btn btn-warning">Update</a>
             <a href="/crates/delCrate?_id=${crate._id}" class="btn btn-danger">Delete <span class="glyphicon glyphicon-trash"></span></a>
         </div>
     </div>

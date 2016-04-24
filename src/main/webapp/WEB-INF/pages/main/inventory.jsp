@@ -111,6 +111,13 @@
             </div>
           </div>
         </div>
+        <hr>
+        <div class="col-md-12" style="margin-top: 15px; border-top: groove 4px">
+          <h1> Crate Information: </h1>
+          <div class="container-fluid">
+            flid
+          </div>
+        </div>
       </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

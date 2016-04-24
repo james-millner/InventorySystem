@@ -49,6 +49,9 @@ public class InventoryController {
         List<Inventory> byDate = inventoryDAO.sortByDate();
         model.addAttribute("invByDate", byDate);
 
+
+        //Get items in each crate.
+
         return "/main/inventory";
 
     }
