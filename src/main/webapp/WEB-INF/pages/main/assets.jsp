@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +27,10 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
     <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
+
+      google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawValueChart);
 
       function drawChart() {
 
@@ -40,14 +43,33 @@
         ]);
         </c:forEach>
 
-
         var options = {
           title: 'Total Types: ',
           'width': '100%',
           'height': '100%'};
 
+
         var chart = new google.visualization.PieChart(document.getElementById('chart'));
-        chart.draw(data, options);;
+        chart.draw(data, options);
+      }
+
+      function drawValueChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'AssetType');
+        data.addColumn('number', 'Total');
+        <c:forEach var="assetStat" items="${valueStats}">
+        data.addRows([
+          ['${assetStat.name}', ${assetStat.value}]
+        ]);
+        </c:forEach>
+
+        var optionsValue = {
+          title: ' Value by Type: ',
+          'width': '100%',
+          'height': '100%'};
+
+        var chartValue = new google.visualization.PieChart(document.getElementById('chartValue'));
+        chartValue.draw(data, optionsValue)
       }
     </script>
 
@@ -105,8 +127,44 @@
                 <tbody>
                 <c:forEach var="item" items="${asstByDate}">
                   <tr>
-                    <td>${item.aname}</td>
+                    <td><a href="/assets/viewAsset?_id=${item._id}"> ${item.aname}</a></td>
                     <td>${item.dateCreated}</td>
+                  </tr>
+                </c:forEach>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="container-fluid">
+        <div class="col-md-5" id="chartValue" style="height: 400px; width: 400px"></div>
+        <div class="col-md-7">
+          <h2>Quick Value View Assets: </h2>
+          <div id="tableValue">
+            <div id="tableValue-scroll">
+              <table id="values" class="table table-condensed table-striped display">
+                <script>
+                  $(document).ready( function () {
+                    $('#values').DataTable( {
+                      "order": [[ 1, 'desc' ]]
+                    } );
+                  } );
+                </script>
+                <thead>
+                <tr>
+                  <th><span class="text"> Item Name:</span></th>
+                  <th><span class="text"> Value:</span></th>
+                  <th><span class="text"> Type:</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="item" items="${asstByDate}">
+                  <tr>
+                    <td><a href="/assets/viewAsset?_id=${item._id}">${item.aname} </a></td>
+                    <td>${item.po}.${item.pe}</td>
+                    <td>${item.type}</td>
                   </tr>
                 </c:forEach>
                 </tbody>

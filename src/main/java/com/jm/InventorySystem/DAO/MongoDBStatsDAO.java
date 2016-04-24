@@ -17,10 +17,12 @@ public class MongoDBStatsDAO {
 
     public DBCollection dbInvStats;
     public DBCollection dbAstStats;
+    public DBCollection dbAstValue;
 
     public MongoDBStatsDAO(MongoClient mongoClient) {
         this.dbInvStats = mongoClient.getDB("InventorySys").getCollection("invstats");
         this.dbAstStats = mongoClient.getDB("InventorySys").getCollection("aststats");
+        this.dbAstValue = mongoClient.getDB("InventorySys").getCollection("astvalue");
     }
 
     public void createInvStat(Statistics type) {
@@ -45,21 +47,15 @@ public class MongoDBStatsDAO {
         }
     }
 
-    public String readAllInvTypes() {
+    public void createAstValueStat(Statistics type) {
         ObjectMapper mapper = new ObjectMapper();
-        BasicDBObject where = new BasicDBObject();
-        where.put("_id", 0);
-        where.put("name", 1);
-        where.put("value", 1);
-        String result = "";
         try {
-            DBCursor cursor = dbInvStats.find(new BasicDBObject(), where);
-            JSON json = new JSON();
-            result = "{ \"Types\": " + json.serialize(cursor) + "}";
-
+            String JSONStat = mapper.writeValueAsString(type);
+            DBObject dbObject = (DBObject) JSON.parse(JSONStat);
+            this.dbAstValue.insert(dbObject);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return result;
     }
+
 }

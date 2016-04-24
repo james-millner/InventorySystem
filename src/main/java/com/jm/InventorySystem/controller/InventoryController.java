@@ -70,16 +70,6 @@ public class InventoryController {
 
     }
 
-    @RequestMapping("/getInvTypeStats")
-    public @ResponseBody String getJSON() {
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
-        //Set up access to generate inventory stats.
-        //Clear statistics.
-        MongoDBStatsDAO statsDAO = new MongoDBStatsDAO(mongoClient);
-        String JSON = statsDAO.readAllInvTypes();
-        return JSON;
-    }
-
     @RequestMapping("/inventory/addInventory")
     public String addInv(Model model,
                          Inventory inventory) {
