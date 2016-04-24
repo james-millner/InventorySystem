@@ -35,7 +35,7 @@ public class AssetController {
         //Generate new Stats.
         List<AssetType> astTypes = assetTypeDAO.readAllTypes();
         List<Statistics> stats = new ArrayList<Statistics>();
-        for(int i = 0; i < astTypes.size(); i++) {
+        for (int i = 0; i < astTypes.size(); i++) {
             String type = astTypes.get(i).getType();
             long value = assetDAO.countType(type);
             Statistics stat = new Statistics();
@@ -100,7 +100,7 @@ public class AssetController {
         MongoDBAssetTypeDAO assetTypeDAO = new MongoDBAssetTypeDAO(mongo);
         List<AssetType> ats = assetTypeDAO.readAllTypes();
         model.addAttribute("types", ats);
-        if(type.getType() == null) {
+        if (type.getType() == null) {
             return "/main/Assets/settings";
         } else {
             assetTypeDAO.createType(type);
@@ -109,12 +109,39 @@ public class AssetController {
 
     }
 
+    @RequestMapping("/assets/deleteType")
+    public String delType(@RequestParam("type") String type, Model model) {
+        MongoClient mAsset = new MongoClient("localhost", 27017);
+        //Get AssetTypes.
+        MongoDBAssetTypeDAO assetTypeDAO = new MongoDBAssetTypeDAO(mAsset);
+        List<AssetType> ats = assetTypeDAO.readAllTypes();
+        model.addAttribute("types", ats);
+
+        MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mAsset);
+
+        Asset asset = new Asset();
+        AssetType aType = new AssetType();
+        asset.setType(type);
+        List<Asset> assets = assetDAO.getAssetsByType(asset);
+        if (assets.size() > 0) {
+            model.addAttribute("bool", "true");
+            return "/main/Assets/settings";
+        } else
+            aType.setType(type);
+            aType = assetTypeDAO.getType(aType);
+            assetTypeDAO.deleteType(aType);
+            return "redirect:/assets/settings";
+
+    }
+
+
+
     @RequestMapping("/assets/viewAll")
     public String viewAllAssets(Model model,
                                 Asset asset) {
         MongoClient mongoAssets = new MongoClient("localhost", 27017);
-        MongoDBAssetDAO inventoryDAO = new MongoDBAssetDAO(mongoAssets);
-        List<Asset> assetList = inventoryDAO.readAllAssets();
+        MongoDBAssetDAO assetDAO = new MongoDBAssetDAO(mongoAssets);
+        List<Asset> assetList = assetDAO.readAllAssets();
         model.addAttribute("assetList", assetList);
         mongoAssets.close();
 

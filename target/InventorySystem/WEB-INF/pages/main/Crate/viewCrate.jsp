@@ -55,7 +55,6 @@
             <div class="alert alert-danger alert-dismissible" role="alert">
                 <p><strong>Warning!</strong> You cannot delete this crate as it contains Inventory and/or Asset Items. <strong>In order to delete this crate</strong> you must first
                 move any entries you have stored.</p>
-
             </div>
         </c:if>
     </div>

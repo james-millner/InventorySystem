@@ -119,15 +119,29 @@ public class InventoryController {
     }
 
     @RequestMapping("/inventory/deleteType")
-    public String delType(@RequestParam("type") String type) {
+    public String delType(@RequestParam("type") String type, Model model) {
         MongoClient mInv = new MongoClient("localhost", 27017);
+        //Get all types.
         MongoDBInvTypeDAO mongoDBInvTypeDAO = new MongoDBInvTypeDAO(mInv);
-        InventoryType iType = new InventoryType();
-        iType.setType(type);
-        iType = mongoDBInvTypeDAO.getType(iType);
-        mongoDBInvTypeDAO.deleteType(iType);
+        List<InventoryType> types = mongoDBInvTypeDAO.readAllTypes();
+        model.addAttribute("types", types);
 
-        return "redirect:/inventory/settings";
+        MongoDBInventoryDAO inventoryDAO = new MongoDBInventoryDAO(mInv);
+        Inventory i = new Inventory();
+        i.setType(type);
+        List<Inventory> inventories = inventoryDAO.getInventoryByType(i);
+        if(inventories.size() > 0) {
+            model.addAttribute("bool", "true");
+            return "/main/Inventory/settings";
+        } else {
+            InventoryType iType = new InventoryType();
+            iType.setType(type);
+            iType = mongoDBInvTypeDAO.getType(iType);
+            mongoDBInvTypeDAO.deleteType(iType);
+
+            return "redirect:/inventory/settings";
+        }
+
     }
 
     @RequestMapping("/inventory/viewAll")

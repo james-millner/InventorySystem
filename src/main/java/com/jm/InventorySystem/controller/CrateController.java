@@ -115,7 +115,6 @@ public class CrateController {
 
         if(a.size() > 0 | i.size() > 0) {
             model.addAttribute("bool", "true");
-            model.addAttribute("warning", "You cannot delete.");
             return "/main/Crate/viewCrate";
         } else {
             crateDAO.deleteCrate(blank);

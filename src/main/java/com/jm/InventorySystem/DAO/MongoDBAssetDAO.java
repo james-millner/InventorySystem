@@ -125,6 +125,26 @@ public class MongoDBAssetDAO {
         return results;
     }
 
+    public List<Asset> getAssetsByType(Asset a) {
+        List<Asset> results = new ArrayList<Asset>();
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject findSpecific = new BasicDBObject();
+        findSpecific.put("type", a.getType());
+        try {
+            DBCursor cursor = db.find(findSpecific);
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String objJSON = obj.toString();
+                a = mapper.readValue(objJSON, Asset.class);
+                results.add(a);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return results;
+    }
+
     public void updateAsset(Asset asset) {
         try {
             ObjectMapper mapper = new ObjectMapper();

@@ -70,6 +70,7 @@
               <tr>
                 <th><span class="text"> Item Name</span></th>
                 <th><span class="text"> Description</span></th>
+                <th><span class="text"> Type</span></th>
                 <th><span class="text"> Value</span></th>
                 <th><span class="text"> Quantity</span></th>
                 <th><span class="text"> PurchaseDate</span></th>
@@ -84,6 +85,7 @@
                 <tr>
                   <td>${asset.aname}</td>
                   <td>${asset.description}</td>
+                  <td>${asset.type}</td>
                   <td>£${asset.po}.${asset.pe}</td>
                   <td>${asset.qty}</td>
                   <td>${asset.purchString}</td>

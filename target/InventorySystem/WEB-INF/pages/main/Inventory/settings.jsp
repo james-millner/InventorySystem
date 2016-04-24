@@ -57,6 +57,12 @@
                   </ol>
                 </div>
       </div>
+      <c:if test="${bool == 'true'}">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <p><strong>Warning!</strong> You cannot delete this type as it contains Inventory Items. <strong>In order to delete this type</strong> you must first
+            move any entries you have stored.</p>
+        </div>
+      </c:if>
       <div class="container-fluid">
         <script>
           $(document).ready(function(){

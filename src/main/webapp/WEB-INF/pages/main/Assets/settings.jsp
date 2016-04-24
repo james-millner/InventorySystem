@@ -57,6 +57,13 @@
           </ol>
         </div>
       </div>
+      <c:if test="${bool == 'true'}">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <p><strong>Warning!</strong> You cannot delete this type as it contains Asset Items. <strong>In order to delete this type</strong> you must first
+            move any entries you have stored.</p>
+        </div>
+      </c:if>
+
       <div class="container-fluid">
         <script>
           $(document).ready(function(){
@@ -114,7 +121,7 @@
                 <tbody>
                   <c:set var="count" value="0" scope="page"/>
                   <c:forEach var="type" items="${types}">
-                    <c:url value="/inventory/deleteType?type=${type.type}" var="delURL"></c:url>
+                    <c:url value="/assets/deleteType?type=${type.type}" var="delURL"></c:url>
                     <tr>
                       <c:set var="count" value="${count + 1}" scope="page"></c:set>
                       <td>${count}</td>
