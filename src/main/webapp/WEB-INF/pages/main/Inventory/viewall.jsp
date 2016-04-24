@@ -97,14 +97,6 @@
           </div>
        </div>
       </div>
-      <div class="container-fluid">
-        <div class="col-md-6">
-          <h3>Select a Crate.</h3>
-        </div>
-        <div class="col-md-6">
-          <h3>Storehouse Data.</h3>
-        </div>
-      </div>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
 

@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd2cdba3-6454-4445-ae84-1c6807d8ee85" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBAssetDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBAssetDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBInventoryDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBInventoryDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/CrateController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/CrateController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/InventoryController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/InventoryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/settings.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/settings.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewall.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewall.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Crate/viewCrate.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Crate/viewCrate.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/settings.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/settings.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewall.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewall.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/inventory.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/inventory.jsp" />
     </list>
     <ignored path="InventorySystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,24 +33,6 @@
     <option name="SHOW_EMPTY_GROUPS" value="false" />
   </component>
   <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="viewall.jsp" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewall.jsp">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.6037296">
-                    <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
     <window id="2">
       <content type="file-editors">
         <state>
@@ -83,7 +60,40 @@
     <favorites_list name="InventorySystem" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="InventoryController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/InventoryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6">
+              <caret line="66" column="64" selection-start-line="66" selection-start-column="64" selection-end-line="66" selection-end-column="64" />
+              <folding>
+                <element signature="e#2133#2144#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Statistics.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Statistics.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inventory.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/inventory.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.038462">
+              <caret line="139" column="36" selection-start-line="139" selection-start-column="36" selection-end-line="139" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -129,7 +139,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBCrateDAO.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/crates.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/addInvType.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewall.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/invsettings.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/addInventory.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewInventoryUpdate.jsp" />
@@ -147,16 +156,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBStatsDAO.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewAsset.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/assets.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/inventory.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/CrateController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Crate/viewCrate.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewall.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBAssetDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBInventoryDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/InventoryController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/settings.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/settings.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewall.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/inventory.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/InventoryController.java" />
       </list>
     </option>
   </component>
@@ -1345,16 +1355,16 @@
       <workItem from="1461332374827" duration="7977000" />
       <workItem from="1461404111000" duration="9216000" />
       <workItem from="1461414173694" duration="55000" />
-      <workItem from="1461414255654" duration="10519000" />
+      <workItem from="1461414255654" duration="11908000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273447000" />
+    <option name="totallyTimeSpent" value="274836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1655,14 +1665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Statistics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4879154">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBInvTypeDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4622357">
@@ -1677,14 +1679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.884615">
           <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewall.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6037296">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1728,14 +1722,6 @@
             <element signature="e#1593#1594#0" expanded="true" />
             <element signature="e#1620#1621#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/inventory.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79204893">
-          <caret line="117" column="16" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1787,36 +1773,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBInventoryDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.775">
-          <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBAssetDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55">
-          <caret line="131" column="44" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
-          <folding>
-            <element signature="e#1531#1538#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5576923">
           <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="127" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/InventoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="134" column="35" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1834,6 +1794,58 @@
         <state vertical-scroll-proportion="0.54587156">
           <caret line="61" column="81" selection-start-line="61" selection-start-column="81" selection-end-line="61" selection-end-column="81" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBAssetDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="131" column="44" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
+          <folding>
+            <element signature="e#1531#1538#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBInventoryDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.775">
+          <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewall.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6433566">
+          <caret line="98" column="12" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/inventory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.038462">
+          <caret line="139" column="36" selection-start-line="139" selection-start-column="36" selection-end-line="139" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Statistics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/InventoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6">
+          <caret line="66" column="64" selection-start-line="66" selection-start-column="64" selection-end-line="66" selection-end-column="64" />
+          <folding>
+            <element signature="e#2133#2144#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

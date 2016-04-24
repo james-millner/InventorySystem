@@ -46,11 +46,25 @@ public class InventoryController {
         }
         model.addAttribute("stats", stats);
 
+        MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongoClient);
+        //List of all inventory by date.
         List<Inventory> byDate = inventoryDAO.sortByDate();
+        //List of all crates.
+        List<Crate> crates = crateDAO.readAllCrate();
         model.addAttribute("invByDate", byDate);
+        List<Inventory> inventWithCrateName = new ArrayList<Inventory>();
+        for(int i = 0; i < byDate.size(); i++) {
+            Inventory at = byDate.get(i);
+            for(int a = 0; a < crates.size(); a++) {
+                Crate cat = crates.get(a);
+                if(at.getCid().equals(cat.get_id())){
+                    at.setCid(cat.getcName());
+                }
+            }
+            inventWithCrateName.add(at);
+        }
 
-
-        //Get items in each crate.
+        model.addAttribute("invWithCrate", inventWithCrateName);
 
         return "/main/inventory";
 

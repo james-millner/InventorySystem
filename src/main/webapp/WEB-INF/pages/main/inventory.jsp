@@ -115,7 +115,35 @@
         <div class="col-md-12" style="margin-top: 15px; border-top: groove 4px">
           <h1> Crate Information: </h1>
           <div class="container-fluid">
-            flid
+            <div id="tableCrate">
+              <div id="tableCrate-scroll">
+                <table id="tableCrates" class="table table-condensed table-striped display">
+                  <script>
+                    $(document).ready( function () {
+                      $('#tableCrates').DataTable( {
+
+                      } );
+                    } );
+                  </script>
+                  <thead>
+                  <tr>
+                    <th><span class="text"> Crate Name:</span></th>
+                    <th><span class="text"> Item Name:</span></th>
+                    <th><span class="text"> Quantity:</span></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <c:forEach var="item" items="${invWithCrate}">
+                    <tr>
+                      <td>${item.cid}</td>
+                      <td>${item.iname}</td>
+                      <td>${item.qty}</td>
+                    </tr>
+                  </c:forEach>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
