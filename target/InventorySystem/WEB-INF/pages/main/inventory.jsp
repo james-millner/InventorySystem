@@ -102,7 +102,7 @@
                 <tbody>
                 <c:forEach var="item" items="${invByDate}">
                   <tr>
-                    <td>${item.iname}</td>
+                    <td><a href="/inventory/viewInventory?_id=${item._id}"> ${item.iname}</a></td>
                     <td>${item.dateCreated}</td>
                   </tr>
                 </c:forEach>
@@ -135,8 +135,8 @@
                   <tbody>
                   <c:forEach var="item" items="${invWithCrate}">
                     <tr>
-                      <td>${item.cid}</td>
-                      <td>${item.iname}</td>
+                      <td><a href="/crates/viewCrate?_id=${item.extraInfo}"> ${item.cid}</a></td>
+                      <td><a href="/inventory/viewInventory?_id=${item._id}"> ${item.iname}</a></td>
                       <td>${item.qty}</td>
                     </tr>
                   </c:forEach>

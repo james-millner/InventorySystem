@@ -59,6 +59,7 @@ public class InventoryController {
                 Crate cat = crates.get(a);
                 if(at.getCid().equals(cat.get_id())){
                     at.setCid(cat.getcName());
+                    at.setExtraInfo(cat.get_id());
                 }
             }
             inventWithCrateName.add(at);
