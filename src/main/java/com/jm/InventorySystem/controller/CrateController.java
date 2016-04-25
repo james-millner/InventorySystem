@@ -8,7 +8,6 @@ import com.jm.InventorySystem.domain.Asset;
 import com.jm.InventorySystem.domain.Crate;
 import com.jm.InventorySystem.domain.Inventory;
 import com.jm.InventorySystem.domain.Storehouse;
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

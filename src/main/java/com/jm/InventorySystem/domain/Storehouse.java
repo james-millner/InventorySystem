@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Storehouse {
 
 
+    @Id
     private String _id;
     private String name;
     private int size;

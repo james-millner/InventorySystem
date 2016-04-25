@@ -1,8 +1,5 @@
 package com.jm.InventorySystem.domain;
 
-import java.security.*;
-import javax.crypto.*;
-
 public class Encrypter {
 
 	String password = null;

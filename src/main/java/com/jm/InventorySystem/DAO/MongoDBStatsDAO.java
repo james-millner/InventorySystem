@@ -4,11 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jm.InventorySystem.domain.Statistics;
 import com.mongodb.*;
 import com.mongodb.util.JSON;
-import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.core.query.BasicQuery;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by James on 23/04/2016.
@@ -47,15 +43,5 @@ public class MongoDBStatsDAO {
         }
     }
 
-    public void createAstValueStat(Statistics type) {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            String JSONStat = mapper.writeValueAsString(type);
-            DBObject dbObject = (DBObject) JSON.parse(JSONStat);
-            this.dbAstValue.insert(dbObject);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 }

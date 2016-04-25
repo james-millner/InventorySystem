@@ -1,14 +1,11 @@
 package com.jm.InventorySystem.DAO;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jm.InventorySystem.domain.Asset;
 import com.jm.InventorySystem.domain.Inventory;
 import com.mongodb.*;
 import com.mongodb.util.JSON;
 import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.core.MongoTemplate;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

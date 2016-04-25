@@ -6,12 +6,9 @@ import com.jm.InventorySystem.converter.UserConverter;
 import com.jm.InventorySystem.domain.Encrypter;
 import com.jm.InventorySystem.domain.User;
 
-import javax.management.Query;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.expression.ExpressionException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +18,6 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 
-//To get created date.
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 
 @Controller
