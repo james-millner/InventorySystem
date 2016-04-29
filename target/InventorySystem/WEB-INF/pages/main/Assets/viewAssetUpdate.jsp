@@ -68,7 +68,7 @@
             <label for="type">* Asset Type: </label>
             <div class="form-group">
               <div class="input-group">
-                <select style="width: 250px; height: 100px;" multiple class="form-control" id="type" name="type">
+                <select style="width: 250px; height: 100px;" multiple class="form-control" id="type" name="type" required>
                   <c:forEach var="type" items="${types}">
                     <option>${type.type}</option>
                   </c:forEach>

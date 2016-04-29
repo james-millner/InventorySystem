@@ -20,7 +20,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="/resources/css/invsettings.css">
+    <link rel="stylesheet" href="/resources/css/tabs.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
@@ -58,7 +58,7 @@
         </div>
       </div>
       <c:if test="${bool == 'true'}">
-        <div class="alert alert-danger alert-dismissible" role="alert">
+        <div class="alert alert-danger alert-dismissible" role="alert" align="center">
           <p><strong>Warning!</strong> You cannot delete this type as it contains Asset Items. <strong>In order to delete this type</strong> you must first
             move any entries you have stored.</p>
         </div>

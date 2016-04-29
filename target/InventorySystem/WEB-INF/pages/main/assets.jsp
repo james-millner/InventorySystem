@@ -163,7 +163,7 @@
                 <c:forEach var="item" items="${asstByDate}">
                   <tr>
                     <td><a href="/assets/viewAsset?_id=${item._id}">${item.aname} </a></td>
-                    <td>${item.po}.${item.pe}</td>
+                    <td>£${item.po}</td>
                     <td>${item.type}</td>
                   </tr>
                 </c:forEach>

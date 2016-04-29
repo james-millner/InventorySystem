@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/resources/css/tabs.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
-
 </head>
   <body>
 
@@ -52,65 +52,91 @@
       </div>
       <div id="crateInfo" class="container">
         <h2 style="margin-top: 5px;">Crates</h2>
-        <div class="col-md-3">
-          <form method="post" action="" command="crate">
-            <h3>Add Crate:</h3>
-            <div class="input-group">
-              <label id="namelbl">Crate Name: </label>
-              <input type="text" id="crateName" class="form-control" placeholder="Crate Name" name="cName" required/>
-            </div>
-            <div class="input-group">
-              <label id="heightLbl">Height (cm): </label>
-              <input type="text" id="height" class="form-control" placeholder="Height" name="height" required/>
-            </div>
-            <div class="input-group">
-              <label id="weightLbl">Width (cm): </label>
-              <input type="text" id="weight" class="form-control" placeholder="Weight" name="width" required/>
-            </div>
-            <div class="input-group">
-              <label id="storehouseLbl">Select a storehouse.</label>
-              <select multiple class="form-control" name="sid">
-                <c:forEach var="storehouse" items="${shList}">
-                  <option value="${storehouse._id}">${storehouse.name}</option>
-                </c:forEach>
-              </select>
-            </div>
-            <div style="padding-top: 10px" class="input-group">
-              <button class="btn btn-md btn-primary btn-block" type="submit">Add Crate.</button>
+        <script>
+          $(document).ready(function(){
+
+            $('ul.tabs li').click(function(){
+              var tab_id = $(this).attr('data-tab');
+
+              $('ul.tabs li').removeClass('current');
+              $('.tab-content').removeClass('current');
+
+              $(this).addClass('current');
+              $("#"+tab_id).addClass('current');
+            })
+
+          })
+        </script>
+        <div class="container-fluid">
+
+          <ul class="tabs">
+            <li class="tab-link current" data-tab="tab-1">Add Crate!</li>
+            <li class="tab-link" data-tab="tab-2">View Crates.</li>
+          </ul>
+
+          <div id="tab-1" class="tab-content current col-md-12">
+            <div class="col-md-12">
+              <h3>Add Crate:</h3>
               </div>
-          </form>
-        </div>
-        <div id="allCrates" class="col-md-9">
-          <h3>Current Crates: </h3>
-          <table id="crates" class="table table-condensed display">
-            <script>
-              $(document).ready( function () {
-                $('#crates').DataTable();
-              } );
-            </script>
-            <thead>
-            <tr>
-              <th><span class="text"> Crate Name</span></th>
-              <th><span class="text"> Width (cm)</span></th>
-              <th><span class="text"> Height (cm)</span></th>
-              <th><span class="text"> Date Created</span></th>
-              <th><span class="text"> View</span></th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="crate" items="${cList}">
-              <c:url value="/crates/viewCrate?_id=${crate._id}" var="viewURL"></c:url>
+              <div class="col-md-3">
+                <form method="post" action="" command="crate">
+
+                  <div class="input-group">
+                    <label id="namelbl">Crate Name: </label>
+                    <input type="text" id="crateName" class="form-control" placeholder="Crate Name" name="cName" required/>
+                  </div>
+                  <div class="input-group">
+                    <label id="storehouseLbl">Select a storehouse.</label>
+                    <select multiple class="form-control" name="sid">
+                      <c:forEach var="storehouse" items="${shList}">
+                        <option value="${storehouse._id}">${storehouse.name}</option>
+                      </c:forEach>
+                    </select>
+                  </div>
+                  <div style="padding-top: 10px" class="input-group">
+                    <button class="btn btn-md btn-primary btn-block" type="submit">Add Crate.</button>
+                    </div>
+                </form>
+              </div>
+            <div class="col-md-3">
+              <div class="input-group">
+                <label id="heightLbl">Height (cm): </label>
+                <input type="text" id="height" class="form-control" placeholder="Height" name="height" required/>
+              </div>
+              <div class="input-group">
+                <label id="weightLbl">Width (cm): </label>
+                <input type="text" id="weight" class="form-control" placeholder="Weight" name="width" required/>
+              </div>
+              </div>
+            </div>
+          <div id="tab-2" class="tab-content">
+              <h3>Current Crates: </h3>
+              <table id="crates" class="table table-condensed display" style="width: 900px">
+                <script>
+                  $(document).ready( function () {
+                    $('#crates').DataTable();
+                  } );
+                </script>
+                <thead>
                 <tr>
-                  <td>${crate.cName}</td>
-                  <td>${crate.width}</td>
-                  <td>${crate.height}</td>
-                  <td>${crate.dateCreated}</td>
-                  <td><a href='<c:out value="${viewURL}" escapeXml="true"></c:out>'>View <span class="glyphicon glyphicon-edit"></span></a></td>
+                  <th><span class="text"> Crate Name</span></th>
+                  <th><span class="text"> Width (cm)</span></th>
+                  <th><span class="text"> Height (cm)</span></th>
+                  <th><span class="text"> Date Created</span></th>
                 </tr>
-            </c:forEach>
-            </tbody>
-          </table>
-        </div>
+                </thead>
+                <tbody>
+                <c:forEach var="crate" items="${cList}">
+                  <tr>
+                    <td><a href="/crates/viewCrate?_id=${crate._id}">${crate.cName}</a></td>
+                    <td>${crate.width}</td>
+                    <td>${crate.height}</td>
+                    <td>${crate.dateCreated}</td>
+                  </tr>
+                </c:forEach>
+                </tbody>
+              </table>
+            </div>
       </div>
       <hr>
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
