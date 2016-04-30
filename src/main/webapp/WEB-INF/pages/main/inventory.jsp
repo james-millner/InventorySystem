@@ -135,7 +135,14 @@
                   <tbody>
                   <c:forEach var="item" items="${invWithCrate}">
                     <tr>
-                      <td><a href="/crates/viewCrate?_id=${item.extraInfo}"> ${item.cid}</a></td>
+                      <td>
+                        <c:if test="${item.cid.equals('')}">
+                          <p>Loose Standing</p>
+                        </c:if>
+                        <c:if test="${not item.cid.equals('')}" >
+                          <a href="/crates/viewCrate?_id=${item.extraInfo}"> ${item.cid}</a>
+                        </c:if>
+                      </td>
                       <td><a href="/inventory/viewInventory?_id=${item._id}"> ${item.iname}</a></td>
                       <td>${item.qty}</td>
                     </tr>
