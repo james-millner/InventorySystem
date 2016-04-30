@@ -14,6 +14,7 @@ public class Crate {
     String _id;
     String sid;
     String cName;
+    String crateNote;
     Integer width;
     Integer height;
     Date dateCreated;
@@ -53,6 +54,14 @@ public class Crate {
 
     public void setcName(String cName) {
         this.cName = cName;
+    }
+
+    public String getCrateNote() {
+        return crateNote;
+    }
+
+    public void setCrateNote(String crateNote) {
+        this.crateNote = crateNote;
     }
 
     public Integer getWidth() {

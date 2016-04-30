@@ -23,6 +23,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/resources/css/Storehouses.css">
+    <link rel="stylesheet" href="/resources/css/tabs.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,65 +53,84 @@
 
       <hr>
       <div class="container">
-        <div class="row">
-         <form method="POST" action="" command="sh">
-          <div class="col-md-3">
-            <h3>Add new storehouse:</h3>
-            <div class="input-group">
-              <label id="namelbl">Storehouse Name: </label>
-              <input type="text" id="storehname" class="form-control" placeholder="Storehouse Name" name="name" required/>
-          </div>
-            <div class="input-group">
-              <label id="sizelbl">Size:</label>
-                <input type="text" id="size" class="form-control" placeholder="Size (SQ Ft.)" name="size" required/>
-            </div>
-            <div class="input-group">
-              <label id="accesslbl">Access:</label>
-              <input type="text" id="access" class="form-control" placeholder="Access" name="access" required/>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <label>Address:</label>
-              <input class="form-control input-lg" type="text" id="address" name="address"/>
-          </div>
-          <div id="options" class="col-md-6">
+          <script>
+              $(document).ready(function(){
 
-              <label>Options:</label>
-              <div class="row">
-                  <div class="col-md-3">
-                      <div class="checkbox">
-                        <label><input type="checkbox" name="owned" value="true">Self Owned.</label>
+                  $('ul.tabs li').click(function(){
+                      var tab_id = $(this).attr('data-tab');
+
+                      $('ul.tabs li').removeClass('current');
+                      $('.tab-content').removeClass('current');
+
+                      $(this).addClass('current');
+                      $("#"+tab_id).addClass('current');
+                  })
+
+              })
+          </script>
+        <div>
+            <ul class="tabs">
+                <li class="tab-link current" data-tab="tab-1">Add Storehouse!</li>
+                <li class="tab-link" data-tab="tab-2">View Storehouses.</li>
+            </ul>
+
+            <div id="tab-1" class="tab-content current col-md-12">
+             <form method="POST" action="" command="sh">
+              <div class="col-md-3">
+                <h3>Add new storehouse:</h3>
+                <div class="input-group">
+                  <label id="namelbl">Storehouse Name: </label>
+                  <input type="text" id="storehname" class="form-control" placeholder="Storehouse Name" name="name" required/>
+              </div>
+                <div class="input-group">
+                  <label id="sizelbl">Size:</label>
+                    <input type="text" id="size" class="form-control" placeholder="Size (SQ Ft.)" name="size" required/>
+                </div>
+                <div class="input-group">
+                  <label id="accesslbl">Access:</label>
+                  <input type="text" id="access" class="form-control" placeholder="Access" name="access" required/>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label>Address:</label>
+                  <textarea class="form-control input-lg" type="text" id="address" name="address"></textarea>
+              </div>
+              <div id="options" class="col-md-6">
+
+                  <label>Options:</label>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <div class="checkbox">
+                            <label><input type="checkbox" name="owned" value="true">Self Owned.</label>
+                          </div>
+                      </div>
+                      <div class="col-md-3">
+                          <div class="checkbox">
+                          <label><input type="checkbox" name="rented" value="true">Rented.</label>
                       </div>
                   </div>
-                  <div class="col-md-3">
-                      <div class="checkbox">
-                      <label><input type="checkbox" name="rented" value="true">Rented.</label>
                   </div>
-              </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-3">
-                      <label>Active:</label>
-                      <div class="checkbox">
-                          <label><input type="checkbox" name="active" value="true">Active.</label>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <label>Active:</label>
+                          <div class="checkbox">
+                              <label><input type="checkbox" name="active" value="true">Active.</label>
+                          </div>
                       </div>
-                  </div>
-              <button class="btn btn-md btn-primary btn-block" type="submit">Add Storehouse.</button>
+                  <button class="btn btn-md btn-primary btn-block" type="submit">Add Storehouse.</button>
 
+                    </div>
+                  </div>
+                </form>
             </div>
-              </div>
-            </form>
-        </div>
-    <hr>
-      </div>
-        <div class="row">
-            <table id="storehouseTable" class="table table-striped display">
-                <script>
-                    $(document).ready( function () {
-                        $('#storehouseTable').DataTable();
-                    } );
-                </script>
-                <thead>
+            <div id="tab-2" class="tab-content">
+                <table id="storehouseTable" class="table table-striped display">
+                    <script>
+                        $(document).ready( function () {
+                            $('#storehouseTable').DataTable();
+                        } );
+                    </script>
+                    <thead>
                     <tr>
                         <th>Storehouse Name</th>
                         <th>Address</th>
@@ -122,32 +142,29 @@
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="storehouse" items="${storehouseList}">
-                    <c:url value="/editStorehouse?_id=${storehouse._id}" var="editURL"></c:url>
-                    <c:url value="/deleteStorehouse?_id=${storehouse._id}" var="deleteURL"></c:url>
-                    <tr>
-                        <td>${storehouse.name}</td>
-                        <td>${storehouse.address}</td>
-                        <td>${storehouse.size}</td>
-                        <td>${storehouse.access}</td>
-                        <td>${storehouse.active}</td>
-                        <td>${storehouse.owned}</td>
-                        <td>${storehouse.rented}</td>
-                        <td><a href='<c:out value="${editURL}" escapeXml="true"></c:out>'>Edit</a></td>
-                        <td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete</a></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-
+                    </thead>
+                    <tbody>
+                    <c:forEach var="storehouse" items="${storehouseList}">
+                        <c:url value="/editStorehouse?_id=${storehouse._id}" var="editURL"></c:url>
+                        <c:url value="/deleteStorehouse?_id=${storehouse._id}" var="deleteURL"></c:url>
+                        <tr>
+                            <td>${storehouse.name}</td>
+                            <td>${storehouse.address}</td>
+                            <td>${storehouse.size}</td>
+                            <td>${storehouse.access}</td>
+                            <td>${storehouse.active}</td>
+                            <td>${storehouse.owned}</td>
+                            <td>${storehouse.rented}</td>
+                            <td><a href='<c:out value="${editURL}" escapeXml="true"></c:out>'>Edit</a></td>
+                            <td><a href='<c:out value="${deleteURL}" escapeXml="true"></c:out>'>Delete</a></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed porttitor nisi.
-                Mauris sed consectetur neque. Proin mattis quam ac magna ultrices pretium. Duis sit amet nibh iaculis erat vestibulum vehicula sed non felis.
-                Duis nec ante ut leo sodales.</div>
-        </div>
+        <hr>
+      </div>
 
       <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>

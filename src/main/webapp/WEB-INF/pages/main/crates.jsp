@@ -78,25 +78,26 @@
             <div class="col-md-12">
               <h3>Add Crate:</h3>
               </div>
+            <form method="post" action="" command="crate">
               <div class="col-md-3">
-                <form method="post" action="" command="crate">
-
                   <div class="input-group">
                     <label id="namelbl">Crate Name: </label>
                     <input type="text" id="crateName" class="form-control" placeholder="Crate Name" name="cName" required/>
                   </div>
                   <div class="input-group">
-                    <label id="storehouseLbl">Select a storehouse.</label>
-                    <select multiple class="form-control" name="sid">
-                      <c:forEach var="storehouse" items="${shList}">
-                        <option value="${storehouse._id}">${storehouse.name}</option>
-                      </c:forEach>
-                    </select>
+                  <label id="note">Crate Notes: </label>
+                  <textarea type="text" id="cNote" class="form-control" name="crateNote"></textarea>
                   </div>
-                  <div style="padding-top: 10px" class="input-group">
-                    <button class="btn btn-md btn-primary btn-block" type="submit">Add Crate.</button>
-                    </div>
-                </form>
+              </div>
+              <div class="col-md-3">
+                <div class="input-group">
+                  <label id="storehouseLbl">Select a storehouse.</label>
+                  <select multiple class="form-control" name="sid"  style="height: 150px">
+                    <c:forEach var="storehouse" items="${shList}">
+                      <option value="${storehouse._id}">${storehouse.name}</option>
+                    </c:forEach>
+                  </select>
+                </div>
               </div>
             <div class="col-md-3">
               <div class="input-group">
@@ -107,7 +108,11 @@
                 <label id="weightLbl">Width (cm): </label>
                 <input type="text" id="weight" class="form-control" placeholder="Weight" name="width" required/>
               </div>
+              <div style="padding-top: 10px" class="input-group">
+                <button class="btn btn-md btn-primary btn-block" type="submit">Add Crate.</button>
               </div>
+              </div>
+            </form>
             </div>
           <div id="tab-2" class="tab-content">
               <h3>Current Crates: </h3>
@@ -120,6 +125,7 @@
                 <thead>
                 <tr>
                   <th><span class="text"> Crate Name</span></th>
+                  <th><span class="test"> Crate Notes</span> </th>
                   <th><span class="text"> Width (cm)</span></th>
                   <th><span class="text"> Height (cm)</span></th>
                   <th><span class="text"> Date Created</span></th>
@@ -129,6 +135,7 @@
                 <c:forEach var="crate" items="${cList}">
                   <tr>
                     <td><a href="/crates/viewCrate?_id=${crate._id}">${crate.cName}</a></td>
+                    <td>${crate.crateNote}</td>
                     <td>${crate.width}</td>
                     <td>${crate.height}</td>
                     <td>${crate.dateCreated}</td>
