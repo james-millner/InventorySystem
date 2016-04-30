@@ -86,7 +86,14 @@
                   <td>${asset.aname}</td>
                   <td>${asset.description}</td>
                   <td>${asset.type}</td>
-                  <td>£${asset.value}</td>
+                  <td>
+                    <c:if test="${asset.value < 10}">
+                      £${asset.value}0
+                    </c:if>
+                    <c:if test="${asset.value > 10}">
+                      ${asset.value}
+                    </c:if>
+                  </td>
                   <td>${asset.qty}</td>
                   <td>${asset.purchString}</td>
                   <td><a href='<c:out value="${viewURL}" escapeXml="true"></c:out>'>View <span class="glyphicon glyphicon-edit"></span></a></td>

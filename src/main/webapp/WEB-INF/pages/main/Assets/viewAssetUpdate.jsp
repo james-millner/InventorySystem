@@ -91,8 +91,7 @@
             <p></p>
             <div class="input-group">
               <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-gbp"></span> </span>
-              <input style="width: 100px" type="text" class="form-control" name="po" value="${asset.po}" />
-              <input style="width: 45px" type="text" class="form-control" name="pe" value="${asset.pe}" />
+              <input style="width: 100px" type="text" class="form-control" name="value" value="${asset.value}" />
             </div>
           </div>
           <div class="col-md-4">

@@ -57,14 +57,14 @@ public class AssetController {
             AssetType a = astTypes.get(c);
             Statistics stat = new Statistics();
             stat.setName(a.getType());
-            int pound = 0;
+            int value = 0;
             for(int cd = 0; cd < byDate.size(); cd++) {
                 Asset got = byDate.get(cd);
                 if(got.getType().equals(a.getType())){
-                    pound += got.getValue();
+                    value += got.getValue();
                 }
             }
-            stat.setValue(pound);
+            stat.setValue(value);
             assetStats.add(stat);
             System.out.println(stat.getName() + "-" + stat.getValue());
         }

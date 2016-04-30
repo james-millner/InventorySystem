@@ -66,7 +66,7 @@
             <p></p>
             <label>Asset Type: </label>
             <p>${asset.type}</p>
-            <b>Value:</b><p style="font-size: 22px;">£${asset.po}.${asset.pe}</p>
+            <b>Value:</b><p style="font-size: 22px;">£${asset.value}</p>
           </div>
           <div class="col-md-4">
             <h3><b>Storehouse Information:</b></h3>
