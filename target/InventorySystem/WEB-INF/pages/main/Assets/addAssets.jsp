@@ -107,8 +107,7 @@
               <label>* Value: </label>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-gbp"></span> </span>
-                <input style="width: 100px" type="text" class="form-control" name="po" required/>
-                <input style="width: 45px" type="text" class="form-control" name="pe" required/>
+                <input style="width: 100px" type="text" class="form-control" name="value" required/>
               </div>
             </div>
             <div class="form-group">

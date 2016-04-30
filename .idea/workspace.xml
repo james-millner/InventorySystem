@@ -8,11 +8,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/InventorySystem/WEB-INF/classes/com/jm/InventorySystem/domain/Crate.class" afterPath="$PROJECT_DIR$/target/InventorySystem/WEB-INF/classes/com/jm/InventorySystem/domain/Crate.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/jm/InventorySystem/domain/Crate.class" afterPath="$PROJECT_DIR$/target/classes/com/jm/InventorySystem/domain/Crate.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Crate.java" afterPath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Crate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/crates.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/crates.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/storehouses.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/storehouses.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/InventorySystem/WEB-INF/pages/main/crates.jsp" afterPath="$PROJECT_DIR$/target/InventorySystem/WEB-INF/pages/main/crates.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/InventorySystem/WEB-INF/pages/main/storehouses.jsp" afterPath="$PROJECT_DIR$/target/InventorySystem/WEB-INF/pages/main/storehouses.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Asset.java" afterPath="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Asset.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/addAssets.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/addAssets.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewall.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewall.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/addInventory.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/addInventory.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/assets.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/assets.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/InventorySystem/WEB-INF/pages/main/Inventory/addInventory.jsp" afterPath="$PROJECT_DIR$/target/InventorySystem/WEB-INF/pages/main/Inventory/addInventory.jsp" />
     </list>
     <ignored path="InventorySystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +46,22 @@
     <favorites_list name="InventorySystem" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="localhost/InventorySys/aststats" pinned="false" current-in-tab="false">
+        <entry file="mongo://localhost/InventorySys/aststats">
+          <provider selected="true" editor-type-id="MongoData">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="localhost/InventorySys/assets" pinned="false" current-in-tab="true">
+        <entry file="mongo://localhost/InventorySys/assets">
+          <provider selected="true" editor-type-id="MongoData">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -80,15 +97,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBCrateDAO.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/addInvType.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/invsettings.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/addInventory.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewInventoryUpdate.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewInventory.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/InventoryType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBTypeDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBAssetTypeDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/AssetType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Asset.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/addAssets.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBInvTypeDAO.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Statistics.java" />
@@ -97,8 +111,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/DAO/MongoDBAssetDAO.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewall.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/homepage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewall.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/inventory.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/InventoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/RegisterController.java" />
@@ -110,7 +122,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Storehouse.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewAssetUpdate.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/UserAPI.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/assets.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/settings.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/settings.jsp" />
@@ -118,6 +129,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/CrateController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Crate.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/crates.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/addInventory.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Asset.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/addAssets.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewall.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/assets.jsp" />
       </list>
     </option>
   </component>
@@ -1343,16 +1360,16 @@
       <workItem from="1461829558064" duration="695000" />
       <workItem from="1461929996409" duration="3615000" />
       <workItem from="1461969207301" duration="4000000" />
-      <workItem from="1462018091937" duration="3362000" />
+      <workItem from="1462018091937" duration="4214000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302878000" />
+    <option name="totallyTimeSpent" value="303730000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1473,13 +1490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/addInventory.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.923077">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="79" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/viewInventory.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.8769716">
@@ -1523,14 +1533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1355662">
           <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewall.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025993884">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1659,16 +1661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Asset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/AssetType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1736,36 +1728,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/assets.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="165" column="35" selection-start-line="165" selection-start-column="35" selection-end-line="165" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.225">
-          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/addAssets.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6987768">
-          <caret line="116" column="16" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -1802,14 +1768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/storehouses.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.23077">
-          <caret line="95" column="109" selection-start-line="95" selection-start-column="109" selection-end-line="95" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/Storehouses.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614">
@@ -1834,18 +1792,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Crate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0955882">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/crates.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4338118">
           <caret line="137" column="41" selection-start-line="137" selection-start-column="41" selection-end-line="137" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/storehouses.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28593272">
+          <caret line="95" column="109" selection-start-line="95" selection-start-column="109" selection-end-line="95" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Asset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1264706">
+          <caret line="92" column="27" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Inventory/addInventory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.675841">
+          <caret line="102" column="106" selection-start-line="102" selection-start-column="106" selection-end-line="102" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/domain/Crate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#1078#1079#0" expanded="true" />
+            <element signature="e#1110#1111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/addAssets.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.346153">
+          <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jm/InventorySystem/controller/AssetController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/Assets/viewall.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.307692">
+          <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main/assets.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.119266">
+          <caret line="165" column="37" selection-start-line="165" selection-start-column="37" selection-end-line="165" selection-end-column="37" />
           <folding />
         </state>
       </provider>

@@ -86,7 +86,7 @@
                   <td>${asset.aname}</td>
                   <td>${asset.description}</td>
                   <td>${asset.type}</td>
-                  <td>£${asset.po}.${asset.pe}</td>
+                  <td>£${asset.value}</td>
                   <td>${asset.qty}</td>
                   <td>${asset.purchString}</td>
                   <td><a href='<c:out value="${viewURL}" escapeXml="true"></c:out>'>View <span class="glyphicon glyphicon-edit"></span></a></td>

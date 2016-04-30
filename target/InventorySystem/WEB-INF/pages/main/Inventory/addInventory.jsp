@@ -100,11 +100,11 @@
             <div class="form-group">
               <div class="input-group">
                 <label for="cid">Crate: 	&nbsp; </label>
-                <select multiple class="form-control" id="cid" name="cid" style="height: 150px;">
+                <select multiple class="form-control" id="cid" name="cid" style="height: 150px; width: 350px">
                     <option value="">No Crate.</option>
-                  <c:forEach var="crate" items="${crateList}">
+                    <c:forEach var="crate" items="${crateList}">
                     <option value="${crate._id}">${crate.cName}</option>
-                  </c:forEach>
+                    </c:forEach>
                 </select>
               </div>
             </div>

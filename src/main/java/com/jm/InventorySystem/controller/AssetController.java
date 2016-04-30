@@ -61,7 +61,7 @@ public class AssetController {
             for(int cd = 0; cd < byDate.size(); cd++) {
                 Asset got = byDate.get(cd);
                 if(got.getType().equals(a.getType())){
-                    pound += got.getPo();
+                    pound += got.getValue();
                 }
             }
             stat.setValue(pound);

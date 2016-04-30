@@ -17,8 +17,7 @@ public class Asset {
     String description;
     String type;
     String cid;
-    Integer po;
-    Integer pe;
+    float value;
     String purchString;
     Date purchased;
     Date dateCreated;
@@ -31,15 +30,14 @@ public class Asset {
 
     }
 
-    public Asset(String i, String a, Integer q, String d, String t, String c, Integer pound, Integer pense, Date p, Date date){
+    public Asset(String i, String a, Integer q, String d, String t, String c, Float f, Date p, Date date){
         this._id = i;
         this.aname = a;
         this.qty = q;
         this.description = d;
         this.type = t;
         this.cid = c;
-        this.po = pound;
-        this.pe = pense;
+        this.value = f;
         this.purchased = p;
         this.dateCreated = date;
     }
@@ -92,20 +90,12 @@ public class Asset {
         this.cid = cid;
     }
 
-    public Integer getPo() {
-        return po;
+    public float getValue() {
+        return value;
     }
 
-    public void setPo(Integer po) {
-        this.po = po;
-    }
-
-    public Integer getPe() {
-        return pe;
-    }
-
-    public void setPe(Integer pe) {
-        this.pe = pe;
+    public void setValue(float value) {
+        this.value = value;
     }
 
     public String getPurchString() {
