@@ -32,7 +32,7 @@
           </div>
         <div class="button-box col-lg-12">
         <button class="btn btn-primary " type="submit">Sign in</button>
-        <a href="/register" class="btn btn-primary " type="submit">Register</a>
+        <a href="/register" class="btn btn-primary disabled" type="submit" >Register</a>
         </div>
       </form>
 

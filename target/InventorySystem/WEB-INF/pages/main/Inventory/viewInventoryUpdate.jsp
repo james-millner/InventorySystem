@@ -90,7 +90,7 @@
           </div>
           <div style="margin: 10px" class="col-md-12" align="right">
             <h3>Actions:</h3>
-            <button type="submit" class="btn btn-md btn-primary">Save.</button>
+            <button type="submit" class="btn btn-md btn-primary" disabled>Save.</button>
           </div>
           </form>
         </div>

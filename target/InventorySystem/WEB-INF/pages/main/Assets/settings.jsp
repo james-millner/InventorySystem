@@ -99,7 +99,7 @@
                  </div>
                  <div class="input-group">
                    <input type="text" name="type">
-                   <button type="submit"><span class="glyphicon glyphicon-plus"></span></button>
+                   <button type="submit" disabled><span class="glyphicon glyphicon-plus"></span></button>
                  </div>
                </div>
              </form>

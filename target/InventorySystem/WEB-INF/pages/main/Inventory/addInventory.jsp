@@ -109,7 +109,7 @@
               </div>
             </div>
             <div class="input-group">
-              <button type="submit" class="btn btn-md btn-primary btn-block">Add.</button>
+              <button type="submit" class="btn btn-md btn-primary btn-block" disabled>Add.</button>
             </div>
           </div>
         </form>

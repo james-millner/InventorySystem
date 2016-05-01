@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="col-md-4" style="margin-top: 10px;">
-            <a href="/crates/delCrate?_id=${crate._id}" class="btn btn-danger">Delete <span class="glyphicon glyphicon-trash"></span></a>
+            <a href="/crates/delCrate?_id=${crate._id}" class="btn btn-danger disabled">Delete <span class="glyphicon glyphicon-trash"></span></a>
         </div>
     </div>
     <hr>

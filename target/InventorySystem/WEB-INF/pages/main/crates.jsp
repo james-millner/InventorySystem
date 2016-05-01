@@ -109,7 +109,7 @@
                 <input type="text" id="weight" class="form-control" placeholder="Weight" name="width" required/>
               </div>
               <div style="padding-top: 10px" class="input-group">
-                <button class="btn btn-md btn-primary btn-block" type="submit">Add Crate.</button>
+                <button class="btn btn-md btn-primary btn-block" type="submit" disabled>Add Crate.</button>
               </div>
               </div>
             </form>
