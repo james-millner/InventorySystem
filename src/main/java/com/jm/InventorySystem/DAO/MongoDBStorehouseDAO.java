@@ -16,7 +16,7 @@ import com.jm.InventorySystem.domain.Storehouse;
  */
 public class MongoDBStorehouseDAO {
 
-    private DBCollection db;
+    public DBCollection db;
 
     public MongoDBStorehouseDAO(MongoClient mongo) {
         this.db = mongo.getDB("InventorySys").getCollection("storehouses");

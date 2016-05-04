@@ -1,8 +1,6 @@
 package com.jm.InventorySystem.controller;
 
-import com.jm.InventorySystem.DAO.MongoDBAssetDAO;
-import com.jm.InventorySystem.DAO.MongoDBInventoryDAO;
-import com.jm.InventorySystem.DAO.MongoDBUserDAO;
+import com.jm.InventorySystem.DAO.*;
 import com.jm.InventorySystem.converter.UserConverter;
 import com.jm.InventorySystem.domain.User;
 import com.mongodb.DBCursor;
@@ -58,5 +56,29 @@ public class API {
             assets.add(obj);
         }
         return assets;
+    }
+
+    @RequestMapping(value = "/api/storehouses")
+    public List<DBObject> allstorehouses() {
+        MongoDBStorehouseDAO storehouseDAO = new MongoDBStorehouseDAO(mongo);
+        DBCursor cursor = storehouseDAO.db.find();
+        List<DBObject> storehouses = new ArrayList<DBObject>();
+        while(cursor.hasNext()) {
+            DBObject obj = cursor.next();
+            storehouses.add(obj);
+        }
+        return storehouses;
+    }
+
+    @RequestMapping(value = "/api/crates")
+    public List<DBObject> allcrates() {
+        MongoDBCrateDAO crateDAO = new MongoDBCrateDAO(mongo);
+        DBCursor cursor = crateDAO.db.find();
+        List<DBObject> crates = new ArrayList<DBObject>();
+        while(cursor.hasNext()) {
+            DBObject obj = cursor.next();
+            crates.add(obj);
+        }
+        return crates;
     }
 }

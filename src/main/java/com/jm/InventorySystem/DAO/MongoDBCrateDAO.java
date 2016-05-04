@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class MongoDBCrateDAO {
 
-    private DBCollection db;
+    public DBCollection db;
 
     public MongoDBCrateDAO(MongoClient mongo) {
         this.db = mongo.getDB("InventorySys").getCollection("crates");
