@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class MongoDBAssetDAO {
 
-    private DBCollection db;
+    public DBCollection db;
 
     public MongoDBAssetDAO(MongoClient mongo) {
         this.db = mongo.getDB("InventorySys").getCollection("assets");
