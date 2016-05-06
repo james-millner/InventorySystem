@@ -23,7 +23,7 @@ public class API {
 
     MongoClient mongo = new MongoClient("localhost", 27017);
 
-    @RequestMapping(value = "/api")
+    @RequestMapping(value = "/api/users")
     public DBObject user(@RequestParam("name") String name) {
         // Since 2.10.0, uses MongoClient
 

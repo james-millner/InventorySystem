@@ -45,7 +45,7 @@
         </ul>
       </div>
       <div id="title">
-        <h2>Assets</h2>
+        <h2>Inventory</h2>
         <div class="row">
           <ol class="breadcrumb">
             <li><a href="/inventory">Home</a></li>
@@ -96,14 +96,8 @@
         </div>
 
       </div>
-      <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
 
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Footer Content here.</p>
-      </div>
-    </footer>
 
   </body>
 </html>

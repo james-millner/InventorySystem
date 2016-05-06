@@ -140,14 +140,8 @@
 
         </div><!-- container -->
       </div>
-      <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
 
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Footer Content here.</p>
-      </div>
-    </footer>
 
   </body>
 </html>

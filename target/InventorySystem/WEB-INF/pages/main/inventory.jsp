@@ -142,7 +142,6 @@
                         <c:if test="${not item.cid.equals('')}" >
                           <a href="/crates/viewCrate?_id=${item.extraInfo}"> ${item.cid}</a>
                         </c:if>
-
                       </td>
                       <td><a href="/inventory/viewInventory?_id=${item._id}"> ${item.iname}</a></td>
                       <td>${item.qty}</td>
@@ -155,14 +154,7 @@
           </div>
         </div>
       </div>
-      <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
-
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Footer Content here.</p>
-      </div>
-    </footer>
 
   </body>
 </html>

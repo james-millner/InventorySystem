@@ -57,7 +57,6 @@
                       </ol>
                   </div>
                 <h4>View All.</h4>
-                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum commodo rhoncus. Praesent a nunc diam. Nulla vitae vulputate diam. Pellentesque convallis orci nec sapien varius egestas. </h5>
       </div>
       <div class="container-fluid">
         <h5><b>Quick View!</b></h5>
@@ -97,14 +96,6 @@
           </div>
        </div>
       </div>
-      <p>Use <a href="../sticky-footer-navbar">links as so</a> if needed.</p>
     </div>
-
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Footer Content here.</p>
-      </div>
-    </footer>
-
   </body>
 </html>
